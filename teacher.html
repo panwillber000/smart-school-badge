@@ -436,33 +436,31 @@ textarea:focus,input:focus,select:focus{outline:2px solid rgba(46,124,240,.3)}
 .wheelbox::before{top:72px}.wheelbox::after{top:108px}
 /* ============ 智慧放学 ============ */
 #sc-dismiss .body{background:var(--bg)}
-.dm-date-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.dm-date-btn{display:flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer}
-.dm-date-btn svg{color:var(--ink-3)}
-.dm-filter-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.dm-period-row{display:flex;gap:6px}
-.dm-period-row button{padding:5px 14px;font-size:12.5px;border-radius:16px;border:none;transition:.15s;cursor:pointer}
-.dm-period-row button.on{background:#07C160;color:#fff;font-weight:600}
-.dm-period-row button:not(.on){background:#E8EDF3;color:var(--ink-2);font-weight:500}
-.dm-sel{display:flex;align-items:center;gap:3px;font-size:12.5px;color:var(--ink-2);cursor:pointer;padding:5px 10px;background:#E8EDF3;border-radius:16px}
-.dm-sel b{font-weight:500;color:var(--ink)}
-.dm-sel svg{color:var(--ink-3)}
-.dm-tip{font-size:12px;color:var(--ink-3);text-align:left;margin-bottom:14px;padding:0 2px}
-.dm-tip i{display:inline-block;width:15px;height:15px;border-radius:50%;background:#FFF3E8;color:#F79A2E;font-size:10px;font-style:normal;line-height:15px;text-align:center;margin-right:4px;vertical-align:middle}
-.dm-grade{margin-bottom:14px}
-.dm-grade-hd{display:flex;align-items:center;justify-content:space-between;padding:0 2px 8px}
-.dm-grade-hd .gm-name{font-size:13.5px;font-weight:600;color:var(--ink)}
-.dm-grade-hd .gm-stat{font-size:11.5px;color:var(--ink-3)}
-.dm-grade-hd .gm-stat b{font-weight:600}
-.dm-cls-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.dm-cls{position:relative;background:#fff;border-radius:12px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;font-size:13px;box-shadow:0 1px 4px rgba(30,70,130,.06);transition:.15s}
+.dm-hd{background:#fff;flex-shrink:0}
+.dm-date{text-align:left;font-size:15px;font-weight:700;padding:10px 16px 12px}
+.dm-seg{display:flex;align-items:center;gap:10px;padding:0 16px 14px}
+.dm-seg .seg{font-size:13.5px;padding:7px 19px;border-radius:19px;background:#F2F4F7;color:var(--ink);border:none;cursor:pointer;transition:.15s}
+.dm-seg .seg.on{background:var(--navy);color:#fff;font-weight:600}
+.dm-seg .flt{margin-left:auto;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:5px;cursor:pointer;background:none;border:none}
+.dm-tip{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--navy);padding:12px 16px 0}
+.dm-tip svg{flex-shrink:0}
+.dm-card{background:var(--card);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.dm-card .dt{display:flex;align-items:center;gap:8px;font-size:15.5px;font-weight:700;padding:14px 14px 12px;border-bottom:1px solid #F3F5F8}
+.dm-card .dt::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--navy)}
+.dm-card .dt .dm-stat{margin-left:auto;font-size:12.5px;color:var(--ink-2);font-weight:400;display:flex;gap:18px}
+.dm-card .dt .dm-stat span{display:flex;align-items:center;gap:5px}
+.dm-card .dt .dm-stat i{width:6px;height:6px;border-radius:50%;font-style:normal}
+.dm-card .dt .dm-stat i.w{background:#98A2B3}
+.dm-card .dt .dm-stat i.d{background:var(--teal)}
+.dm-cls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:13px 14px 14px}
+.dm-cls{position:relative;background:#F5F6F8;border-radius:10px;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:14px;font-weight:600;line-height:1.4;transition:.15s;border:none}
 .dm-cls.undone{cursor:pointer}
-.dm-cls.undone:active{transform:scale(.98)}
-.dm-cls.done{background:#E8F8F0;color:#07C160;font-weight:600}
-.dm-cls.delayed{background:#FFF8E8;color:#C97A12;font-weight:600;cursor:pointer}
-.dm-cls.delayed:active{transform:scale(.98)}
-.dm-cls .dc-time{font-size:11px;margin-top:3px;opacity:.8}
-.dm-cls .dc-badge{position:absolute;top:-5px;right:-5px;width:20px;height:20px;border-radius:7px;background:#F79A2E;color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(247,154,46,.4)}
+.dm-cls.undone:active{transform:scale(.97)}
+.dm-cls.done{background:var(--teal-bg);color:var(--teal)}
+.dm-cls.delayed{background:var(--amber-bg);color:#C97A12;cursor:pointer}
+.dm-cls.delayed:active{transform:scale(.97)}
+.dm-cls small{font-size:12px;font-weight:600}
+.dm-cls .dc-badge{position:absolute;top:-5px;right:-5px;width:20px;height:20px;border-radius:7px;background:var(--amber);color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(247,154,46,.4)}
 /* 放学确认弹框 */
 .dmf-mask{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:50;display:none;align-items:flex-end}
 .dmf-mask.show{display:flex}
@@ -487,12 +485,18 @@ textarea:focus,input:focus,select:focus{outline:2px solid rgba(46,124,240,.3)}
 .dmf-foot .btn-delay:active{background:#FFF3D9}
 .dmf-foot .btn-cancel{background:#F5F5F5;color:#999;font-weight:500}
 .dmf-foot .btn-cancel:active{background:#EFEFEF}
-/* 放学状态下拉菜单 */
-.dm-drop{position:absolute;top:100%;right:0;margin-top:6px;background:#fff;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:20;display:none;overflow:hidden;min-width:100px}
-.dm-drop.show{display:block}
-.dm-drop .di{padding:10px 16px;font-size:13px;color:var(--ink);cursor:pointer;text-align:center;white-space:nowrap}
-.dm-drop .di:active{background:#F5F5F5}
-.dm-drop .di.on{color:#07C160;font-weight:600}
+/* 放学状态筛选弹框 */
+.dmfs-mask{position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:48;display:none;align-items:flex-end}
+.dmfs-mask.show{display:flex}
+.dmfs-sheet{background:#fff;width:100%;border-radius:16px 16px 0 0;animation:up .25s ease;padding-bottom:30px}
+.dmfs-hd{text-align:center;padding:16px 20px 12px;border-bottom:1px solid #F0F2F6;font-size:15px;font-weight:600}
+.dmfs-opt{padding:14px 20px;font-size:14.5px;color:var(--ink);display:flex;align-items:center;justify-content:space-between;cursor:pointer;border-bottom:1px solid #F7F8FA}
+.dmfs-opt:active{background:#F9FAFB}
+.dmfs-opt.on{color:var(--navy);font-weight:600}
+.dmfs-opt .ck{color:var(--navy);font-size:16px;display:none}
+.dmfs-opt.on .ck{display:block}
+.dmfs-foot{padding:14px 20px 0}
+.dmfs-foot button{width:100%;padding:13px;font-size:15px;border-radius:12px;background:var(--navy);color:#fff;border:none;font-weight:600;cursor:pointer}
 /* 延迟时间选择弹框 */
 .dmd-mask{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:55;display:none;align-items:flex-end}
 .dmd-mask.show{display:flex}
@@ -1231,34 +1235,31 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
 
   <!-- ================= 子页：智慧放学（原放学 Tab，改由首页宫格进入） ================= -->
   <div class="screen" id="sc-dismiss">
-    <div class="statusbar"><span>16:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
-    <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>智慧放学</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
-    <div class="body"><div class="pad">
-      <div class="dm-date-row">
-        <div class="dm-date-btn" onclick="dmNav()">
-          <span id="dm-date-label">2026年07月14日</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        </div>
+    <div class="dm-hd">
+      <div class="statusbar"><span>16:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+      <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>智慧放学</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+      <div class="dm-date" id="dm-date-label">2026年07月14日</div>
+      <div class="dm-seg">
+        <button class="seg on" data-dp="am" onclick="dmPeriod('am')">上午</button>
+        <button class="seg" data-dp="pm" onclick="dmPeriod('pm')">下午</button>
+        <button class="seg" data-dp="ev" onclick="dmPeriod('ev')">晚上</button>
+        <button class="flt" onclick="dmSelOpen()"><span id="dm-sel-label">全部</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6.2 7.4V19l-3.6-1.8v-4.8z"/></svg></button>
       </div>
-      <div class="dm-filter-bar">
-        <div class="dm-period-row" id="dm-period">
-          <button class="on" data-dp="am" onclick="dmPeriod('am')">上午</button>
-          <button data-dp="pm" onclick="dmPeriod('pm')">下午</button>
-          <button data-dp="ev" onclick="dmPeriod('ev')">晚上</button>
-        </div>
-        <div class="dm-sel" id="dm-sel" onclick="dmSelToggle()" style="position:relative">
-          <b id="dm-sel-label">全部</b>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-          <div class="dm-drop" id="dm-drop">
-            <div class="di on" data-ds="all" onclick="event.stopPropagation();dmSelPick('all')">全部</div>
-            <div class="di" data-ds="undone" onclick="event.stopPropagation();dmSelPick('undone')">未放学</div>
-            <div class="di" data-ds="done" onclick="event.stopPropagation();dmSelPick('done')">已放学</div>
-          </div>
-        </div>
-      </div>
-      <div class="dm-tip"><i>!</i>点击班级，可进行放学操作</div>
-      <div id="dm-list"></div>
-    </div></div>
+    </div>
+    <div class="body">
+      <div class="dm-tip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5"/><path d="M12 16h.01"/></svg>点击班级，可进行放学操作</div>
+      <div class="pad" id="dm-list" style="padding-top:12px"></div>
+    </div>
+  </div>
+  <!-- ===== 放学状态筛选弹框 ===== -->
+  <div class="dmfs-mask" id="dmfs-mask">
+    <div class="dmfs-sheet">
+      <div class="dmfs-hd">放学状态</div>
+      <div class="dmfs-opt on" data-ds="all" onclick="dmSelPick('all')">全部<span class="ck">✓</span></div>
+      <div class="dmfs-opt" data-ds="undone" onclick="dmSelPick('undone')">未放学<span class="ck">✓</span></div>
+      <div class="dmfs-opt" data-ds="done" onclick="dmSelPick('done')">已放学<span class="ck">✓</span></div>
+      <div class="dmfs-foot"><button onclick="dmSelClose()">关闭</button></div>
+    </div>
   </div>
 
   <!-- ================= 子页：学生管理（首页宫格入口：名册 / 人脸授权 / 家长绑定 / 名册核正聚合） ================= -->
@@ -2147,18 +2148,18 @@ function dmRender(){
     if(cls.length===0)return;
     var gDone=g.classes.filter(function(c){return c.s===1}).length;
     var gUndone=g.classes.length-gDone;
-    html+='<div class="dm-grade">';
-    html+='<div class="dm-grade-hd"><span class="gm-name">'+g.grade+'</span><span class="gm-stat">未放学 <b style="color:var(--amber)">'+gUndone+'</b> · 已放学 <b style="color:var(--teal)">'+gDone+'</b></span></div>';
-    html+='<div class="dm-cls-grid">';
+    html+='<div class="dm-card"><div class="dt">'+g.grade;
+    html+='<div class="dm-stat"><span><i class="w"></i>未放学 '+gUndone+'</span><span><i class="d"></i>已放学 '+gDone+'</span></div>';
+    html+='</div><div class="dm-cls-grid">';
     cls.forEach(function(c){
       if(c.s===1){
-        html+='<div class="dm-cls done"><span class="dc-name">'+c.n+'</span><span class="dc-time">'+c.t+'</span>';
+        html+='<div class="dm-cls done">'+c.n+'<small>'+c.t+'</small>';
         if(c.delay)html+='<span class="dc-badge">延</span>';
         html+='</div>';
       }else if(c.delay){
-        html+='<div class="dm-cls delayed" onclick="dmConfirm(\''+g.grade+'\',\''+c.n+'\')"><span class="dc-name">'+c.n+'</span><span class="dc-time">延至 '+c.delay+'</span><span class="dc-badge">延</span></div>';
+        html+='<div class="dm-cls delayed" onclick="dmConfirm(\''+g.grade+'\',\''+c.n+'\')">'+c.n+'<small>延至 '+c.delay+'</small><span class="dc-badge">延</span></div>';
       }else{
-        html+='<div class="dm-cls undone" onclick="dmConfirm(\''+g.grade+'\',\''+c.n+'\')"><span class="dc-name">'+c.n+'</span><span class="chip gray">未放学</span></div>';
+        html+='<div class="dm-cls undone" onclick="dmConfirm(\''+g.grade+'\',\''+c.n+'\')">'+c.n+'</div>';
       }
     });
     html+='</div></div>';
@@ -2167,19 +2168,20 @@ function dmRender(){
 }
 function dmPeriod(p){
   dmSt.period=p;
-  document.querySelectorAll('#dm-period button').forEach(function(x){x.classList.toggle('on',x.dataset.dp===p);});
+  document.querySelectorAll('.dm-seg .seg').forEach(function(x){x.classList.toggle('on',x.dataset.dp===p);});
   dmRender();
 }
-function dmSelToggle(){document.getElementById('dm-drop').classList.toggle('show')}
+function dmSelOpen(){document.getElementById('dmfs-mask').classList.add('show')}
+function dmSelClose(){document.getElementById('dmfs-mask').classList.remove('show')}
 function dmSelPick(s){
   dmSt.status=s;
   var labels={all:'全部',undone:'未放学',done:'已放学'};
   document.getElementById('dm-sel-label').textContent=labels[s];
-  document.querySelectorAll('#dm-drop .di').forEach(function(x){x.classList.toggle('on',x.dataset.ds===s);});
-  document.getElementById('dm-drop').classList.remove('show');
+  document.querySelectorAll('#dmfs-mask .dmfs-opt').forEach(function(x){x.classList.toggle('on',x.dataset.ds===s);});
+  dmSelClose();
   dmRender();
 }
-document.addEventListener('click',function(e){if(!e.target.closest('#dm-sel'))document.getElementById('dm-drop').classList.remove('show')});
+document.getElementById('dmfs-mask').addEventListener('click',function(e){if(e.target.id==='dmfs-mask')dmSelClose()});
 /* 放学确认弹框 */
 function dmConfirm(grade,cls){
   dmSt.cls={grade:grade,cls:cls};
