@@ -436,12 +436,21 @@ textarea:focus,input:focus,select:focus{outline:2px solid rgba(46,124,240,.3)}
 .wheelbox::before{top:72px}.wheelbox::after{top:108px}
 /* ============ 智慧放学 ============ */
 #sc-dismiss .body{background:var(--bg)}
+#sc-dismiss .sub-hd{background:#fff}
 .dm-hd{background:#fff;flex-shrink:0}
-.dm-date{text-align:left;font-size:15px;font-weight:700;padding:10px 16px 12px}
+.dm-date{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:700;padding:10px 16px 12px}
+.dm-date svg{color:var(--ink-3)}
 .dm-seg{display:flex;align-items:center;gap:10px;padding:0 16px 14px}
 .dm-seg .seg{font-size:13.5px;padding:7px 19px;border-radius:19px;background:#F2F4F7;color:var(--ink);border:none;cursor:pointer;transition:.15s}
 .dm-seg .seg.on{background:var(--navy);color:#fff;font-weight:600}
 .dm-seg .flt{margin-left:auto;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:5px;cursor:pointer;background:none;border:none}
+.dm-summary{display:flex;background:#fff;padding:0 16px 16px;gap:0}
+.dm-summary .si{flex:1;text-align:center}
+.dm-summary .si b{display:block;font-size:20px;font-weight:700;color:var(--ink);line-height:1.2}
+.dm-summary .si span{display:block;font-size:11.5px;color:var(--ink-3);margin-top:3px}
+.dm-summary .si.undone b{color:var(--amber)}
+.dm-summary .si.done b{color:var(--teal)}
+.dm-summary .div{width:1px;background:#F0F2F6;align-self:center;height:28px}
 .dm-tip{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--navy);padding:12px 16px 0}
 .dm-tip svg{flex-shrink:0}
 .dm-card{background:var(--card);border-radius:12px;margin-bottom:12px;overflow:hidden}
@@ -1238,12 +1247,22 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     <div class="dm-hd">
       <div class="statusbar"><span>16:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
       <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>智慧放学</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
-      <div class="dm-date" id="dm-date-label">2026年07月14日</div>
+      <div class="dm-date">
+        <span id="dm-date-label">2026年07月14日</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" onclick="dmNav()"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      </div>
       <div class="dm-seg">
         <button class="seg on" data-dp="am" onclick="dmPeriod('am')">上午</button>
         <button class="seg" data-dp="pm" onclick="dmPeriod('pm')">下午</button>
         <button class="seg" data-dp="ev" onclick="dmPeriod('ev')">晚上</button>
         <button class="flt" onclick="dmSelOpen()"><span id="dm-sel-label">全部</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6.2 7.4V19l-3.6-1.8v-4.8z"/></svg></button>
+      </div>
+      <div class="dm-summary">
+        <div class="si"><b id="dm-sum-total">0</b><span>班级总数</span></div>
+        <div class="div"></div>
+        <div class="si undone"><b id="dm-sum-undone">0</b><span>未放学</span></div>
+        <div class="div"></div>
+        <div class="si done"><b id="dm-sum-done">0</b><span>已放学</span></div>
       </div>
     </div>
     <div class="body">
@@ -2138,6 +2157,11 @@ function dmUpdateDate(){
 }
 function dmRender(){
   var data=dmData[dmSt.period];
+  var total=0,done=0,undone=0;
+  data.forEach(function(g){g.classes.forEach(function(c){total++;if(c.s===1)done++;else undone++;})});
+  document.getElementById('dm-sum-total').textContent=total;
+  document.getElementById('dm-sum-undone').textContent=undone;
+  document.getElementById('dm-sum-done').textContent=done;
   var html='';
   data.forEach(function(g){
     var cls=g.classes.filter(function(c){
