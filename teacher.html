@@ -435,33 +435,34 @@ textarea:focus,input:focus,select:focus{outline:2px solid rgba(46,124,240,.3)}
 .wheelbox::before,.wheelbox::after{content:'';position:absolute;left:0;right:0;height:1px;background:var(--line);pointer-events:none}
 .wheelbox::before{top:72px}.wheelbox::after{top:108px}
 /* ============ 智慧放学 ============ */
-.dm-filter{margin-bottom:16px}
-.dm-date-time{text-align:center;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:14px}
-.dm-period-row{display:flex;gap:8px;margin-bottom:14px}
-.dm-period-row button{flex:1;padding:10px 0;font-size:14px;border-radius:20px;border:none;transition:.15s;cursor:pointer}
+#sc-dismiss .body{background:var(--bg)}
+.dm-date-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.dm-date-btn{display:flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer}
+.dm-date-btn svg{color:var(--ink-3)}
+.dm-filter-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.dm-period-row{display:flex;gap:6px}
+.dm-period-row button{padding:5px 14px;font-size:12.5px;border-radius:16px;border:none;transition:.15s;cursor:pointer}
 .dm-period-row button.on{background:#07C160;color:#fff;font-weight:600}
-.dm-period-row button:not(.on){background:#F2F3F5;color:#999;font-weight:500}
-.dm-tip{font-size:12px;color:#999;text-align:center;margin-bottom:16px;padding:0 4px}
-.dm-tip i{display:inline-block;width:16px;height:16px;border-radius:50%;background:#FFF3E8;color:#F79A2E;font-size:11px;font-style:normal;line-height:16px;text-align:center;margin-right:4px}
-.dm-group{margin-bottom:16px}
-.dm-group-title{font-size:13px;font-weight:600;color:var(--ink);padding-left:12px;border-left:3px solid #07C160;margin-bottom:10px}
-.dm-group-stats{display:flex;gap:20px;margin-bottom:10px;padding-left:12px;font-size:12px;color:#999}
-.dm-group-stats span{display:flex;align-items:center;gap:4px}
-.dm-group-stats .dot{width:6px;height:6px;border-radius:50%}
-.dm-group-stats .dot-undone{background:#646A73}
-.dm-group-stats .dot-doing{background:#F79A2E}
-.dm-group-stats .dot-done{background:#07C160}
-.dm-grade{margin-bottom:16px}
-.dm-grade-title{font-size:13px;font-weight:600;color:var(--ink);padding-left:12px;border-left:3px solid #E5E6EB;margin-bottom:10px}
-.dm-cls-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:0 4px}
-.dm-cls{position:relative;background:#fff;border-radius:12px;padding:14px 12px;text-align:center;font-size:14px;font-weight:500;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.04);transition:.15s;border:1px solid #F0F1F2}
+.dm-period-row button:not(.on){background:#E8EDF3;color:var(--ink-2);font-weight:500}
+.dm-sel{display:flex;align-items:center;gap:3px;font-size:12.5px;color:var(--ink-2);cursor:pointer;padding:5px 10px;background:#E8EDF3;border-radius:16px}
+.dm-sel b{font-weight:500;color:var(--ink)}
+.dm-sel svg{color:var(--ink-3)}
+.dm-tip{font-size:12px;color:var(--ink-3);text-align:left;margin-bottom:14px;padding:0 2px}
+.dm-tip i{display:inline-block;width:15px;height:15px;border-radius:50%;background:#FFF3E8;color:#F79A2E;font-size:10px;font-style:normal;line-height:15px;text-align:center;margin-right:4px;vertical-align:middle}
+.dm-grade{margin-bottom:14px}
+.dm-grade-hd{display:flex;align-items:center;justify-content:space-between;padding:0 2px 8px}
+.dm-grade-hd .gm-name{font-size:13.5px;font-weight:600;color:var(--ink)}
+.dm-grade-hd .gm-stat{font-size:11.5px;color:var(--ink-3)}
+.dm-grade-hd .gm-stat b{font-weight:600}
+.dm-cls-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.dm-cls{position:relative;background:#fff;border-radius:12px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;font-size:13px;box-shadow:0 1px 4px rgba(30,70,130,.06);transition:.15s}
 .dm-cls.undone{cursor:pointer}
 .dm-cls.undone:active{transform:scale(.98)}
-.dm-cls.done{background:#E8F8F0;color:#07C160;font-weight:600;border-color:#D7F5E8}
-.dm-cls.delayed{background:#FFF8E8;color:#C97A12;font-weight:600;border-color:#FFEDC8;cursor:pointer}
+.dm-cls.done{background:#E8F8F0;color:#07C160;font-weight:600}
+.dm-cls.delayed{background:#FFF8E8;color:#C97A12;font-weight:600;cursor:pointer}
 .dm-cls.delayed:active{transform:scale(.98)}
 .dm-cls .dc-time{font-size:11px;margin-top:3px;opacity:.8}
-.dm-cls .dc-badge{position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:8px;background:#F79A2E;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(247,154,46,.4)}
+.dm-cls .dc-badge{position:absolute;top:-5px;right:-5px;width:20px;height:20px;border-radius:7px;background:#F79A2E;color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(247,154,46,.4)}
 /* 放学确认弹框 */
 .dmf-mask{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:50;display:none;align-items:flex-end}
 .dmf-mask.show{display:flex}
@@ -486,6 +487,12 @@ textarea:focus,input:focus,select:focus{outline:2px solid rgba(46,124,240,.3)}
 .dmf-foot .btn-delay:active{background:#FFF3D9}
 .dmf-foot .btn-cancel{background:#F5F5F5;color:#999;font-weight:500}
 .dmf-foot .btn-cancel:active{background:#EFEFEF}
+/* 放学状态下拉菜单 */
+.dm-drop{position:absolute;top:100%;right:0;margin-top:6px;background:#fff;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:20;display:none;overflow:hidden;min-width:100px}
+.dm-drop.show{display:block}
+.dm-drop .di{padding:10px 16px;font-size:13px;color:var(--ink);cursor:pointer;text-align:center;white-space:nowrap}
+.dm-drop .di:active{background:#F5F5F5}
+.dm-drop .di.on{color:#07C160;font-weight:600}
 /* 延迟时间选择弹框 */
 .dmd-mask{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:55;display:none;align-items:flex-end}
 .dmd-mask.show{display:flex}
@@ -1227,11 +1234,27 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     <div class="statusbar"><span>16:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
     <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>智慧放学</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
     <div class="body"><div class="pad">
-      <div class="dm-date-time" id="dm-date-time">2026年07月14日 星期二 16:41:00</div>
-      <div class="dm-period-row" id="dm-period">
-        <button class="on" data-dp="am" onclick="dmPeriod('am')">上午</button>
-        <button data-dp="pm" onclick="dmPeriod('pm')">下午</button>
-        <button data-dp="ev" onclick="dmPeriod('ev')">晚上</button>
+      <div class="dm-date-row">
+        <div class="dm-date-btn" onclick="dmNav()">
+          <span id="dm-date-label">2026年07月14日</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+      </div>
+      <div class="dm-filter-bar">
+        <div class="dm-period-row" id="dm-period">
+          <button class="on" data-dp="am" onclick="dmPeriod('am')">上午</button>
+          <button data-dp="pm" onclick="dmPeriod('pm')">下午</button>
+          <button data-dp="ev" onclick="dmPeriod('ev')">晚上</button>
+        </div>
+        <div class="dm-sel" id="dm-sel" onclick="dmSelToggle()" style="position:relative">
+          <b id="dm-sel-label">全部</b>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          <div class="dm-drop" id="dm-drop">
+            <div class="di on" data-ds="all" onclick="event.stopPropagation();dmSelPick('all')">全部</div>
+            <div class="di" data-ds="undone" onclick="event.stopPropagation();dmSelPick('undone')">未放学</div>
+            <div class="di" data-ds="done" onclick="event.stopPropagation();dmSelPick('done')">已放学</div>
+          </div>
+        </div>
       </div>
       <div class="dm-tip"><i>!</i>点击班级，可进行放学操作</div>
       <div id="dm-list"></div>
@@ -2104,81 +2127,59 @@ var dmData={
     {grade:'三年级',classes:[{n:'(1)班',s:0},{n:'(2)班',s:0},{n:'(3)班',s:0}]}
   ]
 };
-var dmSt={period:'am',cls:null,timer:null,dateTimer:null};
-var dmTeachingClasses=['三年级(1)班','三年级(3)班','四年级(2)班'];
-function dmUpdateDateTime(){
+var dmSt={period:'am',status:'all',cls:null,timer:null};
+function dmUpdateDate(){
   var now=new Date();
   var y=now.getFullYear();
   var m=String(now.getMonth()+1).padStart(2,'0');
   var d=String(now.getDate()).padStart(2,'0');
-  var w=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
-  var h=String(now.getHours()).padStart(2,'0');
-  var mi=String(now.getMinutes()).padStart(2,'0');
-  var s=String(now.getSeconds()).padStart(2,'0');
-  document.getElementById('dm-date-time').textContent=y+'年'+m+'月'+d+'日 '+w+' '+h+':'+mi+':'+s;
+  document.getElementById('dm-date-label').textContent=y+'年'+m+'月'+d+'日';
 }
 function dmRender(){
   var data=dmData[dmSt.period];
   var html='';
-  /* 任教班级置顶 */
-  var teachingClasses=[];
   data.forEach(function(g){
-    g.classes.forEach(function(c){
-      if(dmTeachingClasses.indexOf(g.grade+c.n)>-1){
-        teachingClasses.push({grade:g.grade,n:c.n,s:c.s,t:c.t,delay:c.delay});
+    var cls=g.classes.filter(function(c){
+      if(dmSt.status==='all')return true;
+      if(dmSt.status==='done')return c.s===1;
+      return c.s!==1;
+    });
+    if(cls.length===0)return;
+    var gDone=g.classes.filter(function(c){return c.s===1}).length;
+    var gUndone=g.classes.length-gDone;
+    html+='<div class="dm-grade">';
+    html+='<div class="dm-grade-hd"><span class="gm-name">'+g.grade+'</span><span class="gm-stat">未放学 <b style="color:var(--amber)">'+gUndone+'</b> · 已放学 <b style="color:var(--teal)">'+gDone+'</b></span></div>';
+    html+='<div class="dm-cls-grid">';
+    cls.forEach(function(c){
+      if(c.s===1){
+        html+='<div class="dm-cls done"><span class="dc-name">'+c.n+'</span><span class="dc-time">'+c.t+'</span>';
+        if(c.delay)html+='<span class="dc-badge">延</span>';
+        html+='</div>';
+      }else if(c.delay){
+        html+='<div class="dm-cls delayed" onclick="dmConfirm(\''+g.grade+'\',\''+c.n+'\')"><span class="dc-name">'+c.n+'</span><span class="dc-time">延至 '+c.delay+'</span><span class="dc-badge">延</span></div>';
+      }else{
+        html+='<div class="dm-cls undone" onclick="dmConfirm(\''+g.grade+'\',\''+c.n+'\')"><span class="dc-name">'+c.n+'</span><span class="chip gray">未放学</span></div>';
       }
     });
-  });
-  if(teachingClasses.length>0){
-    var tUndone=0,tDoing=0,tDone=0;
-    teachingClasses.forEach(function(c){if(c.s===0)tUndone++;else if(c.s===2)tDoing++;else tDone++;});
-    html+='<div class="dm-group"><div class="dm-group-title">任教班级</div>';
-    html+='<div class="dm-group-stats"><span><span class="dot dot-undone"></span>未放学 '+tUndone+'</span><span><span class="dot dot-doing"></span>放学中 '+tDoing+'</span><span><span class="dot dot-done"></span>已放学 '+tDone+'</span></div>';
-    html+='<div class="dm-cls-grid">';
-    teachingClasses.forEach(function(c){html+=dmClsHtml(c,'');});
-    html+='</div></div>';
-  }
-  /* 其他年级分组 */
-  data.forEach(function(g){
-    var cls=g.classes.filter(function(c){return dmTeachingClasses.indexOf(g.grade+c.n)===-1;});
-    if(cls.length===0)return;
-    var gUndone=0,gDoing=0,gDone=0;
-    cls.forEach(function(c){if(c.s===0)gUndone++;else if(c.s===2)gDoing++;else gDone++;});
-    html+='<div class="dm-grade"><div class="dm-grade-title">'+g.grade+'</div>';
-    html+='<div class="dm-group-stats"><span><span class="dot dot-undone"></span>未放学 '+gUndone+'</span><span><span class="dot dot-doing"></span>放学中 '+gDoing+'</span><span><span class="dot dot-done"></span>已放学 '+gDone+'</span></div>';
-    html+='<div class="dm-cls-grid">';
-    cls.forEach(function(c){html+=dmClsHtml(c,g.grade);});
     html+='</div></div>';
   });
   document.getElementById('dm-list').innerHTML=html;
-}
-function dmClsHtml(c,grade){
-  var g=grade||c.grade;
-  var onClick='onclick="dmConfirm(\''+g+'\',\''+c.n+'\')"';
-  var className='dm-cls';
-  var content=c.n;
-  if(c.s===1){
-    className+=' done';
-    content+='<div class="dc-time">'+c.t+'</div>';
-    if(c.delay)content+='<span class="dc-badge">延</span>';
-    onClick='';
-  }else if(c.s===2){
-    className+=' done';
-    content+='<div class="dc-time">'+c.t+'</div>';
-    onClick='';
-  }else if(c.delay){
-    className+=' delayed';
-    content+='<div class="dc-time">延至 '+c.delay+'</div><span class="dc-badge">延</span>';
-  }else{
-    className+=' undone';
-  }
-  return '<div class="'+className+'" '+onClick+'>'+content+'</div>';
 }
 function dmPeriod(p){
   dmSt.period=p;
   document.querySelectorAll('#dm-period button').forEach(function(x){x.classList.toggle('on',x.dataset.dp===p);});
   dmRender();
 }
+function dmSelToggle(){document.getElementById('dm-drop').classList.toggle('show')}
+function dmSelPick(s){
+  dmSt.status=s;
+  var labels={all:'全部',undone:'未放学',done:'已放学'};
+  document.getElementById('dm-sel-label').textContent=labels[s];
+  document.querySelectorAll('#dm-drop .di').forEach(function(x){x.classList.toggle('on',x.dataset.ds===s);});
+  document.getElementById('dm-drop').classList.remove('show');
+  dmRender();
+}
+document.addEventListener('click',function(e){if(!e.target.closest('#dm-sel'))document.getElementById('dm-drop').classList.remove('show')});
 /* 放学确认弹框 */
 function dmConfirm(grade,cls){
   dmSt.cls={grade:grade,cls:cls};
@@ -2244,8 +2245,7 @@ function dmdOk(){
 }
 document.getElementById('dmf-mask').addEventListener('click',function(e){if(e.target.id==='dmf-mask')dmfClose()});
 document.getElementById('dmd-mask').addEventListener('click',function(e){if(e.target.id==='dmd-mask')dmdCancel()});
-dmUpdateDateTime();
-dmSt.dateTimer=setInterval(dmUpdateDateTime,1000);
+dmUpdateDate();
 dmRender();
 /* -------- 教师注册审核（管理员移动端） -------- */
 function taTab(el,k){
