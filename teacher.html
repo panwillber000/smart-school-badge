@@ -3267,10 +3267,9 @@ function frmRow(label,val){
 function sdMoreActions(){
   sheet('<h3>更多操作</h3>'+
     '<div style="margin:2px 0">'+
-    '<label style="display:flex;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer" onclick="closeSheet();toast(\'演示：转班操作\')"><span style="color:var(--navy)">🔄</span> 转班<span class="arr" style="margin-left:auto">›</span></label>'+
-    '<label style="display:flex;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer" onclick="closeSheet();toast(\'演示：离校操作\')"><span style="color:#C97A12">🚪</span> 离校<span class="arr" style="margin-left:auto">›</span></label>'+
-    '<label style="display:flex;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer" onclick="closeSheet();toast(\'演示：删除操作\')"><span style="color:var(--cinnabar)">🗑</span> 删除<span class="arr" style="margin-left:auto">›</span></label>'+
-    '<label style="display:flex;align-items:center;gap:10px;padding:13px 2px;font-size:14px;cursor:pointer;color:var(--ink-3)" onclick="closeSheet()">取消</label>'+
+    '<div style="text-align:center;padding:13px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer;color:var(--ink)" onclick="closeSheet();toast(\'演示：离校操作\')">离校</div>'+
+    '<div style="text-align:center;padding:13px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer;color:var(--cinnabar)" onclick="closeSheet();toast(\'演示：删除操作\')">删除</div>'+
+    '<div style="text-align:center;padding:13px 2px;font-size:14px;cursor:pointer;color:var(--ink-3)" onclick="closeSheet()">取消</div>'+
     '</div>');
 }
 /* -------- 新增学生表单 -------- */
