@@ -1429,18 +1429,18 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     </div></div>
     <div class="sd-foot">
       <button class="btn ghost blk" style="flex:1" onclick="sdMoreActions()">更多操作</button>
-      <button class="btn pri blk" style="flex:1" onclick="toast('演示：进入修改信息')">修改信息</button>
+      <button class="btn pri blk" style="flex:1" onclick="goEditStu(window.sdCurName)">修改信息</button>
     </div>
   </div>
 
-  <!-- ================= 子页：新增学生（表单：学生信息 + 联系人） ================= -->
+  <!-- ================= 子页：新增学生（表单：学生信息 + 家长信息） ================= -->
   <div class="screen" id="sc-addstu">
     <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
     <div class="sub-hd"><button class="back" onclick="go('sc-stumgr')">‹</button><b>新增学生</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
     <div class="body" style="padding-bottom:70px"><div class="pad">
       <div class="frm-sec">学生信息</div>
       <div class="card">
-        <div class="frm-row"><span class="lb">姓名<span class="req">*</span></span><input type="text" placeholder="请填写真实姓名"></div>
+        <div class="frm-row"><span class="lb">学生姓名<span class="req">*</span></span><input type="text" placeholder="请填写真实姓名"></div>
         <div class="frm-row">
           <span class="lb">性别</span>
           <div style="display:flex;gap:20px;margin-left:auto">
@@ -1449,18 +1449,50 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
           </div>
         </div>
         <div class="frm-row"><span class="lb">出生日期<span class="req">*</span></span><span class="val" onclick="toast('演示：唤起日期选择器')">请选择 ›</span></div>
-        <div class="frm-row"><span class="lb">就读班级<span class="req">*</span></span><span class="val" onclick="smClsSheet()">请选择 ›</span></div>
-        <div class="frm-row"><span class="lb">学生类型</span><span class="val" onclick="toast('演示：走读/住宿')">请选择 ›</span></div>
-        <div class="frm-row"><span class="lb">学生学号</span><span class="val" onclick="toast('演示：自动生成或手动输入')">请选择 ›</span></div>
+        <div class="frm-row"><span class="lb">学生班级<span class="req">*</span></span><span class="val" id="addstu-cls-txt" style="color:var(--ink-3)" onclick="smClsSheet()">请选择 ›</span></div>
+        <div class="frm-row"><span class="lb">现住址</span><input type="text" placeholder="请输入"></div>
       </div>
-      <div class="frm-sec">第一联系人</div>
+      <div class="frm-sec">家长信息</div>
       <div class="card" id="sm-contact-1">
-        <div class="frm-row"><span class="lb">家长称谓<span class="req">*</span></span><span class="val" onclick="toast('演示：爸爸/妈妈/爷爷/奶奶/其他')">请选择 ›</span></div>
-        <div class="frm-row"><span class="lb">手机号<span class="req">*</span></span><input type="text" placeholder="请输入" maxlength="11"></div>
-        <div class="frm-row"><span class="lb">绑定卡号</span><span class="val" style="color:var(--navy)" onclick="toast('演示：跳转校徽绑定')">去绑定 ›</span></div>
+        <div class="frm-row"><span class="lb">称谓<span class="req">*</span></span><span class="val" onclick="toast('演示：爸爸/妈妈/爷爷/奶奶/其他')">请选择 ›</span></div>
+        <div class="frm-row"><span class="lb">家长姓名<span class="req">*</span></span><input type="text" placeholder="请输入"></div>
+        <div class="frm-row"><span class="lb">家长手机号<span class="req">*</span></span><input type="text" placeholder="请输入" maxlength="11"></div>
       </div>
       <div class="frm-add" onclick="smAddContact()">+ 添加更多家长</div>
       <button class="btn pri blk" style="padding:12px;margin-top:8px" onclick="smSaveStu()">保存</button>
+    </div></div>
+  </div>
+
+  <!-- ================= 子页：修改学生信息（反显 + 头像修改，结构与新增一致） ================= -->
+  <div class="screen" id="sc-editstu">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-studetail')">‹</button><b>修改学生信息</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+    <div class="body" style="padding-bottom:70px"><div class="pad">
+      <div class="card" style="text-align:center;margin-bottom:12px;padding:18px 0">
+        <div class="sm-stu-av" style="position:relative;display:inline-block">
+          <div class="avatar" id="editstu-av" style="width:70px;height:70px;font-size:26px;margin:0 auto">乐</div>
+        </div>
+        <div style="margin-top:10px">
+          <button class="btn ghost sm" style="padding:6px 16px;font-size:13px" onclick="editstuAvatarSheet()">修改头像</button>
+        </div>
+      </div>
+      <div class="frm-sec">学生信息</div>
+      <div class="card">
+        <div class="frm-row"><span class="lb">学生姓名<span class="req">*</span></span><input type="text" id="editstu-name" placeholder="请填写真实姓名"></div>
+        <div class="frm-row">
+          <span class="lb">性别</span>
+          <div style="display:flex;gap:20px;margin-left:auto" id="editstu-gender">
+            <label class="frm-radio" onclick="smGender(this)"><span class="dot"></span>男</label>
+            <label class="frm-radio" onclick="smGender(this)"><span class="dot"></span>女</label>
+          </div>
+        </div>
+        <div class="frm-row"><span class="lb">出生日期<span class="req">*</span></span><span class="val" id="editstu-birth" onclick="toast('演示：唤起日期选择器')">请选择 ›</span></div>
+        <div class="frm-row"><span class="lb">学生班级<span class="req">*</span></span><span class="val" id="editstu-cls-txt" style="color:var(--ink-3)" onclick="smClsSheetEdit()">请选择 ›</span></div>
+        <div class="frm-row"><span class="lb">现住址</span><input type="text" id="editstu-addr" placeholder="请输入"></div>
+      </div>
+      <div id="editstu-contacts"></div>
+      <div class="frm-add" onclick="editAddContact()">+ 添加更多家长</div>
+      <button class="btn pri blk" style="padding:12px;margin-top:8px" onclick="editSaveStu()">保存</button>
     </div></div>
   </div>
 
@@ -3230,6 +3262,7 @@ function findStu(name){
   return null;
 }
 function sdShow(name){
+  window.sdCurName=name;
   var r=findStu(name);
   if(!r)return;
   var s=r.s;
@@ -3279,23 +3312,116 @@ function smGender(el){
   el.classList.add('on');
 }
 function smClsSheet(){
-  sheet('<h3>选择就读班级</h3>'+
-    '<div style="max-height:300px;overflow-y:auto;margin:2px 0 14px">'+
-    ['三年级(1)班','三年级(2)班','四年级(1)班','四年级(2)班'].map(function(c){
-      return '<label style="display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer" onclick="smClsPick(\''+c+'\')">'+c+'<span class="arr" style="margin-left:auto">›</span></label>';
-    }).join('')+'</div>');
+  window.smClsTarget='addstu-cls-txt';
+  smClsOpenSheet();
 }
-function smClsPick(c){closeSheet();toast('已选择：'+c)}
+function smClsSheetEdit(){
+  window.smClsTarget='editstu-cls-txt';
+  smClsOpenSheet();
+}
+var smClsCur='三年级';
+const smClsGrades={'一年级':8,'二年级':8,'三年级':10,'四年级':10,'五年级':8,'六年级':6};
+function smClsOpenSheet(){
+  sheet('<h3>选择学生班级</h3>'+
+   '<div style="display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:300px;flex-shrink:0">'+
+     '<div id="sm-cls-grades" style="width:88px;background:#EFF3F9;overflow-y:auto;flex-shrink:0"></div>'+
+     '<div style="flex:1;padding:10px 10px 6px;overflow-y:auto"><div class="fchips" id="sm-cls-list" style="gap:7px"></div></div>'+
+   '</div>'+
+   '<button class="btn ghost blk" style="margin-top:12px;padding:11px" onclick="closeSheet()">取消</button>');
+  smClsRender();
+}
+function smClsRender(){
+  const gEl=document.getElementById('sm-cls-grades');
+  if(!gEl)return;
+  gEl.innerHTML=Object.keys(smClsGrades).map(g=>{
+    return '<button onclick="smClsCur=\''+g+'\';smClsRender()" style="display:block;width:100%;text-align:left;padding:11px 12px;font-size:12.5px;'+(g===smClsCur?'background:#fff;color:var(--navy);font-weight:600;border-left:3px solid var(--navy);':'color:var(--ink-2);border-left:3px solid transparent;')+'">'+g+'</button>';
+  }).join('');
+  const n=smClsGrades[smClsCur];let h='';
+  for(let i=1;i<=n;i++){h+='<button class="fchip" onclick="smClsPick(\''+smClsCur+'('+i+')班\')">'+smClsCur[0]+'('+i+')</button>'}
+  document.getElementById('sm-cls-list').innerHTML=h;
+}
+function smClsPick(c){
+  closeSheet();
+  const t=document.getElementById(window.smClsTarget);
+  if(t){t.textContent=c;t.style.color='var(--ink)'}
+  toast('已选择：'+c);
+}
 function smAddContact(){
   smContactIdx++;
-  var html='<div class="frm-sec">联系人'+smContactIdx+'</div>'+
+  var html='<div class="frm-sec">家长信息'+smContactIdx+'</div>'+
     '<div class="card" id="sm-contact-'+smContactIdx+'">'+
-    '<div class="frm-row"><span class="lb">家长称谓<span class="req">*</span></span><span class="val" onclick="toast(\'演示：爸爸/妈妈/爷爷/奶奶/其他\')">请选择 ›</span></div>'+
-    '<div class="frm-row"><span class="lb">手机号<span class="req">*</span></span><input type="text" placeholder="请输入" maxlength="11"></div>'+
-    '<div class="frm-row"><span class="lb">绑定卡号</span><span class="val" style="color:var(--navy)" onclick="toast(\'演示：跳转校徽绑定\')">去绑定 ›</span></div>'+
+    '<div class="frm-row"><span class="lb">称谓<span class="req">*</span></span><span class="val" onclick="toast(\'演示：爸爸/妈妈/爷爷/奶奶/其他\')">请选择 ›</span></div>'+
+    '<div class="frm-row"><span class="lb">家长姓名<span class="req">*</span></span><input type="text" placeholder="请输入"></div>'+
+    '<div class="frm-row"><span class="lb">家长手机号<span class="req">*</span></span><input type="text" placeholder="请输入" maxlength="11"></div>'+
     '</div>';
-  var addBtn=document.querySelector('.frm-add');
+  var addBtn=document.querySelector('#sc-addstu .frm-add');
   addBtn.insertAdjacentHTML('beforebegin',html);
+}
+/* -------- 修改学生信息：反显 + 头像修改 + 动态家长信息 -------- */
+var editContactIdx=1;
+function goEditStu(name){
+  var r=findStu(name);
+  if(!r){toast('未找到学生信息');return}
+  var s=r.s;
+  /* 头像 */
+  var av=document.getElementById('editstu-av');
+  av.textContent=s.av;
+  av.className='avatar'+(s.gen?' '+s.gen:'');
+  /* 学生姓名 */
+  document.getElementById('editstu-name').value=s.n;
+  /* 性别 */
+  var genders=document.getElementById('editstu-gender').querySelectorAll('.frm-radio');
+  genders.forEach(function(l){l.classList.remove('on')});
+  if(s.gen==='girl'){genders[1].classList.add('on')}else{genders[0].classList.add('on')}
+  /* 出生日期 */
+  var birthEl=document.getElementById('editstu-birth');
+  birthEl.textContent=s.birth;
+  birthEl.style.color='var(--ink)';
+  /* 学生班级 */
+  var clsEl=document.getElementById('editstu-cls-txt');
+  clsEl.textContent=r.cls;
+  clsEl.style.color='var(--ink)';
+  /* 现住址 */
+  document.getElementById('editstu-addr').value=s.addr;
+  /* 家长信息 */
+  editContactIdx=1;
+  var cHtml='<div class="frm-sec">家长信息</div><div class="card">';
+  cHtml+=s.parents.map(function(p,i){
+    return (i>0?'<div style="border-top:1px solid #F0F2F6">':'<div>')+
+      '<div class="frm-row"><span class="lb">称谓<span class="req">*</span></span><span class="val" onclick="toast(\'演示：选择称谓\')">'+p.rel+' ›</span></div>'+
+      '<div class="frm-row"><span class="lb">家长姓名<span class="req">*</span></span><input type="text" value="'+p.nm+'"></div>'+
+      '<div class="frm-row"><span class="lb">家长手机号<span class="req">*</span></span><input type="text" value="'+p.ph+'" maxlength="11"></div>'+
+      '</div>';
+  }).join('');
+  cHtml+='</div>';
+  document.getElementById('editstu-contacts').innerHTML=cHtml;
+  go('sc-editstu');
+}
+function editAddContact(){
+  editContactIdx++;
+  var html='<div class="frm-sec">家长信息'+editContactIdx+'</div>'+
+    '<div class="card">'+
+    '<div class="frm-row"><span class="lb">称谓<span class="req">*</span></span><span class="val" onclick="toast(\'演示：爸爸/妈妈/爷爷/奶奶/其他\')">请选择 ›</span></div>'+
+    '<div class="frm-row"><span class="lb">家长姓名<span class="req">*</span></span><input type="text" placeholder="请输入"></div>'+
+    '<div class="frm-row"><span class="lb">家长手机号<span class="req">*</span></span><input type="text" placeholder="请输入" maxlength="11"></div>'+
+    '</div>';
+  document.getElementById('editstu-contacts').insertAdjacentHTML('beforeend',html);
+}
+function editSaveStu(){
+  toast('已保存：学生信息已更新');
+  setTimeout(function(){go('sc-studetail')},800);
+}
+function editstuAvatarSheet(){
+  sheet('<h3>修改头像</h3>'+
+    '<div style="margin:2px 0">'+
+    '<div style="text-align:center;padding:13px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer;color:var(--ink)" onclick="editstuAvatarPick(\'camera\')">拍照</div>'+
+    '<div style="text-align:center;padding:13px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer;color:var(--ink)" onclick="editstuAvatarPick(\'album\')">从相册选择</div>'+
+    '<div style="text-align:center;padding:13px 2px;font-size:14px;cursor:pointer;color:var(--ink-3)" onclick="closeSheet()">取消</div>'+
+    '</div>');
+}
+function editstuAvatarPick(src){
+  closeSheet();
+  toast('演示：'+(src==='camera'?'调用手机相机拍照':'从手机相册选择')+'，选择后自动裁剪为头像');
 }
 function smSaveStu(){
   toast('已保存：学生信息已录入名册，等待人脸授权后生效');
