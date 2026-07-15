@@ -270,7 +270,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .sm-stats .it b{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
 .sm-stats .it span{display:block;font-size:10.5px;color:var(--ink-3);margin-top:2px}
 .sm-acts{display:flex;gap:0;margin-bottom:12px;background:#fff;border-radius:14px;overflow:hidden}
-.sm-acts button{flex:1;display:flex;align-items:center;gap:10px;padding:14px 16px;background:transparent;border:none;cursor:pointer;text-align:left}
+.sm-acts button{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 16px;background:transparent;border:none;cursor:pointer;text-align:center}
 .sm-acts .gi{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;position:relative}
 .sm-acts .gi .badge{position:absolute;top:-4px;right:-4px;min-width:17px;height:17px;border-radius:9px;background:var(--cinnabar);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid #fff;box-sizing:border-box}
 .sm-acts .lbl{font-size:13.5px;color:var(--ink);font-weight:500}
@@ -1392,6 +1392,10 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
     <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>学生管理</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
     <div class="body"><div class="pad">
+      <div class="sm-acts">
+        <button onclick="go('sc-addstu')"><span class="gi" style="background:linear-gradient(150deg,#6AAEFF,#2E7CF0)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="lbl">新增学生</span></button>
+        <button onclick="go('sc-stuPend')"><span class="gi" style="background:linear-gradient(150deg,#FFB074,#F0792E)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="badge">3</span></span><span class="lbl">待审核</span></button>
+      </div>
       <div class="sm-stats">
         <div class="it"><b style="color:var(--teal)">2</b><span>班级数</span></div>
         <div class="it"><b style="color:var(--teal)">89</b><span>学生数</span></div>
@@ -1399,15 +1403,11 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
         <div class="it"><b style="color:#C97A12">4</b><span>未录脸</span></div>
         <div class="it"><b style="color:#C97A12">3</b><span>未激活</span></div>
       </div>
-      <div class="sm-acts">
-        <button onclick="go('sc-addstu')"><span class="gi" style="background:linear-gradient(150deg,#6AAEFF,#2E7CF0)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="lbl">新增学生</span></button>
-        <button onclick="go('sc-stuPend')"><span class="gi" style="background:linear-gradient(150deg,#FFB074,#F0792E)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="badge">3</span></span><span class="lbl">待审核</span></button>
-      </div>
       <div class="sm-search-row">
-        <input type="text" id="sm-search" placeholder="输入姓名搜索" style="flex:1;border-radius:20px;margin:0" oninput="smSearch(this.value)">
         <div class="sm-filter">
           <button class="sm-filter-btn" id="sm-filter-btn" onclick="smFilterSheet()">全部</button>
         </div>
+        <input type="text" id="sm-search" placeholder="输入姓名搜索" style="flex:1;border-radius:20px;margin:0" oninput="smSearch(this.value)">
       </div>
       <div id="sm-list"></div>
     </div></div>
@@ -1424,8 +1424,6 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
       </div>
       <div class="frm-sec">基本信息</div>
       <div class="card" id="sd-basic"></div>
-      <div class="frm-sec">详细信息</div>
-      <div class="card" id="sd-detail"></div>
       <div class="frm-sec">家长信息</div>
       <div class="card" id="sd-parents"></div>
     </div></div>
@@ -3241,17 +3239,14 @@ function sdShow(name){
   else if(s.face==='noface'){maskHtml='<div class="mask noface" style="position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:600;background:rgba(201,122,18,.85)">未录脸</div>'}
   document.getElementById('sd-av-wrap').innerHTML=
     '<div class="sm-stu-av" style="position:relative"><div class="avatar'+(s.gen?' '+s.gen:'')+'" style="width:70px;height:70px;font-size:26px">'+s.av+'</div>'+maskHtml+'</div>'+
-    '<div style="font-size:17px;font-weight:600;margin-top:4px">'+s.n+'</div>'+
-    '<div class="sd-gender"><span class="ico '+(s.gen==='girl'?'female':'male')+'">'+(s.gen==='girl'?'♀':'♂')+'</span>'+(s.gen==='girl'?'女':'男')+'</div>';
+    '<div style="display:flex;align-items:center;justify-content:center;gap:6px;font-size:17px;font-weight:600;margin-top:6px"><span class="sd-gender"><span class="ico '+(s.gen==='girl'?'female':'male')+'">'+(s.gen==='girl'?'♀':'♂')+'</span></span>'+s.n+'</div>';
   /* 基本信息 */
   document.getElementById('sd-basic').innerHTML=
     frmRow('学生姓名',s.n)+
     frmRow('性别',s.gen==='girl'?'女':'男')+
-    frmRow('出生年月日',s.birth)+
+    frmRow('出生日期',s.birth)+
     frmRow('学生年龄',s.age+' 岁')+
-    frmRow('学生班级',r.grade+r.cls.replace('三年级','')).replace('class="val"','class="val"');
-  /* 详细信息 */
-  document.getElementById('sd-detail').innerHTML=
+    frmRow('学生班级',r.grade+r.cls.replace('三年级',''))+
     frmRow('现住址',s.addr);
   /* 家长信息 */
   var pHtls=s.parents.map(function(p,i){
