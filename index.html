@@ -145,7 +145,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .banner .bn-top p{font-size:12px;color:rgba(255,255,255,.85);margin-top:8px;letter-spacing:.5px}
 .banner .bn-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 14px}
 .banner .bn-foot span{font-size:14.5px;font-weight:600}
-.banner .bn-foot button{background:var(--cinnabar);color:#fff;border-radius:18px;padding:7px 16px;font-size:13px;font-weight:700}
+.banner .bn-foot button{background:var(--navy);color:#fff;border-radius:18px;padding:7px 16px;font-size:13px;font-weight:700}
 .gmenu{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
 .gmenu button{background:var(--card);border-radius:14px;padding:14px 0 11px;display:flex;flex-direction:column;align-items:center;gap:7px;font-size:12px;color:var(--ink);font-weight:500;box-shadow:0 2px 10px rgba(30,70,130,.07)}
 .gmenu .gi{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff}
@@ -207,7 +207,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .todo-item .t2{font-size:11.5px;color:var(--ink-3);margin-top:3px;line-height:1.55}
 .todo-item .arr{color:#C6CCD6;font-size:15px;align-self:center}
 /* 学生列表 */
-.stu{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid #F0F2F6}
+.stu{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid #F0F2F6;position:relative}
 .stu:last-child{border-bottom:none}
 .stu .nm{font-size:14px;font-weight:500}
 .stu .sub{font-size:11px;color:var(--ink-3);margin-top:1px}
@@ -660,7 +660,7 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
         <button onclick="go('sc-att')"><span class="gi" style="background:linear-gradient(150deg,#6FA9FF,#3D7BF0)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="5.5" width="15" height="14" rx="2"/><path d="M8.5 3.5v3M15.5 3.5v3"/><path d="M8.9 13.4l2.3 2.3 4.2-4.5"/></svg></span>校园签到</button>
         <button onclick="go('sc-dismiss')"><span class="gi" style="background:linear-gradient(150deg,#FFC46A,#F79A2E)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.2v3.6c0 .8.7 1.5 1.5 1.5h1.9l5.6 3.4V5.3L7.9 8.7H6c-.8 0-1.5.7-1.5 1.5z"/><path d="M16.8 9.6a3.8 3.8 0 0 1 0 4.8"/><path d="M19.2 7.4a7 7 0 0 1 0 9.2"/></svg></span>智慧放学</button>
         <button onclick="go('sc-stumgr')"><span class="gi" style="background:linear-gradient(150deg,#3ECFBB,#10B5A2)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.3" r="3.6"/><path d="M5.2 19.6c1.5-3.1 3.9-4.7 6.8-4.7s5.3 1.6 6.8 4.7"/></svg></span>学生管理</button>
-        <button onclick="go('sc-regaudit')"><span class="gi" style="background:linear-gradient(150deg,#A99BFB,#7C66F2)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/><path d="M14.6 16.8l2.1 2.1 3.8-4"/></svg></span>老师管理</button>
+        <button onclick="go('sc-tchmgr')"><span class="gi" style="background:linear-gradient(150deg,#A99BFB,#7C66F2)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/><path d="M14.6 16.8l2.1 2.1 3.8-4"/></svg></span>教师管理</button>
         <button onclick="go('sc-leave')"><span class="gi" style="background:linear-gradient(150deg,#FF8A7B,#EA4F4A)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="15" rx="2.5"/><path d="M8 3.5v3.5M16 3.5v3.5M4 10.5h16"/><path d="M12 13.2v4M10 15.2h4"/></svg></span>请假</button>
       </div>
     </div></div>
@@ -1054,7 +1054,7 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
 
       <div class="section-t" id="sec-admin">管理员待办 <span class="more">仅校级管理员可见</span></div>
       <div class="card" style="padding-top:6px;padding-bottom:6px">
-        <div class="todo-item" onclick="go('sc-regaudit')">
+        <div class="todo-item" onclick="go('sc-tchpend')">
           <div class="t-ico navy"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/><path d="M14.6 16.8l2.1 2.1 3.8-4"/></svg></div>
           <div class="bd">
             <div class="t1">教师注册申请 <span class="chip amber plain" id="ta-badge2">2 条待审</span></div>
@@ -1121,23 +1121,13 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     <div class="body"><div class="pad">
       <div class="attc-bar">
         <input type="date" id="attc-date" class="attc-date" value="2026-07-06" onchange="attcDateChange()">
-        <div class="attc-mid">
-          <select id="attc-grade" class="attc-sel narrow" onchange="attcGradeChange()">
-            <option value="三年级">三年级</option>
-            <option value="四年级">四年级</option>
-            <option value="五年级">五年级</option>
-          </select>
-          <select id="attc-cls" class="attc-sel" onchange="attcClsChange()">
-            <option>三年级(1)班</option>
-            <option>三年级(2)班</option>
-            <option>三年级(3)班</option>
-            <option>三年级(4)班</option>
-          </select>
-        </div>
+        <button class="pick" id="attc-cls-btn" style="flex:1;min-width:0;border:1px solid var(--line);border-radius:8px;padding:7px 10px;background:#fff;font-size:13px;display:flex;align-items:center;justify-content:space-between;gap:6px" onclick="attcClsSheet()">
+          <span id="attc-cls-txt" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">三年级(2)班</span><i style="color:var(--ink-3);font-size:12px">›</i>
+        </button>
         <select id="attc-st" class="attc-sel fixed" onchange="attcFilterChange()">
           <option value="all">全部</option>
           <option value="nosign">未签到</option>
-          <option value="signed">已签到</option>
+          <option value="signed">正常到校</option>
           <option value="abs">缺勤</option>
           <option value="leave">请假</option>
           <option value="late">迟到</option>
@@ -1150,8 +1140,8 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
       <div class="muted" style="text-align:center;padding:2px 0 10px" id="attc-note">数据来自校门无感考勤，更新约延迟 1–5 分钟</div>
     </div></div>
     <div class="apply-foot" id="attc-foot">
-      <button class="btn ghost" style="color:var(--navy);border-color:var(--navy)" onclick="go('sc-proxyleave')">代学生请假</button>
-      <button class="btn pri" onclick="attRollSheet()">批量点名/补签</button>
+      <button class="btn ghost" style="color:var(--navy);border-color:var(--navy)" onclick="alEnter()">代学生请假</button>
+      <button class="btn pri" onclick="asEnterSheet()">代学生补签</button>
     </div>
   </div>
 
@@ -1186,7 +1176,7 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
         </div>
         <div class="frm-sw on" id="sg-push" onclick="this.classList.toggle('on')"></div>
       </div>
-      <div class="muted" style="padding:4px 2px;font-size:11px;line-height:1.6">补签记录将留痕可审计，提交后该学生状态由「缺勤」更新为「已签到」。</div>
+      <div class="muted" style="padding:4px 2px;font-size:11px;line-height:1.6">补签记录将留痕可审计，提交后该学生状态由「缺勤」更新为「正常到校」。</div>
     </div></div>
     <div class="apply-foot">
       <button class="btn pri blk" onclick="sgConfirm()">确认补签</button>
@@ -1496,7 +1486,43 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     </div></div>
   </div>
 
-  <!-- ================= 子页：待审核（学生审核：待审核/已拒绝） ================= -->
+  <!-- ================= 子页：学生审核（同修改学生信息，底部拒绝/通过） ================= -->
+  <div class="screen" id="sc-stuaudit">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-stuPend')">‹</button><b>学生审核</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+    <div class="body" style="padding-bottom:70px"><div class="pad">
+      <div class="card" style="text-align:center;margin-bottom:12px;padding:18px 0">
+        <div class="sm-stu-av" style="position:relative;display:inline-block">
+          <div class="avatar" id="audit-av" style="width:70px;height:70px;font-size:26px;margin:0 auto">明</div>
+        </div>
+        <div style="margin-top:10px" id="audit-av-btn">
+          <button class="btn ghost sm" style="padding:6px 16px;font-size:13px" onclick="editstuAvatarSheet()">修改头像</button>
+        </div>
+      </div>
+      <div class="frm-sec">学生信息</div>
+      <div class="card">
+        <div class="frm-row"><span class="lb">学生姓名<span class="req">*</span></span><input type="text" id="audit-name" placeholder="请填写真实姓名"></div>
+        <div class="frm-row">
+          <span class="lb">性别</span>
+          <div style="display:flex;gap:20px;margin-left:auto" id="audit-gender">
+            <label class="frm-radio" onclick="smGender(this)"><span class="dot"></span>男</label>
+            <label class="frm-radio" onclick="smGender(this)"><span class="dot"></span>女</label>
+          </div>
+        </div>
+        <div class="frm-row"><span class="lb">出生日期<span class="req">*</span></span><span class="val" id="audit-birth" onclick="toast('演示：唤起日期选择器')">请选择 ›</span></div>
+        <div class="frm-row"><span class="lb">学生班级<span class="req">*</span></span><span class="val" id="audit-cls-txt" style="color:var(--ink-3)" onclick="smClsSheetEdit()">请选择 ›</span></div>
+        <div class="frm-row"><span class="lb">现住址</span><input type="text" id="audit-addr" placeholder="请输入"></div>
+      </div>
+      <div id="audit-contacts"></div>
+      <div class="frm-add" id="audit-add-btn" onclick="auditAddContact()">+ 添加更多家长</div>
+    </div></div>
+    <div class="sd-foot" id="audit-foot">
+      <button class="btn ghost blk" style="flex:1" onclick="auditReject()">拒绝</button>
+      <button class="btn pri blk" style="flex:1" onclick="auditApprove()">通过</button>
+    </div>
+  </div>
+
+  <!-- ================= 子页：待审核（学生审核：待审核/已拒绝/已通过） ================= -->
   <div class="screen" id="sc-stuPend">
     <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
     <div class="sub-hd"><button class="back" onclick="go('sc-stumgr')">‹</button><b>待审核</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
@@ -1504,13 +1530,14 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
       <div class="fchips" id="sp-tabs" style="margin:0;padding:8px 14px;background:#fff;border-bottom:1px solid var(--line)">
         <button class="fchip on" data-spt="pend" onclick="spTab(this,'pend')">待审核</button>
         <button class="fchip" data-spt="reject" onclick="spTab(this,'reject')">已拒绝</button>
+        <button class="fchip" data-spt="pass" onclick="spTab(this,'pass')">已通过</button>
       </div>
       <div class="pad" id="sp-main"></div>
     </div>
     <div class="sp-foot" id="sp-foot">
       <div class="ck" id="sp-all" onclick="spAll(this)"></div>
       <span class="cnt" id="sp-cnt">全选 · 已选 0 人</span>
-      <button class="btn ghost sm" style="padding:6px 14px" id="sp-reject" onclick="spReject()">拒绝</button>
+      <button class="btn ghost sm" style="padding:6px 14px" id="sp-reject" onclick="spRejectBatch()">拒绝</button>
       <button class="btn pri sm" style="padding:6px 14px" id="sp-approve" onclick="spApprove()">通过</button>
     </div>
   </div>
@@ -1641,7 +1668,7 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
       </div>
       <div class="section-t" style="display:none">管理员专区 <span class="more">仅校级管理员可见</span></div>
       <div class="me-grid" style="display:none">
-        <button onclick="go('sc-regaudit')"><span class="gi" style="background:linear-gradient(150deg,#FFC46B,#F09A2D)"><span class="gb amber" id="ta-badge">2</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/><path d="M14.6 16.8l2.1 2.1 3.8-4"/></svg></span>教师注册审核</button>
+        <button onclick="go('sc-tchpend')"><span class="gi" style="background:linear-gradient(150deg,#FFC46B,#F09A2D)"><span class="gb amber" id="ta-badge">2</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/><path d="M14.6 16.8l2.1 2.1 3.8-4"/></svg></span>教师注册审核</button>
       </div>
       
       <div class="me-grid" style="display:none">
@@ -1764,33 +1791,39 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
   <!-- ================= 子页：请假审批 ================= -->
   <div class="screen" id="sc-leave">
     <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
-    <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>请假</b><button class="btn pri sm" style="margin-left:auto" onclick="go('sc-proxyleave')">＋ 代录请假</button></div>
-    <div class="body"><div class="pad">
+    <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>请假</b></div>
+    <div class="body" style="padding-bottom:70px"><div class="pad">
+      <!-- Tab 切换 -->
       <div class="fchips" id="lv-tabs">
         <button class="fchip on" onclick="lvTab(this,'pend')">待审批</button>
-        <button class="fchip" onclick="lvTab(this,'done')">已办结</button>
+        <button class="fchip" onclick="lvTab(this,'rejected')">已拒绝</button>
+        <button class="fchip" onclick="lvTab(this,'approved')">已同意</button>
+        <button class="fchip" onclick="lvTab(this,'revoked')">已撤销</button>
       </div>
-      <div id="lv-pend">
-        <div class="card" style="padding-top:4px;padding-bottom:4px">
-          <!-- 第一阶段：超时升级策略未上线，状态 chip 由「剩 25 分钟升级」暂改为「待审批」 -->
-          <div class="stu" onclick="go('sc-leavedt')"><div class="avatar">乐</div><div><div class="nm">林晓乐 · 病假</div><div class="sub">7月7日 08:00–12:00 · 家长（母亲）发起 · 附医院证明</div></div><div class="st"><span class="chip amber">待审批</span></div><span style="color:#C6CCD6;margin-left:4px">›</span></div>
-          <div class="stu" onclick="toast('演示：吴一诺事假单详情版式与林晓乐单一致')"><div class="avatar girl">诺</div><div><div class="nm">吴一诺 · 事假</div><div class="sub">7月8日 全天 · 暂按请假处理中，不推送缺勤</div></div><div class="st"><span class="chip amber">待审批</span></div><span style="color:#C6CCD6;margin-left:4px">›</span></div>
-          <div class="stu" onclick="toast('演示：林晓乐事假单详情版式与病假单一致')"><div class="avatar">乐</div><div><div class="nm">林晓乐 · 事假</div><div class="sub">7月14日 08:00–12:00 · 家长（母亲）今天 16:32 发起</div></div><div class="st"><span class="chip amber">待审批</span></div><span style="color:#C6CCD6;margin-left:4px">›</span></div>
+      <!-- 筛选区：日期+搜索框 -->
+      <div style="display:flex;gap:8px;align-items:center;margin-top:10px">
+        <input type="date" id="lv-date" class="attc-date" value="2026-07-06" style="flex:0 0 auto">
+        <div style="position:relative;flex:1">
+          <input type="text" id="lv-search" placeholder="搜索学生姓名" style="width:100%;border:1px solid var(--line);border-radius:14px;padding:5px 12px 5px 34px;font-size:11.5px;font-weight:500;background:#fff" oninput="lvRender()">
+          <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-3)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
         </div>
-        <!-- 第一阶段隐藏：超时升级说明（后续阶段实现；恢复时删除 display:none） -->
-        <div class="muted" style="text-align:center;margin-top:2px;display:none">紧急单自动置顶：超时将按校级策略升级年级组长，处理后自动回落</div>
       </div>
-      <!-- 已办结历史单 -->
-      <div id="lv-done" style="display:none">
-        <div class="card" style="padding-top:4px;padding-bottom:4px">
-          <div class="stu"><div class="avatar">宸</div><div><div class="nm">郑皓宸 · 病假</div><div class="sub">7月6日 全天 · 王老师 7月3日 19:22 审批</div></div><div class="st"><span class="chip teal">已通过</span></div></div>
-          <div class="stu"><div class="avatar girl">桐</div><div><div class="nm">周雨桐 · 事假</div><div class="sub">7月3日 全天 · 王老师 7月2日 21:05 审批</div></div><div class="st"><span class="chip teal">已通过</span><div class="muted" style="text-align:right;color:var(--cinnabar)">到期未返校追踪中</div></div></div>
-          <div class="stu"><div class="avatar">乐</div><div><div class="nm">林晓乐 · 病假</div><div class="sub">6月26日 12:00–16:00 · V2（退回补充后同单迭代）</div></div><div class="st"><span class="chip teal">已通过</span></div></div>
-          <div class="stu"><div class="avatar">豪</div><div><div class="nm">王梓豪 · 事假</div><div class="sub">6月30日 08:00–12:00 · 审批意见：材料不足且事由不明</div></div><div class="st"><span class="chip red">未通过</span></div></div>
-        </div>
-        <div class="muted" style="text-align:center;margin-top:2px">已办结单据保留历次修改版本与审批意见 · 补请假通过后，对应考勤自动更新</div>
-      </div>
+      <!-- 请假列表 -->
+      <div id="lv-list" style="margin-top:10px"></div>
     </div></div>
+    <!-- 代学生请假按钮（固定底部） -->
+    <div class="apply-foot"><button class="btn pri blk" onclick="go('sc-attleave')">代学生请假</button></div>
+  </div>
+
+  <!-- ================= 子页：待审批请假详情（从请假列表待审批条目进入） ================= -->
+  <div class="screen" id="sc-lvpend">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-leave')">‹</button><b>请假详情</b></div>
+    <div class="body" style="padding-bottom:80px"><div class="pad" id="lvp-content"></div></div>
+    <div class="apply-foot" id="lvp-foot" style="display:flex;gap:10px">
+      <button class="btn red blk" onclick="lvRejectSheet()">拒绝</button>
+      <button class="btn pri blk" onclick="lvApproveConfirm()">同意</button>
+    </div>
   </div>
 
   <!-- ================= 子页：请假单详情 ================= -->
@@ -1820,6 +1853,162 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
       </div>
       <div class="muted" style="text-align:center;margin-top:10px">通过后：该时段不产生缺勤；若请假期间产生通行事件，将自动核销为「实际到校」并通知双方。</div>
     </div></div>
+  </div>
+
+  <!-- ================= 子页：学生请假记录（从考勤明细跳转） ================= -->
+  <div class="screen" id="sc-stuleave">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-attclass')">‹</button><b>请假记录</b></div>
+    <div class="body"><div class="pad" id="slv-content"></div></div>
+  </div>
+
+  <!-- ================= 子页：学生请假详情（从学生请假记录跳转） ================= -->
+  <div class="screen" id="sc-stuleavedt">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-stuleave')">‹</button><b>请假详情</b></div>
+    <div class="body"><div class="pad" id="sld-content"></div></div>
+  </div>
+
+  <!-- ================= 子页：代学生请假（从考勤明细跳转） ================= -->
+  <div class="screen" id="sc-attleave">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-attclass')">‹</button><b>代学生请假</b></div>
+    <div class="body" style="padding-bottom:80px">
+      <!-- 筛选区 -->
+      <div style="background:var(--bg);padding:10px 12px;position:sticky;top:0;z-index:10">
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="date" id="al-date" class="attc-date" value="2026-07-06" style="flex:0 0 auto">
+          <button class="pick" id="al-cls-btn" style="flex:1;min-width:0;border:1px solid var(--line);border-radius:14px;padding:5px 12px;background:#fff;font-size:11.5px;font-weight:500;display:flex;align-items:center;justify-content:space-between;gap:6px" onclick="alClsSheet()">
+            <span id="al-cls-txt" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">三年级(2)班</span><i style="color:var(--ink-3);font-size:12px">›</i>
+          </button>
+        </div>
+        <!-- 搜索框 -->
+        <div style="position:relative;margin-top:8px">
+          <input type="text" id="al-search" placeholder="搜索学生姓名" style="width:100%;border:1px solid var(--line);border-radius:14px;padding:5px 12px 5px 34px;font-size:11.5px;font-weight:500;background:#fff" oninput="alRender()">
+          <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-3)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        </div>
+      </div>
+      <div class="pad" style="padding-top:10px">
+        <!-- 学生列表 -->
+        <div class="card" style="padding:0;overflow:hidden" id="al-stu-wrap">
+          <!-- 标题行 -->
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)">
+            <span style="font-size:13px;font-weight:600;color:var(--ink)">代请假学生</span>
+            <span class="muted" style="margin-left:auto;font-size:12px" id="al-cnt">已选 0 人</span>
+          </div>
+          <!-- 全选行 -->
+          <div style="display:flex;align-items:center;gap:6px;padding:9px 14px;border-bottom:1px solid var(--line);background:#F7F8FA">
+            <input type="checkbox" id="al-all" style="width:16px;height:16px;accent-color:var(--navy)" onchange="alToggleAll(this)">
+            <label for="al-all" style="font-size:13px;color:var(--ink-2);cursor:pointer">全选</label>
+          </div>
+          <!-- 学生列表（限高滚动） -->
+          <div id="al-stu-list" style="max-height:240px;overflow-y:auto"></div>
+        </div>
+        <!-- 请假表单 -->
+        <div class="card" style="margin-top:12px" id="al-form">
+          <div style="font-size:14px;font-weight:600;margin-bottom:10px">请假类型</div>
+          <div style="display:flex;gap:8px;margin-bottom:14px">
+            <button class="al-type on" data-type="sick" onclick="alType('sick')" style="flex:1;padding:8px 0;border-radius:8px;font-size:13px;font-weight:600;border:2px solid var(--navy);background:#E3EEFD;color:var(--navy)">病假</button>
+            <button class="al-type" data-type="personal" onclick="alType('personal')" style="flex:1;padding:8px 0;border-radius:8px;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink-2)">事假</button>
+          </div>
+          <!-- 病假表单 -->
+          <div id="al-sick-form">
+            <div class="kv" style="margin-bottom:10px"><span class="k">是否传染病<em style="color:var(--cinnabar);font-style:normal">*</em></span>
+              <div style="display:flex;gap:8px;margin-top:6px">
+                <label style="display:flex;align-items:center;gap:4px;font-size:13px;cursor:pointer"><input type="radio" name="al-contagious" value="yes" style="accent-color:var(--navy)">是</label>
+                <label style="display:flex;align-items:center;gap:4px;font-size:13px;cursor:pointer;margin-left:12px"><input type="radio" name="al-contagious" value="no" style="accent-color:var(--navy)">否</label>
+              </div>
+            </div>
+            <div style="margin-bottom:12px">
+              <div style="font-size:13px;color:var(--ink-2);margin-bottom:6px">病状<span class="muted" style="font-size:11px">（可多选）</span></div>
+              <div class="fchips" id="al-symptoms" style="gap:6px"></div>
+            </div>
+          </div>
+          <!-- 事假表单无额外字段 -->
+          <!-- 通用字段 -->
+          <div class="row" style="gap:10px;margin-bottom:12px">
+            <div style="flex:1"><div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">开始<em style="color:var(--cinnabar);font-style:normal">*</em></div><input type="text" id="al-start" placeholder="请选择" readonly onclick="alDateSheet('start')" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;background:#fff"></div>
+            <div style="flex:1"><div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">结束<em style="color:var(--cinnabar);font-style:normal">*</em></div><input type="text" id="al-end" placeholder="请选择" readonly onclick="alDateSheet('end')" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;background:#fff"></div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">事由<em style="color:var(--cinnabar);font-style:normal">*</em></div>
+            <textarea id="al-reason" rows="3" placeholder="请简述请假原因" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;resize:none"></textarea>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">证明材料</div>
+            <div style="font-size:11px;color:var(--ink-3);margin-bottom:6px">最多 5 个，最大 10MB/个</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap" id="al-files"></div>
+            <button onclick="alAddFile()" style="width:56px;height:56px;border:1px dashed var(--line);border-radius:8px;background:#F7F8FA;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--ink-3)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="apply-foot">
+      <button class="btn pri blk" onclick="alSubmit()">提交</button>
+    </div>
+  </div>
+
+  <!-- ================= 子页：代学生补签 ================= -->
+  <div class="screen" id="sc-attsign">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-attclass')">‹</button><b>代学生补签</b></div>
+    <div class="body" style="padding-bottom:80px">
+      <!-- 筛选区 -->
+      <div style="background:var(--bg);padding:10px 12px;position:sticky;top:0;z-index:10">
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="date" id="as-date" class="attc-date" value="2026-07-06" style="flex:1;min-width:0">
+          <button class="pick" id="as-cls-btn" style="flex:1;min-width:0;border:1px solid var(--line);border-radius:14px;padding:5px 12px;background:#fff;font-size:11.5px;font-weight:500;display:flex;align-items:center;justify-content:space-between;gap:6px" onclick="asClsSheet()">
+            <span id="as-cls-txt" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">三年级(2)班</span><i style="color:var(--ink-3);font-size:12px">›</i>
+          </button>
+          <select id="as-st-filter" class="attc-sel fixed" style="flex:1;min-width:0" onchange="asRender()">
+            <option value="all">全部</option>
+            <option value="nosign">未签到</option>
+            <option value="signed">正常到校</option>
+            <option value="abs" selected>缺勤</option>
+            <option value="leave">请假</option>
+            <option value="late">迟到</option>
+          </select>
+        </div>
+        <div style="position:relative;margin-top:8px">
+          <input type="text" id="as-search" placeholder="搜索学生姓名" style="width:100%;border:1px solid var(--line);border-radius:14px;padding:5px 12px 5px 34px;font-size:11.5px;font-weight:500;background:#fff" oninput="asRender()">
+          <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-3)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        </div>
+      </div>
+      <div class="pad" style="padding-top:10px">
+        <!-- 学生列表 -->
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)">
+            <span style="font-size:13px;font-weight:600;color:var(--ink)">代补签学生</span>
+            <span class="muted" style="margin-left:auto;font-size:12px" id="as-cnt">已选 0 人</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:9px 14px;border-bottom:1px solid var(--line);background:#F7F8FA">
+            <input type="checkbox" id="as-all" style="width:16px;height:16px;accent-color:var(--navy)" onchange="asToggleAll(this)">
+            <label for="as-all" style="font-size:13px;color:var(--ink-2);cursor:pointer">全选</label>
+          </div>
+          <div id="as-stu-list" style="max-height:240px;overflow-y:auto"></div>
+        </div>
+        <!-- 补签表单 -->
+        <div class="card" style="margin-top:12px">
+          <div style="font-size:14px;font-weight:600;margin-bottom:12px">补签信息</div>
+          <div class="kv" style="margin-bottom:12px"><span class="k">考勤时段</span><span class="v" id="as-period-val" style="font-weight:500;color:var(--ink)">请先选择</span></div>
+          <div style="margin-bottom:12px">
+            <div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">考勤时间</div>
+            <input type="text" id="as-time" placeholder="请选择时间（非必填）" readonly onclick="asTimeSheet()" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;background:#fff;color:var(--ink)">
+          </div>
+          <div>
+            <div style="font-size:12px;color:var(--ink-2);margin-bottom:6px">考勤状态</div>
+            <div style="display:flex;gap:8px">
+              <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer;padding:6px 14px;border-radius:8px;border:1px solid var(--line);background:#fff"><input type="radio" name="as-status" value="normal" style="accent-color:var(--navy)" onchange="asStatusChange()">正常到校</label>
+              <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer;padding:6px 14px;border-radius:8px;border:1px solid var(--line);background:#fff"><input type="radio" name="as-status" value="late" style="accent-color:var(--navy)" onchange="asStatusChange()">迟到</label>
+              <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer;padding:6px 14px;border-radius:8px;border:1px solid var(--navy);background:#E3EEFD"><input type="radio" name="as-status" value="abs" checked style="accent-color:var(--navy)" onchange="asStatusChange()">缺勤</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="apply-foot">
+      <button class="btn pri blk" onclick="asSubmit()">提交</button>
+    </div>
   </div>
 
   <!-- ================= 子页：代录请假（班主任代录本班学生 · 默认免审即时生效） ================= -->
@@ -1920,50 +2109,113 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     </div>
   </div>
 
-  <!-- ================= 教师注册审核（仅校级管理员角色可见入口） ================= -->
-  <div class="screen" id="sc-regaudit">
+  <!-- ================= 子页：教师管理（功能栏+统计+搜索+职务列表） ================= -->
+  <div class="screen" id="sc-tchmgr">
     <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
-    <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>老师管理 · 注册审核</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-home')">‹</button><b>教师管理</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
     <div class="body"><div class="pad">
-      <div class="fchips" id="ta-tabs">
-        <button class="fchip on" onclick="taTab(this,'pend')">待审核</button>
-        <button class="fchip" onclick="taTab(this,'done')">已办结</button>
+      <div class="sm-acts">
+        <button onclick="toast('演示：生成邀请码/二维码分享给教师')"><span class="gi" style="background:linear-gradient(150deg,#B8A4FF,#7C66F2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v6a2 2 0 002 2h12a2 2 0 002-2v-6"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></span><span class="lbl">邀请教师</span></button>
+        <button onclick="go('sc-addtch')"><span class="gi" style="background:linear-gradient(150deg,#6AAEFF,#2E7CF0)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span><span class="lbl">新增教师</span></button>
+        <button onclick="go('sc-tchpend')"><span class="gi" style="background:linear-gradient(150deg,#FFB074,#F0792E)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="badge">2</span></span><span class="lbl">待审核</span></button>
       </div>
-      <div id="ta-pend">
-      <div class="card" style="padding-top:6px;padding-bottom:6px">
-        <div class="todo-item">
-          <div class="avatar girl adult">陈</div>
-          <div class="bd">
-            <div class="t1">陈静怡 · 女 <span class="chip amber plain">未命中白名单</span></div>
-            <div class="t2">139****5521 · 任教 三(1)、三(3) · 今天 10:12 提交</div>
-            <div class="row" style="gap:8px;margin-top:9px" id="ta-a1">
-              <button class="btn teal sm" onclick="tAudit(1,'陈静怡',true)">通过</button>
-              <button class="btn ghost sm" style="color:var(--cinnabar);border-color:#FAD0CA" onclick="tAudit(1,'陈静怡',false)">拒绝</button>
-            </div>
-          </div>
-        </div>
-        <div class="todo-item">
-          <div class="avatar adult">李</div>
-          <div class="bd">
-            <div class="t1">李强 · 男 <span class="chip amber plain">未命中白名单</span><span class="chip red plain">认领 6 班 · 建议核实</span></div>
-            <div class="t2">137****0032 · 任教 三(1)、三(2)、四(1)、四(2)、五(1)、五(2) · 跨 3 个年级，请核实是否科任整年级或误选 · 今天 09:47 提交</div>
-            <div class="row" style="gap:8px;margin-top:9px" id="ta-a2">
-              <button class="btn teal sm" onclick="tAudit(2,'李强',true)">通过</button>
-              <button class="btn ghost sm" style="color:var(--cinnabar);border-color:#FAD0CA" onclick="tAudit(2,'李强',false)">拒绝</button>
-            </div>
-          </div>
+      <div class="sm-stats">
+        <div class="it"><b style="color:var(--teal)">5</b><span>部门数</span></div>
+        <div class="it"><b style="color:var(--teal)">12</b><span>教师数</span></div>
+        <div class="it"><b style="color:#C97A12">1</b><span>未激活</span></div>
+      </div>
+      <div class="sm-search-row">
+        <input type="text" id="tm-search" placeholder="输入姓名搜索" style="flex:1;border-radius:20px;margin:0" oninput="tmSearch(this.value)">
+        <div class="sm-filter">
+          <button class="sm-filter-btn" id="tm-filter-btn" onclick="tmFilterSheet()">全部</button>
         </div>
       </div>
-      </div>
-      <!-- 已办结历史（含白名单自动生效记录，免审不免审计） -->
-      <div id="ta-done" style="display:none">
-        <div class="card" style="padding-top:4px;padding-bottom:4px">
-          <div class="stu"><div class="avatar girl adult">周</div><div style="flex:1"><div class="nm">周敏 · 女 <span class="chip amber plain" style="font-size:9.5px">未命中白名单</span></div><div class="sub">133****4409 · 四(1)、四(2) · 7月5日 10:02 提交</div><div class="sub" style="color:var(--ink-2)">审核：王老师（教务）· 7月6日 08:40</div></div><div class="st"><span class="chip teal">已通过</span></div></div>
-          <div class="stu"><div class="avatar adult girl">刘</div><div style="flex:1"><div class="nm">刘老师 · 女</div><div class="sub">136****8874 · 五(1)、五(2) · 7月1日 08:12 注册</div><div class="sub" style="color:var(--ink-2)">审核：系统 · 白名单命中自动生效</div></div><div class="st"><span class="chip navy">自动生效</span></div></div>
-          <div class="stu"><div class="avatar adult">郑</div><div style="flex:1"><div class="nm">郑海涛 · 男 <span class="chip amber plain" style="font-size:9.5px">未命中白名单</span></div><div class="sub">135****7712 · 五(1) · 7月2日 09:31 提交</div><div class="sub" style="color:var(--ink-2)">审核：李主任（德育）· 7月2日 11:05</div><div class="sub" style="color:var(--cinnabar)">拒绝原因：核实非本校教师</div></div><div class="st"><span class="chip red">已拒绝</span></div></div>
+      <div id="tm-list"></div>
+    </div></div>
+  </div>
+
+  <!-- ================= 子页：教师详情（只读） ================= -->
+  <div class="screen" id="sc-tchdetail">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-tchmgr')">‹</button><b>教师详情</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+    <div class="body"><div class="pad" id="td-content"></div></div>
+  </div>
+
+  <!-- ================= 子页：新增教师（同注册页，按钮"提交"） ================= -->
+  <div class="screen" id="sc-addtch">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-tchmgr')">‹</button><b>新增教师</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+    <div class="body"><div class="pad">
+      <div class="card">
+        <div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">学校</div>
+        <input type="text" value="市实验一小" readonly style="background:#F0F2F6;color:var(--ink-2)">
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 5px">教师姓名 <em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <input type="text" id="at-name" placeholder="请输入真实姓名">
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 6px">性别 <em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <div class="fchips" id="at-gender" style="margin-bottom:2px">
+          <button class="fchip" onclick="atGender(this)">男</button>
+          <button class="fchip" onclick="atGender(this)">女</button>
         </div>
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 5px">职务 <em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <button class="pick" onclick="atDutySheet()"><span id="at-duty-txt" style="color:var(--ink-3)">请选择</span><i>›</i></button>
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 5px">称谓</div>
+        <input type="text" id="at-title" value="老师" placeholder="请输入称谓">
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 6px">任教班级（可多选）<em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <button class="pick" onclick="atOpenCls()"><span id="at-cls-txt" style="color:var(--ink-3);line-height:1.5">请选择任教班级</span><i>›</i></button>
+      </div>
+      <button class="btn pri blk" style="padding:12px" onclick="atSubmit()">提交</button>
+    </div></div>
+  </div>
+
+  <!-- ================= 子页：教师审核（可编辑+手机号只读，底部拒绝/通过） ================= -->
+  <div class="screen" id="sc-tchaudit">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-tchpend')">‹</button><b id="taudit-title">教师审核</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+    <div class="body" style="padding-bottom:70px"><div class="pad">
+      <div class="card">
+        <div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">学校</div>
+        <input type="text" value="市实验一小" readonly style="background:#F0F2F6;color:var(--ink-2)">
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 5px">教师姓名 <em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <input type="text" id="taudit-name" placeholder="请输入真实姓名">
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 6px">性别 <em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <div class="fchips" id="taudit-gender" style="margin-bottom:2px">
+          <button class="fchip" onclick="tauditGender(this)">男</button>
+          <button class="fchip" onclick="tauditGender(this)">女</button>
+        </div>
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 5px">职务 <em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <button class="pick" id="taudit-duty-pick" onclick="tauditDutySheet()"><span id="taudit-duty-txt" style="color:var(--ink-3)">请选择</span><i>›</i></button>
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 5px">称谓</div>
+        <input type="text" id="taudit-title" value="老师" placeholder="请输入称谓">
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 6px">任教班级（可多选）<em style="color:var(--cinnabar);font-style:normal">*</em></div>
+        <button class="pick" id="taudit-cls-pick" onclick="tauditOpenCls()"><span id="taudit-cls-txt" style="color:var(--ink-3);line-height:1.5">请选择任教班级</span><i>›</i></button>
+        <div style="font-size:12px;color:var(--ink-2);margin:12px 0 5px">手机号</div>
+        <input type="text" id="taudit-phone" readonly style="background:#F0F2F6;color:var(--ink-2)">
       </div>
     </div></div>
+    <div class="sd-foot" id="taudit-foot">
+      <button class="btn ghost blk" style="flex:1" onclick="tauditReject()">拒绝</button>
+      <button class="btn pri blk" style="flex:1" onclick="tauditApprove()">通过</button>
+    </div>
+  </div>
+
+  <!-- ================= 子页：教师待审核（三tab+职务列表+多选+底部操作） ================= -->
+  <div class="screen" id="sc-tchpend">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="sub-hd"><button class="back" onclick="go('sc-tchmgr')">‹</button><b>待审核</b><span class="capsule" style="margin-left:auto"><i>⋯</i><i>◎</i></span></div>
+    <div class="body" style="padding-bottom:56px">
+      <div class="fchips" id="tp-tabs" style="margin:0;padding:8px 14px;background:#fff;border-bottom:1px solid var(--line)">
+        <button class="fchip on" data-tpt="pend" onclick="tpTab(this,'pend')">待审核</button>
+        <button class="fchip" data-tpt="reject" onclick="tpTab(this,'reject')">已拒绝</button>
+        <button class="fchip" data-tpt="pass" onclick="tpTab(this,'pass')">已通过</button>
+      </div>
+      <div class="pad" id="tp-main"></div>
+    </div>
+    <div class="sp-foot" id="tp-foot">
+      <div class="ck" id="tp-all" onclick="tpAll(this)"></div>
+      <span class="cnt" id="tp-cnt">全选 · 已选 0 人</span>
+      <button class="btn ghost sm" style="padding:6px 14px" id="tp-reject" onclick="tpRejectBatch()">拒绝</button>
+      <button class="btn pri sm" style="padding:6px 14px" id="tp-approve" onclick="tpApprove()">通过</button>
+    </div>
   </div>
 
   <!-- ================= TAB 2 消息（结果/通知类，不放可操作事项） ================= -->
@@ -1999,7 +2251,7 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
             <div class="t2">6月30日 16:00 · 王梓豪 事假单超时未处理，已按校级策略升级年级组长，处理后回落</div>
           </div><span class="arr">›</span>
         </div>
-        <div class="todo-item" onclick="go('sc-regaudit');taTab(document.querySelector('#ta-tabs .fchip:nth-child(2)'),'done')">
+        <div class="todo-item" onclick="go('sc-tchpend');tpTab(document.querySelector('#tp-tabs .fchip[data-tpt=pass]'),'pass')">
           <div class="t-ico gray"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/><path d="M14.6 16.8l2.1 2.1 3.8-4"/></svg></div>
           <div class="bd">
             <div class="t1">教师注册自动生效通知</div>
@@ -2270,6 +2522,22 @@ function go(id){
   document.getElementById(id).classList.add('show');
   document.querySelectorAll('.body').forEach(b=>b.scrollTop=0);
   curScreen=id;history.replaceState(null,'','#'+id);closeDemo();
+  /* 代学生请假页进入时自动初始化学生列表 */
+  if(id==='sc-attleave'){
+    if(!alStudents.length||alStudents._cls!==alClsName){alInitStudents()}
+    alRender();
+    alRenderSymptoms();
+  }
+  /* 代学生补签页进入时自动初始化学生列表 */
+  if(id==='sc-attsign'){
+    if(!asStudents.length||asStudents._cls!==asClsName){asInitStudents()}
+    if(!asSelected||Object.keys(asSelected).length===0){asRender()}
+    asUpdateForm();
+  }
+  /* 请假审批列表页进入时自动渲染 */
+  if(id==='sc-leave'){
+    lvRender();
+  }
 }
 /* -------- 演示入口：说明与快捷跳转随当前屏切换 -------- */
 var curScreen='sc-home';
@@ -2281,9 +2549,13 @@ const demoInfo={
  'sc-applydetail':{t:'校徽办理详情',d:'「分享校徽办理」入口进入，展示完整的校徽办理说明：宣传头图、申请说明、校徽样式参考、办理信息表单、证件照示例与正误示范。教师身份不支持办理：表单字段禁用，底部显示「分享到微信」按钮。点击「分享到微信」弹出摘要信息窗口，包含学校、班级、办理时间、补办周期、费用等关键信息，点击分享后可直接分享到微信，家长点击后可直接进入办理页面。',a:[['分享到微信','shareBadgeSheet()'],['返回信息收集页',"go('sc-apply')"]]},
  'sc-todo':{t:'待办工作台（预览 · 原首页）',d:'首页已重构为宫格式，本工作台保留为预览页（页面级入口待后续版本确定落点，当前仅经演示说明进入）。hero 分类总览点击可直达对应区块；今日出勤概览与考勤页同源，点击进入考勤；快捷入口提升「我的」内高频操作（代录/绑定邀请/绑定审核/历史考勤）。待办聚合考勤异常、请假审批与信息核正事务，告警与缺勤通道分离；缺勤推送家长前必经此人工闸门。「信息核正」区块消费标签运维标记（连续未读、错拿换发），并含「名册核正」：家长对待认领孩子反馈「不是我的孩子」后，生成对应班主任待办（反馈者账号不下发、重复反馈去重限频），核实后提交更正或标记误报，管理端名册同步标记、任一侧处理即闭环。教师代录的单据即时生效并同步双家长，不占用待处理。第一阶段范围收敛（首页已隐藏、后续阶段实现，下方按钮可预览对应页面）：①特殊天气降级横幅——暴雨等降级模式下融合窗放宽至 ±5 秒、低质量帧不进比对、缺席软标记不计入模式统计，降级日按班批量核对；②紧急请假单超时升级置顶卡——临近升级的紧急单自动置顶，超时按校级策略升级年级组长，处理后自动回落。',a:[['返回首页',"go('sc-home')"],['预览 · 降级批量核对（后续阶段）',"go('sc-batch')"],['预览 · 临近升级请假单（后续阶段）',"go('sc-leavedt')"],['查看身份强冲突处置',"go('sc-conflict')"],['处理名册核正待办','rosterFixSheet()']]},
  'sc-eval':{t:'素质评价（德育评价）',d:'首页宫格「素质评价」入口（后续阶段，默认隐藏，可在首页演示说明开关显示），当前含德育维度。顶部为统计总览（星星总数 / 表扬 / 待改进 / 点评次数，可切班级与周期）；功能条五入口中「表现点评」与右下浮钮均可发起点评，表现排行 / 评价报告 / 积分商城 / 积分统计为演示占位（积分兑换项由学校配置）。发起点评：选学生、选表扬（+1）/待改进（−2）、填点评项目，提交后记录置顶、顶部统计联动，并即时同步家长端（家长侧只读）。点评记录支持按点评人 / 学生姓名 / 组名搜索；列表仅展示部分记录（演示）。',a:[['发起点评','evalSheet()'],['返回首页',"go('sc-home')"]]},
- 'sc-att':{t:'校园签到（考勤统计）',d:'首页宫格「校园签到」入口进入，统计总览页：日/周/月切换 + 日期导航（演示「今天」为 7月6日 周一；日视图提供今天与上一上学日 7月3日，周视图提供本周 7月6–10日与上周 6月29日–7月3日，月视图为本月上学日 7月1–3日累计人次）、出勤率环形图汇总卡与任教班级列表；「查询时段出入校」入口收敛为后续阶段（代码注释保留）。汇总卡标题为「任教班级合计」，统计任教班级（王老师：三(2)班 + 三(1)班）的合计数据。统计项统一为出勤、缺勤、请假、迟到、早退；迟到/早退计入出勤、单列计数。班级卡显示班级学生总数与出勤率，点击班级卡跳转该班考勤明细页。',a:[['切到周视图',"attPeriod('week')"],['切到月视图',"attPeriod('month')"],['进入班级考勤明细',"go('sc-attclass')"],['返回首页',"go('sc-home')"]]},
- 'sc-attclass':{t:'考勤明细',d:'校园签到统计页点击班级卡进入。标题「考勤明细」，顶部筛选栏：日期选择器（默认今天，YYYY-MM-DD 格式）、年级+班级二级联动选择（默认显示前一页点击跳转过来的班级）、考勤状态筛选（全部/未签到/已签到/缺勤/请假/迟到/未签退/已签退/早退，默认全部）。列表按上学、放学两个维度分组展示：上学组（绿色色条，签到计数）默认展开，放学组（橙色色条，签退计数）默认折叠，点击组头可展开/收起。学生条目状态除未签到/未签退外均带跳转箭头标识，点击可跳转对应详情页；缺勤学生点击跳转补签页面。底部保留「代学生请假」「批量点名/补签」操作条。',a:[['批量点名/补签',"go('sc-attclass');attRollSheet()"],['代学生请假',"go('sc-proxyleave')"],['查看学生签到详情（林晓乐）',"stuTab('sign');go('sc-attstu')"],['缺勤学生补签',"go('sc-attclass');var s=document.querySelector('.stu[data-st=abs]');s&&s.click()"],['筛选未签到',"go('sc-attclass');document.getElementById('attc-st').value='nosign';renderAttc()"],['返回统计页',"go('sc-att')"],['返回首页',"go('sc-home')"]]},
- 'sc-attcsign':{t:'补签',d:'考勤明细页点击缺勤学生进入。展示学生信息卡（头像、姓名、班级、缺勤标签），补签信息表单（补签日期、到校时间*、通行通道、补签原因*），备注说明（选填）。底部「确认补签」按钮，提交后该学生状态由「缺勤」更新为「已签到」，操作留痕，返回考勤明细页。',a:[['确认补签',"sgConfirm()"],['选择到校时间','sgTimeSheet()'],['返回考勤明细',"go('sc-attclass')"]]},
+ 'sc-att':{t:'校园签到（考勤统计）',d:'首页宫格「校园签到」入口进入，统计总览页：日/周/月切换 + 日期导航（演示「今天」为 7月6日 周一；日视图提供今天与上一上学日 7月3日，周视图提供本周 7月6–10日与上周 6月29日–7月3日，月视图为本月上学日 7月1–3日累计人次）、出勤率环形图汇总卡与年级班级列表；「查询时段出入校」入口收敛为后续阶段（代码注释保留）。汇总卡标题为「班级合计」，统计任教班级（王老师：三(2)班 + 三(1)班）的合计数据。统计项统一为出勤、缺勤、请假、迟到、早退；迟到/早退计入出勤、单列计数。年级班级模块按年级分组（一级目录），展开后显示班级卡，班级名不显示年级前缀（如"(2)班"），班级卡显示学生总数与出勤率，点击班级卡跳转该班考勤明细页。',a:[['切到周视图',"attPeriod('week')"],['切到月视图',"attPeriod('month')"],['进入班级考勤明细',"go('sc-attclass')"],['返回首页',"go('sc-home')"]]},
+ 'sc-attclass':{t:'考勤明细',d:'校园签到统计页点击班级卡进入。标题「考勤明细」，顶部筛选栏：日期选择器、班级选择（点击弹出底部sheet，左年级栏+右班级chips）、考勤状态筛选。列表按时段分组：上午（上学+放学）、下午（上学+放学）、晚上（上学+放学），每组上方有时段标题。学生条目状态除未签到/未签退外均带跳转箭头标识：正常到校/迟到点击跳转签到详情页，请假学生点击跳转该学生的请假记录页，缺勤学生点击跳转补签页面。底部「代学生请假」按钮跳转代学生请假页，「代学生补签」按钮弹出补签sheet。',a:[['代学生补签',"asEnterSheet()"],['代学生请假',"alEnter()"],['查看学生签到详情（林晓乐）',"stuTab('sign');go('sc-attstu')"],['请假学生跳转请假记录',"go('sc-attclass');var s=document.querySelector('.stu[data-st=leave]');s&&s.click()"],['缺勤学生补签',"go('sc-attclass');var s=document.querySelector('.stu[data-st=abs]');s&&s.click()"],['筛选未签到',"go('sc-attclass');document.getElementById('attc-st').value='nosign';renderAttc()"],['打开班级选择sheet','attcClsSheet()'],['返回统计页',"go('sc-att')"],['返回首页',"go('sc-home')"]]},
+ 'sc-attleave':{t:'代学生请假',d:'考勤明细页底部「代学生请假」按钮进入。顶部筛选区：日期选择器+班级选择（点击弹出sheet，左年级栏+右班级chips，同考勤明细页）。下方学生姓名搜索框。学生列表标题为「代请假学生」，支持多选（勾选框+全选），全选时显示已选人数，未选时显示未签到人数。下方请假表单：请假类型（病假/事假可切换）。病假表单含是否传染病（必选）、病状（多选chips：发热/感冒/咳嗽等）、开始结束时间、事由、证明材料。事假表单含开始结束时间、事由、证明材料。底部「提交」按钮。',a:[['切到事假',"alType('personal')"],['切到病假',"alType('sick')"],['打开班级选择','alClsSheet()'],['返回考勤明细',"go('sc-attclass')"]]},
+ 'sc-attsign':{t:'代学生补签',d:'考勤明细页底部「代学生补签」按钮先弹出时段选择弹框（先选上午/下午/晚上，再选上学/放学），确定后进入。缺勤学生点击直接跳转本页，反显时段+默认选中该学生。顶部筛选区（日期+班级+考勤状态筛选，默认缺勤，枚举全部/未签到/正常到校/缺勤/请假/迟到）+搜索框。学生列表标题「代补签学生」，全班学生，缺勤学生标注红色"缺勤"标签，支持多选+全选。补签表单：考勤时段（反显如"上午-上学"）、考勤时间（时分选择，非必填，填写后自动判定考勤状态）、考勤状态（单选：正常到校/迟到/缺勤，默认缺勤，可手动修改）。底部「提交」按钮。',a:[['选择考勤时间','asTimeSheet()'],['返回考勤明细',"go('sc-attclass')"]]},
+ 'sc-stuleave':{t:'学生请假记录',d:'考勤明细页点击请假状态学生条目进入。标题「请假记录」，顶部显示该学生基本信息（头像、性别icon+姓名、班级）。下方为请假条目列表，每个条目显示请假类型（病假/事假）、请假时段，底部显示家长称谓(家长姓名)和提交时间，无状态标识。点击条目跳转请假详情页。',a:[['打开请假详情',"go('sc-stuleavedt')"],['返回考勤明细',"go('sc-attclass')"]]},
+ 'sc-stuleavedt':{t:'学生请假详情',d:'学生请假记录页点击条目进入。标题「请假详情」。第一模块为请假信息：标题（病假/事假）右侧审批状态为「已审批」（绿色teal），下方显示学生、开始时间、结束时间、事由。第二模块为流转记录：提交节点（MM-DD hh:mm · 家长称谓）、已审批节点（MM-DD hh:mm · 处理老师）。',a:[['返回请假记录',"go('sc-stuleave')"]]},
+ 'sc-attcsign':{t:'补签',d:'考勤明细页点击缺勤学生进入。展示学生信息卡（头像、姓名、班级、缺勤标签），补签信息表单（补签日期、到校时间*、通行通道、补签原因*），备注说明（选填）。底部「确认补签」按钮，提交后该学生状态由「缺勤」更新为「正常到校」，操作留痕，返回考勤明细页。',a:[['确认补签',"sgConfirm()"],['选择到校时间','sgTimeSheet()'],['返回考勤明细',"go('sc-attclass')"]]},
  'sc-attstu':{t:'学生签到详情（林晓乐）',d:'考勤明细页点击学生行进入，演示以林晓乐为例。「签到」Tab：到校/离校时间轴，顶部日期 chips 可切换——今天（7月6日 周一）为实时视图，到校节点显示时间、校门通道与通行抓拍（照片点击放大预览；视频为演示占位，点击 toast 模拟播放；识别融合方式为校徽+人脸一致，不再以标签形式在页面展示），离校未发生时显示「待记录」，入校区块（到校及上学时段通行）抓拍超过一组时，到校标题旁显示「收起」，点击整体收起/展开该区块抓拍，仅一组抓拍时不显示（如 7月3日视图），时间轴节点以「入/离」圆形徽标区分（入=青碧、离=蓝、灰=待记录），事件标题旁括注上学/放学时间（演示为上学 08:00、放学 16:30，与迟到判定及智慧放学时段口径一致，实际随校级作息配置）。上学时段内多次进出校门（今天演示：11:47 出、13:36 再入）以轻量通行记录节点呈现——小圆点 + 时间 + 通道 + 抓拍，不标注入/离徽标、状态标签与推送提示文案（到校/离校两个主节点已承担出勤语义；出/入校消息实际仍实时推送家长，仅页面不展示提示）；通行事件全量留痕展示、不合并（多枚校徽幂等去重是同一次通行内的合并，跨次通行不去重），当日多次出入不影响出勤判定（首入定到校、末出定离校）；上一上学日 7月3日（周五）为历史定格视图，到校与离校节点齐备、各带抓拍，补请假通过后自动更新；更早日期经「选择日期」toast 说明。「统计」Tab：顶部月份导航可切换——7月为本月至今（应出勤 4 天），6月为历史月定格（应出勤 22 天、请假 1 天、出勤率 95.5%），更早月份 toast 说明；统计项含应出勤/出勤/请假/缺勤/迟到/早退与出勤率环形图，及逐日出勤记录（历史月仅展示部分记录），迟到计入出勤并单独计数，口径与班级/全校统计一致。隐私与合规口径：通行抓拍用于教师考勤人工核对，家长端亦可在 App 内查看本人孩子的抓拍照片与视频（家长端「校园签到」页与本页同构）；到离校推送消息仍仅含时间与事件、不含影像（与校徽办理页说明一致）；抓拍访问一律留痕可审计。',a:[['查看抓拍大图','attShot()'],['切到 7月3日（含离校抓拍）',"go('sc-attstu');stuTab('sign');stuDate('yest')"],['切到统计 Tab',"go('sc-attstu');stuTab('stat')"],['查看 6月统计（历史月）',"go('sc-attstu');stuTab('stat');if(stuM.i===0)stuMonth(-1)"],['返回考勤明细',"go('sc-attclass')"]]},
  'sc-dismiss':{t:'智慧放学',d:'按日期/时段（上午/下午/晚上）筛选，任教班级置顶展示，年级维度展示班级放学状态。点击未放学班级弹出放学确认弹框，可直接开始放学或设置延迟放学时间（延迟到时自动放学）。已放学班级绿色标示并显示放学时间，延迟班级打"延"角标。',a:[['点击三年级(3)班放学','dmConfirm("三年级","(3)班")'],['切换下午','dmPeriod("pm")'],['返回首页',"go('sc-home')"]]},
  'sc-me':{t:'我的（宫格重构版）',d:'版式与家长端「我的」同构：浅色头部为教师账号区（头像、姓名、姓名下方「班主任」角色标签；任教班级与学科在首页头部与身份切换页展示，本页不重复），点头部进个人资料查看与编辑（后续阶段，演示 toast）。本阶段保留两张宫格卡片，分组与家长端「我的」一致：「孩子」= 添加孩子（教师账号以家长身份为自己的孩子发起绑定，师长双身份，进教师端「添加孩子」页，详见该页演示说明）；「账号与帮助」= 账号切换 / 系统设置（后续阶段）/ 帮助与反馈（后续阶段）。以下宫格为后续阶段能力、本阶段隐藏：代办操作（代录请假免审即时生效、结果同步家长；首发分发核对为抽检性质、不阻塞考勤）、家长绑定（生成绑定邀请 / 绑定申请人工审核 / 班级注册码批量审核，均为名册匹配未覆盖时的兜底通道，待审数以图标角标呈现、清空即隐藏）、记录与合规（请假审批记录含待审批 + 已办结；历史考勤即考勤页切换日期回看；人脸授权情况与影像合规说明为本班合规视图）、管理员专区（教师注册审核，仅校级管理员可见）；退出登录入口现收于账号切换页右下浮钮。上述隐藏能力在首页宫格与各业务页仍可进入。页脚「隐私政策 · 用户协议」为静态展示、原型内不可点。原「消息」区入口已移除：消息为结果与通知类、可操作事项在首页待办，入口收敛为底部「消息」Tab（未读角标联动）。「账号」区提供「账号切换」入口，进入账号切换整页（师长双身份单选即切，与首页头部身份面板双入口）；双角色权限互不渗透：家长侧不继承任何教师权限，教师侧亦看不到家长数据。',a:[['生成绑定邀请','inviteSheet()'],['审核家长绑定申请','reviewSheet()'],['班级注册码批量审核',"go('sc-bindbatch')"],['进入账号切换',"go('sc-switch')"]]},
@@ -2291,12 +2563,17 @@ const demoInfo={
  'sc-switch':{t:'账号切换',d:'「我的-账号」区或首页头部下拉面板进入的整页身份列表。同号全部身份平铺单选：教师身份恒在第一位（当前选中）；点孩子行直接切换为家长身份并跳转家长端，无二次确认（原「切换为家长身份」确认半屏已废弃、模板保留）；点「王老师」行仅提示当前已是教师身份。师长双身份仅同号存在家长账号时显示孩子行；双角色权限互不渗透。右下角悬浮按钮退出登录（确认半屏）。',a:[['切换为家长身份（林晓乐）',"idToParent('林晓乐')"],['退出登录确认','logoutSheet()'],['返回我的',"go('sc-me')"]]},
  'sc-conflict':{t:'身份冲突处置',d:'决策表强冲突（他人脸绑上此签）实时告警；本例命中决策表 v3.2 第 3 行：读到 A 的签 + 命中 B 的脸，且 B 自己的签不在 ±5 秒融合窗内。缩略图挂在事件下而非学生档案、仅处理人可见，闭环后 7–30 天删除；处理人的文字结论属人工管理行为，系统不据此做机器身份关联。',a:[['返回待办工作台',"go('sc-todo')"]]},
  'sc-absent':{t:'疑似缺勤核对',d:'无签无脸的人工核对：补录到校 / 确认缺勤并通知 / 误报。（特殊天气降级下的提示与批量核对为后续阶段能力，本页相关文案已隐藏）',a:[['返回待办工作台',"go('sc-todo')"]]},
- 'sc-leave':{t:'请假',d:'首页宫格「请假」入口进入。「待审批 / 已办结」双页签列表：已办结保留全部版本与审批意见可追溯；点列表项进入单据详情；右上「＋ 代录请假」为教师代录发起通道。（紧急单超时升级置顶与倒计时为后续阶段能力，本阶段待审批按提交时间排序）',a:[['打开林晓乐单详情',"go('sc-leavedt')"],['发起代录请假',"go('sc-proxyleave')"],['返回首页',"go('sc-home')"]]},
+ 'sc-leave':{t:'请假',d:'首页宫格「请假」入口进入。顶部四个tab：待审批/已拒绝/已同意/已撤销。tab下方「代学生请假」按钮（跳转代学生请假页）。筛选区：日期选择器+学生姓名搜索框（一行）。列表按年级→班级→请假条目三级层级展示，班级名前无年级，条目头像内容内收与班级对齐。条目内容：姓名+请假类型、开始时间、结束时间（MM-DD hh:mm）、家长称谓+提交时间、右侧审批状态chip。点击任一状态条目跳转对应请假详情页（待审批有拒绝/同意按钮，其余状态无按钮，流转记录第二节点对应状态名称和颜色）。',a:[['切到已拒绝',"lvTab(document.querySelectorAll('#lv-tabs .fchip')[1],'rejected')"],['切到已同意',"lvTab(document.querySelectorAll('#lv-tabs .fchip')[2],'approved')"],['切到已撤销',"lvTab(document.querySelectorAll('#lv-tabs .fchip')[3],'revoked')"],['打开待审批详情',"lvDetailShow('pend','林晓乐','07-07 08:00')"],['打开已拒绝详情',"lvDetailShow('rejected','王梓豪','06-30 08:00')"],['打开已同意详情',"lvDetailShow('approved','郑皓宸','07-06 08:00')"],['打开已撤销详情',"lvDetailShow('revoked','陈艺涵','07-10 08:00')"],['代学生请假',"go('sc-attleave')"],['返回首页',"go('sc-home')"]]},
+ 'sc-lvpend':{t:'请假详情',d:'请假列表点击条目进入。标题「请假详情」。第一模块请假信息：类型+状态chip、学生、开始时间、结束时间、事由。第二模块流转记录：提交节点+对应状态节点（待审批无第二节点，已拒绝红色、已同意绿色、已撤销灰色）。已撤销的第二节点描述为MM-DD hh:mm+家长称谓名称。待审批状态底部有「拒绝」「同意」按钮（拒绝弹理由框非必填），其余状态无按钮。',a:[['拒绝(弹理由框)','lvRejectSheet()'],['同意','lvApproveConfirm()'],['返回请假列表',"go('sc-leave')"]]},
  'sc-leavedt':{t:'请假单详情',d:'通过 / 退回补充 / 不通过；待审批期间暂按请假处理（抑制缺勤告警）。（超时提醒与升级年级组长策略为后续阶段能力，本页相关提示已隐藏）',a:[['返回审批列表',"go('sc-leave')"]]},
  'sc-proxyleave':{t:'代录请假',d:'家长自发之外的第二发起通道：班主任代录本班学生默认「代录即通过」——免审即时生效、单据永久标记「教师代录·家长口头确认」、审批结果同步双家长作为监督异议通道、操作留痕可审计；免审单不进入教师待处理列表，避免自审自批与待办计数虚高。代录人与审批人不同（科任老师代录、或校级要求年级组长审批）时仍走正常审批流；保守学校可关闭免审（校级配置，默认值随首批试点校调研确定）。演示剧情：李沐宸今日无签无脸且家长未留言，家长来电说明发热就医，班主任代录病假——生效后待核项自动核销、考勤流水回溯改判为请假。学生/日期/照片三个选择器为原型模拟：学生弹层支持任教班级切换（班主任班 / 科任班）与姓名搜索，列表带今日考勤状态便于代录时核对；时间为「日期 + 时 + 分」三列滚轮：日期列带真实历法星期（今天显示「当天」），分钟列 30 分钟步进——最少可请 0.5 小时（粒度为校级配置、对齐主流办公产品的选择习惯，开始时间为当天前后各 30 天——补请假回溯上限，结束时间以开始日期为锚最长 90 天——更长缺勤引导走休学/病休备案，边界均为校级配置；选择器顶部左「清除」清空该时间、右「✕」关闭，中部回显始终带全年份作为确认关口，滚轮项与表单在当年内省略年份，跨年时段在表单与单据中显式标年——学期跨自然年，12 月请到次年 1 月的假属常见场景；起止选定后自动计算「时长（上学日）」——按校历扣除周末（真实历法），每上学日按在校时段 08:00–16:00 计 8 小时、起止超出在校时段的部分不计入、满 8 小时折算为天，对应学生请假「上学日不产生缺勤」的实际语义，演示未含法定节假日与寒暑假，时长亦是「事假 1 天内免证明」等规则的挂载点）；证明材料为图片网格（与家长端同构）：点「＋」添加照片（演示以证件照示例图轮换模拟）、缩略图右上角 ✕ 删除，最多 5 个、单个上限 10 MB，满 5 个后隐藏添加块。提交的单据按实际所选学生与时段落入「已办结」列表。注意：原型提交一律按班主任免审主线演示，科任身份代录实际走正常审批流（转该班班主任审批），此分支不做可操作演示。',a:[['提交并查看已办结联动','submitProxyLeave()'],['返回请假列表',"go('sc-leave')"]]},
  'sc-login':{t:'注册 / 登录',d:'微信一键登录（手机号授权）即注册，或手机号验证码登录；教师注册走「微信扫学校注册码」直达表单，登录页不设入口。',a:[['模拟微信一键登录','wxLogin()'],['模拟扫学校注册码 → 教师注册',"go('sc-reg')"],['模拟登录 · 未匹配教师身份',"go('sc-noauth')"],['模拟扫到失效注册码',"go('sc-expired')"]]},
  'sc-reg':{t:'扫码注册',d:'微信群识别 / 扫描学校注册码（24 小时有效）直达本页，学校由码带出。表单字段：学校（只读）、教师姓名*、性别*、职务*（校长/年段长(级组长)/班主任/任课老师，sheet 选择）、称谓（默认"老师"）、任教班级*（年级+班级多选，sheet 内固定 300px 高度 + max-height:90% 兜底，确保不超出手机屏幕）。提交时拉起微信授权获取手机号：命中学校白名单免审核自动生效，未命中转管理端待确认列表。',a:[['模拟提交 · 命中白名单（免审核生效）','regDemo(false)'],['模拟提交 · 未命中白名单（转待确认）','regDemo(true)'],['选择职务','regDutySheet()'],['选择任教班级','regOpenCls()'],['返回登录页',"go('sc-login')"]]},
- 'sc-regaudit':{t:'教师注册审核（管理员）',d:'「待审核 / 已办结」双页签：白名单命中者免审核自动生效，待审核仅处理未命中白名单的申请；同一班级多位老师任教属常态、不构成冲突，仅对认领班级数异常等附软提示辅助判断；通过即时生效（误通过可随时停用账号）、拒绝必填原因，全程留审计；已办结含人工通过 / 拒绝与白名单自动生效记录——免审核不免审计。入口仅校级管理员角色可见；注册码管理与白名单批量导入在 PC 管理端「学校治理 → 教师注册」操作。首页宫格「老师管理」即本页。',a:[['返回首页',"go('sc-home')"]]},
+ 'sc-tchmgr':{t:'教师管理',d:'首页宫格「教师管理」入口。功能栏：邀请教师（生成邀请码/二维码）、新增教师（跳转新增教师页）、待审核（角标2，跳转教师待审核页）。统计栏：部门数/教师数/未激活。搜索栏：姓名搜索+筛选下拉（全部/未激活）。教师列表按职务分组（校长/年段长(级组长)/班主任/任课老师），每个职务组显示教师人数，可折叠展开。教师条目含头像+姓名+职务，点击跳转教师详情页（只读）。未激活教师头像显示灰色"未激活"遮罩。',a:[['新增教师',"go('sc-addtch')"],['待审核',"go('sc-tchpend')"],['筛选未激活',"tmFilterPick('inactive','未激活')"],['搜索教师',"document.getElementById('tm-search').value='陈';tmSearch('陈')"],['查看教师详情（张明远）',"tdShow('张明远')"],['返回首页',"go('sc-home')"]]},
+ 'sc-tchdetail':{t:'教师详情',d:'教师管理页点击教师条目进入。只读页面，展示教师基本信息：学校、教师姓名、性别、职务、称谓、任教班级。不可编辑，无底部操作按钮。',a:[['返回教师管理',"go('sc-tchmgr')"]]},
+ 'sc-addtch':{t:'新增教师',d:'教师管理页点击「新增教师」进入。表单同教师注册页：学校（只读）、教师姓名、性别、职务（sheet选择）、称谓、任教班级（年级+班级多选）。底部按钮文案为「提交」。',a:[['提交','atSubmit()'],['返回教师管理',"go('sc-tchmgr')"]]},
+ 'sc-tchpend':{t:'教师待审核',d:'教师管理页点击「待审核」进入。三个页签：待审核、已拒绝、已通过。搜索框在统计行上方。列表按职务分组（同教师管理页结构），职务行和教师行均有勾选框可多选联动。教师条目姓名后显示性别icon+审核状态标识，右侧「详情」按钮跳转教师审核页。姓名下方显示时间（待审核=提交时间，已拒绝=拒绝时间，已通过=通过时间）。待审核列表底部显示全选+批量通过/拒绝操作栏；已拒绝、已通过列表仅展示。拒绝操作弹出拒绝理由弹框（非必填）。',a:[['切到已拒绝',"document.querySelector('#tp-tabs .fchip[data-tpt=reject]').click()"],['切到已通过',"document.querySelector('#tp-tabs .fchip[data-tpt=pass]').click()"],['批量通过','tpApprove()'],['查看教师审核详情（陈静怡）',"tpDetail('陈静怡')"],['返回教师管理',"go('sc-tchmgr')"]]},
+ 'sc-tchaudit':{t:'教师审核/详情',d:'待审核页点击教师条目「详情」进入。待审核状态下标题为「教师审核」，页面可编辑（同新增教师页+手机号只读），底部有拒绝和通过按钮。已拒绝/已通过状态下标题为「教师详情」，所有信息只读不可编辑，无底部按钮。拒绝操作弹出拒绝理由弹框（非必填）。',a:[['通过审核','tauditApprove()'],['拒绝审核（弹拒绝理由）','tauditReject()'],['返回待审核',"go('sc-tchpend')"]]},
  'sc-pending':{t:'注册审核中',d:'未命中白名单的申请状态页：展示申请信息与处理时效；审核期间教师再次扫码进入的是本页而非注册表单，避免重复提交；结果以消息通知。',a:[['前往管理端待确认列表',"location.href='admin.html#teacher'"],['返回登录页',"go('sc-login')"]]},
  'sc-msgs':{t:'消息（底部 Tab）',d:'底部三 Tab 之一。只放结果与通知类消息：审批结果同步、注册自动生效（管理员角色）等；可操作事项一律进待办，两者不重复。（超时升级提醒、降级模式启停两类消息随对应功能收敛到后续阶段，已隐藏）即时触达走微信服务通知（订阅消息），本页为历史记录，支持全部已读；未读数与 Tab 角标、「我的」入口红点联动。点击消息直达业务对象详情（单据/记录），纯通知类以半屏说明 + 行动按钮呈现，不设独立消息详情页。',a:[['全部标为已读','markAllRead()']]},
  'sc-expired':{t:'注册码已失效',d:'扫到过期 / 被作废注册码的落地页（对应注册流程图 B2N 节点）：注册码 24 小时有效、管理员可随时作废重生成，失效码不进注册表单，引导联系学校获取新码。与管理端「作废当前注册码」操作互为演示闭环。',a:[['模拟扫描新注册码',"go('sc-reg')"],['返回登录页',"go('sc-login')"]]},
@@ -2308,7 +2585,8 @@ const demoInfo={
  'sc-stumgr':{t:'学生管理',d:'首页宫格「学生管理」入口：统计栏（班级数/学生数/已录脸/未录脸/未激活）→ 操作按钮区（新增学生、待审核·角标3，白色背景贯通左对齐）→ 搜索栏（姓名搜索+筛选下拉，筛选项：全部/已录脸/未录脸/未激活）→ 层级列表（年级>班级>学生）。班级名不显示年级前缀。学生头像根据状态遮罩：未激活灰色遮罩"未激活"、未录脸橙色遮罩"未录脸"、其余正常展示。点击学生条目跳转学生详情页。',a:[['新增学生',"go('sc-addstu')"],['待审核',"go('sc-stuPend')"],['筛选未录脸',"smFilterPick('noface','未录脸')"],['筛选未激活',"smFilterPick('inactive','未激活')"],['搜索学生',"document.getElementById('sm-search').value='林';smSearch('林')"],['查看学生详情（林晓乐）',"sdShow('林晓乐')"],['返回首页',"go('sc-home')"]]},
  'sc-studetail':{t:'学生详情',d:'学生管理页点击学生条目进入。三部分信息：基本信息（头像、性别、姓名、出生年月日、年龄、班级）、详细信息（现住址）、家长信息（关系、家长姓名、家长手机号，支持多个家长，可拨打）。底部两个按钮：修改信息、更多操作（转班/离校/删除/取消）。',a:[['更多操作','sdMoreActions()'],['修改信息',"toast('演示：进入修改信息')"],['返回学生管理',"go('sc-stumgr')"]]},
  'sc-addstu':{t:'新增学生',d:'学生管理页点击「新增学生」进入。表单分两部分：学生信息（姓名*、性别、出生日期*、就读班级*、学生类型、学生学号）和第一联系人（家长称谓*、手机号*、绑定卡号）。可「添加更多家长」增加联系人。底部「保存」按钮提交后返回学生管理页。',a:[['保存返回',"smSaveStu()"],['添加更多家长','smAddContact()'],['选择班级','smClsSheet()'],['返回学生管理',"go('sc-stumgr')"]]},
- 'sc-stuPend':{t:'待审核',d:'学生管理页点击「待审核」进入。页签为「待审核」「已拒绝」（已移除「未通过」「刚毕业」「刚删除」）。待审核列表展示申请入校学生，支持全选/单选+批量通过/拒绝；拒绝后学生移入「已拒绝」列表。已拒绝列表仅展示记录，不显示操作栏。',a:[['切到已拒绝',"document.querySelector('#sp-tabs .fchip[data-spt=reject]').click()"],['批量通过','spApprove()'],['返回学生管理',"go('sc-stumgr')"]]},
+ 'sc-stuPend':{t:'待审核',d:'学生管理页点击「待审核」进入。三个页签：待审核、已拒绝、已通过。搜索框在统计行上方，支持按姓名搜索。列表按年级>班级>学生层级展开，年级行、班级行、学生行均有勾选框可多选联动（年级勾选联动该年级所有班级和学生，班级勾选联动该班所有学生）。学生条目姓名下显示提交时间，姓名后显示审核状态标识，右侧「详情」按钮跳转学生审核页。点击学生条目本身进行勾选不跳转，仅点击「详情」才跳转。待审核列表底部显示全选+批量通过/拒绝操作栏；已拒绝、已通过列表仅展示。拒绝操作弹出拒绝理由弹框（非必填，可直接确定提交）。',a:[['切到已拒绝',"document.querySelector('#sp-tabs .fchip[data-spt=reject]').click()"],['切到已通过',"document.querySelector('#sp-tabs .fchip[data-spt=pass]').click()"],['批量通过','spApprove()'],['查看学生审核详情（张小明）',"spDetail('张小明')"],['返回学生管理',"go('sc-stumgr')"]]},
+ 'sc-stuaudit':{t:'学生审核/详情',d:'待审核页点击学生条目「详情」进入。待审核状态下标题为「学生审核」，页面可编辑（同修改学生信息页），底部有拒绝和通过按钮。已拒绝/已通过状态下标题为「学生详情」，所有信息只读不可编辑，无修改头像按钮、无添加家长按钮、无底部拒绝/通过按钮。拒绝操作弹出拒绝理由弹框（非必填）。',a:[['通过审核','auditApprove()'],['拒绝审核（弹拒绝理由）','auditReject()'],['添加更多家长','auditAddContact()'],['返回待审核',"go('sc-stuPend')"]]},
 };
 function renderDemo(){
   const i=demoInfo[curScreen]||{t:curScreen,d:'',a:[]};
@@ -2492,42 +2770,327 @@ document.getElementById('dmf-mask').addEventListener('click',function(e){if(e.ta
 document.getElementById('dmd-mask').addEventListener('click',function(e){if(e.target.id==='dmd-mask')dmdCancel()});
 dmUpdateDate();
 dmRender();
-/* -------- 教师注册审核（管理员移动端） -------- */
-function taTab(el,k){
-  document.querySelectorAll('#ta-tabs .fchip').forEach(x=>x.classList.remove('on'));
-  el.classList.add('on');
-  document.getElementById('ta-pend').style.display=k==='pend'?'':'none';
-  document.getElementById('ta-done').style.display=k==='done'?'':'none';
+/* -------- 教师管理：数据 + 列表 + 搜索 + 筛选 -------- */
+const tmDuties=['校长','年段长(级组长)','班主任','任课老师'];
+const tmData=[
+  {n:'张明远',av:'张',gen:'',duty:'校长',cls:'全校',title:'校长',active:true},
+  {n:'李秀芳',av:'李',gen:'girl',duty:'年段长(级组长)',cls:'三年级',title:'李主任',active:true},
+  {n:'王建国',av:'王',gen:'',duty:'班主任',cls:'三(2)',title:'王老师',active:true},
+  {n:'赵雅琴',av:'赵',gen:'girl',duty:'班主任',cls:'三(1)',title:'赵老师',active:true},
+  {n:'陈志强',av:'陈',gen:'',duty:'任课老师',cls:'三(1)、三(2)',title:'陈老师',active:true},
+  {n:'刘芳',av:'刘',gen:'girl',duty:'任课老师',cls:'四(1)、四(2)',title:'刘老师',active:true},
+  {n:'孙鹏',av:'孙',gen:'',duty:'任课老师',cls:'三(1)',title:'孙老师',active:false},
+  {n:'周敏',av:'周',gen:'girl',duty:'年段长(级组长)',cls:'四年级',title:'周主任',active:true},
+  {n:'吴磊',av:'吴',gen:'',duty:'任课老师',cls:'五(1)、五(2)',title:'吴老师',active:true},
+  {n:'郑海涛',av:'郑',gen:'',duty:'班主任',cls:'四(1)',title:'郑老师',active:true},
+  {n:'黄丽',av:'黄',gen:'girl',duty:'班主任',cls:'五(1)',title:'黄老师',active:true},
+  {n:'杨梅',av:'杨',gen:'girl',duty:'任课老师',cls:'三(2)',title:'杨老师',active:true}
+];
+var tmFilter='all';
+var tmKeyword='';
+function tmFiltered(){
+  return tmData.filter(function(t){
+    if(tmKeyword&&t.n.indexOf(tmKeyword)<0)return false;
+    if(tmFilter==='inactive'&&!t.active)return true;
+    if(tmFilter==='inactive'&&t.active)return false;
+    return true;
+  });
 }
-var taN=2,tdI=0,tdNm='';
+function tmRender(){
+  var list=tmFiltered();
+  var h='';
+  if(!list.length){
+    h='<div class="sm-empty"><div class="ico" style="display:flex;align-items:center;justify-content:center"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#D5DAE4" stroke-width="1.2"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/></svg></div><div class="muted">未找到匹配的教师</div></div>';
+  }else{
+    tmDuties.forEach(function(d){
+      var stus=list.filter(function(t){return t.duty===d});
+      if(!stus.length)return;
+      h+='<div class="sm-grade">'+
+        '<div class="sm-grade-hd" onclick="smToggleGrade(this)"><span style="font-size:14px;font-weight:700">'+d+'</span>'+
+        '<span class="cnt">'+stus.length+' 人</span><span class="arr">▼</span></div>'+
+        '<div class="sm-grade-bd"><div class="sm-cls"><div class="sm-cls-bd">'+
+        stus.map(function(t){
+          var avMask=t.active?'':'<div class="mask inactive" style="position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;font-weight:600;background:rgba(120,128,140,.88)">未激活</div>';
+          return '<div class="stu" style="padding:10px 14px;cursor:pointer" onclick="tdShow(\''+t.n+'\')">'+
+            '<div class="sm-stu-av" style="position:relative"><div class="avatar adult'+(t.gen?' '+t.gen:'')+'">'+t.av+'</div>'+avMask+'</div>'+
+            '<div><div class="nm">'+t.n+'</div>'+(t.active?'':'<div class="muted" style="font-size:11px">未激活</div>')+'</div>'+
+            '<span class="muted" style="margin-left:auto">›</span></div>';
+        }).join('')+
+        '</div></div></div></div>';
+    });
+  }
+  document.getElementById('tm-list').innerHTML=h;
+}
+function tmSearch(v){tmKeyword=v.trim();tmRender()}
+function tmFilterSheet(){
+  var opts=[['all','全部'],['inactive','未激活']];
+  sheet('<h3>筛选</h3><div style="max-height:300px;overflow-y:auto;margin:2px 0 14px">'+
+    opts.map(function(o){return '<label style="display:flex;align-items:center;gap:10px;padding:12px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer" onclick="tmFilterPick(\''+o[0]+'\',\''+o[1]+'\')">'+o[1]+(tmFilter===o[0]?'<span style="margin-left:auto;color:var(--navy);font-size:16px">✓</span>':'<span class="arr" style="margin-left:auto">›</span>')+'</label>'}).join('')+'</div>');
+}
+function tmFilterPick(v,label){tmFilter=v;closeSheet();document.getElementById('tm-filter-btn').textContent=label;tmRender()}
+/* 教师详情（只读） */
+function tdShow(name){
+  var t=tmData.find(function(x){return x.n===name});
+  if(!t)return;
+  var h='<div class="card" style="text-align:center;margin-bottom:12px;padding:18px 0">'+
+    '<div class="avatar adult'+(t.gen?' '+t.gen:'')+'" style="width:70px;height:70px;font-size:26px;margin:0 auto">'+t.av+'</div>'+
+    '<div style="font-size:17px;font-weight:600;margin-top:8px">'+t.n+'</div>'+
+    '<div class="sd-gender" style="justify-content:center;margin-top:4px"><span class="ico '+(t.gen==='girl'?'female':'male')+'">'+(t.gen==='girl'?'♀':'♂')+'</span>'+(t.gen==='girl'?'女':'男')+'</div>'+
+    '</div>'+
+    '<div class="frm-sec">基本信息</div>'+
+    '<div class="card">'+
+    frmRow('学校','市实验一小')+
+    frmRow('教师姓名',t.n)+
+    frmRow('性别',t.gen==='girl'?'女':'男')+
+    frmRow('职务',t.duty)+
+    frmRow('称谓',t.title)+
+    frmRow('任教班级',t.cls)+
+    '</div>';
+  document.getElementById('td-content').innerHTML=h;
+  go('sc-tchdetail');
+}
+/* 新增教师 */
+var atDuty='',atSel=new Set(),atCur='三年级';
+function atGender(el){document.querySelectorAll('#at-gender .fchip').forEach(x=>x.classList.remove('on'));el.classList.add('on')}
+function atDutySheet(){
+  sheet('<h3>选择职务</h3><div style="max-height:300px;overflow-y:auto;margin:2px 0 14px">'+
+    tmDuties.map(function(d){return '<label style="display:flex;align-items:center;gap:10px;padding:12px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer" onclick="atDutyPick(\''+d+'\')">'+d+(atDuty===d?'<span style="margin-left:auto;color:var(--navy);font-size:16px">✓</span>':'<span class="arr" style="margin-left:auto">›</span>')+'</label>'}).join('')+'</div>');
+}
+function atDutyPick(d){atDuty=d;closeSheet();var t=document.getElementById('at-duty-txt');t.textContent=d;t.style.color='var(--ink)'}
+function atOpenCls(){
+  sheet('<h3>选择任教班级</h3>'+
+   '<div class="desc" style="margin-bottom:8px">先点左侧年级，再选班级；可跨年级多选</div>'+
+   '<div id="at-sel" class="fchips" style="margin-bottom:8px;gap:6px"></div>'+
+   '<div style="display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:300px;flex-shrink:0">'+
+   '<div id="at-grades" style="width:88px;background:#EFF3F9;overflow-y:auto;flex-shrink:0"></div>'+
+   '<div style="flex:1;padding:10px 10px 6px;overflow-y:auto"><div class="fchips" id="at-cls" style="gap:7px"></div></div></div>'+
+   '<button class="btn pri blk" style="margin-top:12px;padding:11px" onclick="closeSheet()">完成</button>');
+  atRender();
+}
+function atField(){
+  var t=document.getElementById('at-cls-txt');
+  if(atSel.size){t.textContent=[...atSel].join('、');t.style.color='var(--ink)'}
+  else{t.textContent='请选择任教班级';t.style.color='var(--ink-3)'}
+}
+function atRender(){
+  atField();
+  var gEl=document.getElementById('at-grades');
+  if(!gEl)return;
+  gEl.innerHTML=Object.keys(regGrades).map(function(g){
+    var n=[...atSel].filter(function(k){return k[0]===g[0]}).length;
+    return '<button onclick="atCur=\''+g+'\';atRender()" style="display:block;width:100%;text-align:left;padding:11px 12px;font-size:12.5px;'+(g===atCur?'background:#fff;color:var(--navy);font-weight:600;border-left:3px solid var(--navy);':'color:var(--ink-2);border-left:3px solid transparent;')+'">'+g+(n?' <span style="font-size:10.5px;color:var(--navy)">·'+n+'</span>':'')+'</button>';
+  }).join('');
+  var n=regGrades[atCur],h='';
+  for(var i=1;i<=n;i++){var k=atCur[0]+'('+i+')';h+='<button class="fchip'+(atSel.has(k)?' on':'')+'" onclick="atToggle(\''+k+'\')">'+k+'</button>'}
+  document.getElementById('at-cls').innerHTML=h;
+  document.getElementById('at-sel').innerHTML=atSel.size?
+    [...atSel].map(function(k){return '<span class="chip navy plain" style="font-size:11.5px;padding:4px 10px;cursor:pointer" onclick="atToggle(\''+k+'\')">'+k+' ✕</span>'}).join(''):
+    '<span class="muted">尚未选择 · 先点左侧年级，再选班级</span>';
+}
+function atToggle(k){atSel.has(k)?atSel.delete(k):atSel.add(k);atRender()}
+function atSubmit(){
+  var nm=document.getElementById('at-name').value.trim();
+  var g=document.querySelector('#at-gender .fchip.on');
+  var cls=[...atSel];
+  if(!nm){toast('请输入教师姓名');return}
+  if(!g){toast('请选择性别');return}
+  if(!atDuty){toast('请选择职务');return}
+  if(!cls.length){toast('请至少选择一个任教班级');return}
+  toast('已提交，教师信息已保存');
+  setTimeout(function(){go('sc-tchmgr');toast('新增教师：'+nm+'（'+atDuty+'）已添加')},800);
+}
+/* -------- 教师待审核：三tab + 职务列表 + 多选 + 底部操作 -------- */
+const tpData={
+  pend:[
+    {n:'陈静怡',av:'陈',gen:'girl',duty:'班主任',cls:'三(1)、三(3)',phone:'139****5521',time:'今天 10:12',ck:false},
+    {n:'李强',av:'李',gen:'',duty:'任课老师',cls:'三(1)、三(2)、四(1)',phone:'137****0032',time:'今天 09:47',ck:false}
+  ],
+  reject:[
+    {n:'郑海涛',av:'郑',gen:'',duty:'班主任',cls:'五(1)',phone:'135****7712',time:'7月2日 11:05',reason:'核实非本校教师',ck:false}
+  ],
+  pass:[
+    {n:'周敏',av:'周',gen:'girl',duty:'年段长(级组长)',cls:'四(1)、四(2)',phone:'133****4409',time:'7月6日 08:40',ck:false},
+    {n:'刘老师',av:'刘',gen:'girl',duty:'任课老师',cls:'五(1)、五(2)',phone:'136****8874',time:'7月1日 08:12',ck:false}
+  ]
+};
+var tpCur='pend';
+var tpKeyword='';
+var tpAuditName='';
+var tpReadOnly=false;
+var tpDuty='',tpSel=new Set(),tpCurG='三年级';
+function tpTab(el,k){
+  tpCur=k;tpKeyword='';
+  var si=document.getElementById('tp-search');if(si)si.value='';
+  document.querySelectorAll('#tp-tabs .fchip').forEach(function(x){x.classList.remove('on')});
+  el.classList.add('on');
+  tpRender();
+}
+function tpStatusLabel(k){return k==='pend'?'待审核':k==='reject'?'已拒绝':'已通过'}
+function tpStatusClass(k){return k==='pend'?'amber':k==='reject'?'gray':'teal'}
+function tpFilteredList(){return tpData[tpCur].filter(function(t){return !tpKeyword||t.n.indexOf(tpKeyword)>-1})}
+function tpDutyAllOn(d,list){return list.filter(function(t){return t.duty===d}).every(function(t){return t.ck})}
+function tpRender(){
+  var list=tpFilteredList();
+  var h='';
+  if(!list.length){
+    h='<div class="sm-empty"><div class="ico" style="display:flex;align-items:center;justify-content:center"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#D5DAE4" stroke-width="1.2"><circle cx="9.5" cy="8" r="3.4"/><path d="M4 19.5c.6-3.1 2.9-4.8 5.5-4.8 1.1 0 2.2.3 3.1.9"/></svg></div><div class="muted">暂无相关记录</div></div>';
+  }else{
+    h='<input type="text" id="tp-search" placeholder="输入姓名搜索" style="border-radius:20px;margin-bottom:10px" value="'+tpKeyword+'" oninput="tpSearch(this.value)">';
+    h+='<div class="muted" style="padding:2px 2px 10px">申请入校: '+list.length+'人</div>';
+    tmDuties.forEach(function(d){
+      var stus=list.filter(function(t){return t.duty===d});
+      if(!stus.length)return;
+      var dAllOn=stus.every(function(t){return t.ck});
+      h+='<div class="sm-grade">'+
+        '<div class="sm-grade-hd" style="gap:10px"><div class="ck'+(dAllOn?' on':'')+'" onclick="event.stopPropagation();tpCkDuty(\''+d+'\')"></div><span style="font-size:14px;font-weight:700;flex:1" onclick="smToggleGrade(this.parentElement)">'+d+'</span>'+
+        '<span class="cnt">'+stus.length+' 人</span><span class="arr" onclick="smToggleGrade(this.parentElement)">▼</span></div>'+
+        '<div class="sm-grade-bd"><div class="sm-cls"><div class="sm-cls-bd">'+
+        stus.map(function(t){return tpStuRow(t)}).join('')+
+        '</div></div></div></div>';
+    });
+  }
+  document.getElementById('tp-main').innerHTML=h;
+  tpUpdateCnt();
+  document.getElementById('tp-foot').style.display=tpCur==='pend'?'flex':'none';
+}
+function tpStuRow(t){
+  var statLbl=tpStatusLabel(tpCur);
+  var statCls=tpStatusClass(tpCur);
+  var genIco='<span class="ico '+(t.gen==='girl'?'female':'male')+'" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:'+(t.gen==='girl'?'#F06292':'#4A90D9')+';color:#fff;font-size:10px;vertical-align:middle;margin:0 2px">'+(t.gen==='girl'?'♀':'♂')+'</span>';
+  return '<div class="stu" style="padding:10px 14px 10px 22px;cursor:pointer" onclick="tpCkStu(\''+t.n+'\')">'+
+    '<div class="ck'+(t.ck?' on':'')+'" onclick="event.stopPropagation();tpCkStu(\''+t.n+'\')" style="flex-shrink:0"></div>'+
+    '<div class="avatar adult'+(t.gen?' '+t.gen:'')+'">'+t.av+'</div>'+
+    '<div style="flex:1;min-width:0"><div class="nm">'+t.n+genIco+'<span class="chip '+statCls+' plain" style="font-size:10px;padding:1px 6px;vertical-align:middle">'+statLbl+'</span></div><div class="sub">'+t.time+'</div></div>'+
+    '<span class="muted" style="margin-left:auto;font-size:12px;white-space:nowrap;flex-shrink:0;padding:4px 0 4px 8px" onclick="event.stopPropagation();tpDetail(\''+t.n+'\')">详情 ›</span></div>';
+}
+function tpSearch(v){tpKeyword=v.trim();tpRender()}
+function tpCkStu(name){var t=tpData[tpCur].find(function(x){return x.n===name});if(t)t.ck=!t.ck;tpRender()}
+function tpCkDuty(d){var list=tpFilteredList();var stus=list.filter(function(t){return t.duty===d});var allOn=stus.every(function(t){return t.ck});stus.forEach(function(t){t.ck=!allOn});tpRender()}
+function tpAll(el){var list=tpFilteredList();var allOn=list.every(function(t){return t.ck});list.forEach(function(t){t.ck=!allOn});tpRender()}
+function tpUpdateCnt(){
+  var k=tpData[tpCur].filter(function(t){return t.ck}).length;
+  var total=tpFilteredList().length;
+  document.getElementById('tp-cnt').textContent='全选 · 已选 '+k+' 人';
+  document.getElementById('tp-all').classList.toggle('on',k>0&&k===total);
+  document.getElementById('tp-approve').disabled=k===0;
+  document.getElementById('tp-reject').disabled=k===0;
+  document.getElementById('tp-approve').style.opacity=k===0?0.5:1;
+  document.getElementById('tp-reject').style.opacity=k===0?0.5:1;
+}
+function tpApprove(){
+  var picked=tpData.pend.filter(function(t){return t.ck});
+  if(!picked.length)return;
+  tpData.pend=tpData.pend.filter(function(t){return !t.ck});
+  picked.forEach(function(t){t.ck=false;t.time='刚刚';tpData.pass.push(t)});
+  toast('已通过 '+picked.length+' 人审核，教师信息已生效');
+  tpRender();
+}
+/* 拒绝理由弹框（非必填） */
+var tpRejectCallback=null;
+function tpRejectSheet(cb){
+  tpRejectCallback=cb;
+  sheet('<h3>拒绝理由</h3>'+
+    '<div class="desc" style="margin-bottom:8px">填写拒绝理由（非必填，可直接确定）</div>'+
+    '<textarea id="tp-reason" placeholder="请输入拒绝理由（选填）" style="width:100%;min-height:80px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;font-family:inherit;resize:none;outline:none;margin-bottom:12px"></textarea>'+
+    '<div style="display:flex;gap:10px"><button class="btn ghost blk" style="padding:10px" onclick="closeSheet()">取消</button><button class="btn pri blk" style="padding:10px" onclick="tpRejectConfirm()">确定</button></div>');
+}
+function tpRejectConfirm(){
+  var reason=document.getElementById('tp-reason').value.trim();
+  closeSheet();
+  if(tpRejectCallback){tpRejectCallback(reason);tpRejectCallback=null}
+}
+function tpRejectBatch(){
+  var picked=tpData.pend.filter(function(t){return t.ck});
+  if(!picked.length)return;
+  tpRejectSheet(function(reason){
+    tpData.pend=tpData.pend.filter(function(t){return !t.ck});
+    picked.forEach(function(t){t.ck=false;t.reason=reason||'未填写';t.time='刚刚';tpData.reject.push(t)});
+    toast('已拒绝 '+picked.length+' 人，已移入「已拒绝」列表');
+    tpRender();
+  });
+}
+/* 教师审核页 */
+function tpDetail(name){
+  tpAuditName=name;
+  tpReadOnly=tpCur!=='pend';
+  var t=tpData[tpCur].find(function(x){return x.n===name});
+  if(!t)return;
+  document.getElementById('taudit-title').textContent=tpReadOnly?'教师详情':'教师审核';
+  document.getElementById('taudit-name').value=t.n;
+  document.getElementById('taudit-name').readOnly=tpReadOnly;
+  document.getElementById('taudit-name').style.background=tpReadOnly?'#F0F2F6':'';
+  var genders=document.querySelectorAll('#taudit-gender .fchip');
+  genders.forEach(function(l){l.classList.remove('on');l.style.pointerEvents=tpReadOnly?'none':'';l.style.opacity=tpReadOnly?'0.6':''});
+  if(t.gen==='girl')genders[1].classList.add('on');else genders[0].classList.add('on');
+  tpDuty=t.duty;
+  document.getElementById('taudit-duty-txt').textContent=t.duty;
+  document.getElementById('taudit-duty-txt').style.color='var(--ink)';
+  document.getElementById('taudit-duty-pick').style.pointerEvents=tpReadOnly?'none':'';
+  document.getElementById('taudit-title').value=t.duty==='校长'?'校长':t.duty==='年段长(级组长)'?'主任':t.duty==='班主任'?'老师':'老师';
+  document.getElementById('taudit-title').readOnly=tpReadOnly;
+  document.getElementById('taudit-title').style.background=tpReadOnly?'#F0F2F6':'';
+  tpSel.clear();t.cls.split('、').forEach(function(c){tpSel.add(c)});
+  document.getElementById('taudit-cls-txt').textContent=t.cls;
+  document.getElementById('taudit-cls-txt').style.color='var(--ink)';
+  document.getElementById('taudit-cls-pick').style.pointerEvents=tpReadOnly?'none':'';
+  document.getElementById('taudit-phone').value=t.phone;
+  document.getElementById('taudit-foot').style.display=tpReadOnly?'none':'flex';
+  go('sc-tchaudit');
+}
+function tauditGender(el){document.querySelectorAll('#taudit-gender .fchip').forEach(x=>x.classList.remove('on'));el.classList.add('on')}
+function tauditDutySheet(){
+  sheet('<h3>选择职务</h3><div style="max-height:300px;overflow-y:auto;margin:2px 0 14px">'+
+    tmDuties.map(function(d){return '<label style="display:flex;align-items:center;gap:10px;padding:12px 2px;border-bottom:1px solid #F0F2F6;font-size:14px;cursor:pointer" onclick="tauditDutyPick(\''+d+'\')">'+d+(tpDuty===d?'<span style="margin-left:auto;color:var(--navy);font-size:16px">✓</span>':'<span class="arr" style="margin-left:auto">›</span>')+'</label>'}).join('')+'</div>');
+}
+function tauditDutyPick(d){tpDuty=d;closeSheet();var t=document.getElementById('taudit-duty-txt');t.textContent=d;t.style.color='var(--ink)'}
+function tauditOpenCls(){
+  sheet('<h3>选择任教班级</h3>'+
+   '<div class="desc" style="margin-bottom:8px">先点左侧年级，再选班级；可跨年级多选</div>'+
+   '<div id="tp-sel" class="fchips" style="margin-bottom:8px;gap:6px"></div>'+
+   '<div style="display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:300px;flex-shrink:0">'+
+   '<div id="tp-grades" style="width:88px;background:#EFF3F9;overflow-y:auto;flex-shrink:0"></div>'+
+   '<div style="flex:1;padding:10px 10px 6px;overflow-y:auto"><div class="fchips" id="tp-cls" style="gap:7px"></div></div></div>'+
+   '<button class="btn pri blk" style="margin-top:12px;padding:11px" onclick="closeSheet()">完成</button>');
+  tauditRender();
+}
+function tauditRender(){
+  var t=document.getElementById('taudit-cls-txt');
+  if(tpSel.size){t.textContent=[...tpSel].join('、');t.style.color='var(--ink)'}
+  var gEl=document.getElementById('tp-grades');
+  if(!gEl)return;
+  gEl.innerHTML=Object.keys(regGrades).map(function(g){
+    var n=[...tpSel].filter(function(k){return k[0]===g[0]}).length;
+    return '<button onclick="tpCurG=\''+g+'\';tauditRender()" style="display:block;width:100%;text-align:left;padding:11px 12px;font-size:12.5px;'+(g===tpCurG?'background:#fff;color:var(--navy);font-weight:600;border-left:3px solid var(--navy);':'color:var(--ink-2);border-left:3px solid transparent;')+'">'+g+(n?' <span style="font-size:10.5px;color:var(--navy)">·'+n+'</span>':'')+'</button>';
+  }).join('');
+  var n=regGrades[tpCurG],h='';
+  for(var i=1;i<=n;i++){var k=tpCurG[0]+'('+i+')';h+='<button class="fchip'+(tpSel.has(k)?' on':'')+'" onclick="tauditToggle(\''+k+'\')">'+k+'</button>'}
+  document.getElementById('tp-cls').innerHTML=h;
+  document.getElementById('tp-sel').innerHTML=tpSel.size?
+    [...tpSel].map(function(k){return '<span class="chip navy plain" style="font-size:11.5px;padding:4px 10px;cursor:pointer" onclick="tauditToggle(\''+k+'\')">'+k+' ✕</span>'}).join(''):
+    '<span class="muted">尚未选择 · 先点左侧年级，再选班级</span>';
+}
+function tauditToggle(k){tpSel.has(k)?tpSel.delete(k):tpSel.add(k);tauditRender()}
+function tauditApprove(){
+  var t=tpData[tpCur].find(function(x){return x.n===tpAuditName});
+  if(t){var idx=tpData[tpCur].indexOf(t);tpData[tpCur].splice(idx,1);t.ck=false;t.time='刚刚';tpData.pass.push(t)}
+  toast('已通过：'+tpAuditName+' 审核通过，教师信息已生效');
+  setTimeout(function(){go('sc-tchpend');tpRender()},800);
+}
+function tauditReject(){
+  tpRejectSheet(function(reason){
+    var t=tpData[tpCur].find(function(x){return x.n===tpAuditName});
+    if(t){var idx=tpData[tpCur].indexOf(t);tpData[tpCur].splice(idx,1);t.ck=false;t.reason=reason||'未填写';t.time='刚刚';tpData.reject.push(t)}
+    toast('已拒绝：'+tpAuditName+'，已移入「已拒绝」列表');
+    setTimeout(function(){go('sc-tchpend');tpRender()},800);
+  });
+}
+/* 角标更新 */
+var taN=2;
 function taBadge(){
-  /* 「我的」宫格角标只显示数字、清空即隐藏；首页待办条目仍显示完整文案 */
   const b=document.getElementById('ta-badge');
   if(b){b.textContent=taN;b.style.display=taN?'':'none'}
   const e=document.getElementById('ta-badge2');
   if(e){e.textContent=taN>0?taN+' 条待审':'已清空';if(!taN)e.className=e.className.replace('amber','gray')}
-}
-function tAudit(i,nm,pass){
-  if(!pass){/* 拒绝必须填写原因：通知本人 + 写入审计 */
-    tdI=i;tdNm=nm;
-    sheet(`<h3>拒绝 `+nm+` 的注册申请</h3>
-     <div class="desc">拒绝原因为<b>必填</b>：将随消息通知本人（便于其修正后重新提交），并写入审计记录。</div>
-     <textarea rows="2" id="ta-reason" placeholder="如：核实非本校教师 / 信息与名册不符 / 班级认领有误"></textarea>
-     <button class="btn red blk" style="margin-top:12px" onclick="tDenyDo()">确认拒绝</button>
-     <button class="btn ghost blk" style="margin-top:9px" onclick="closeSheet()">取消</button>`);
-    return;
-  }
-  document.getElementById('ta-a'+i).innerHTML='<span class="chip teal">已通过 · 即时生效</span><span class="muted" style="margin-left:6px">审核：王老师 · 刚刚</span>';
-  taN--;taBadge();
-  toast('已通过 '+nm+' 的注册申请：即时生效并写入审计（如误通过可随时停用该账号）');
-}
-function tDenyDo(){
-  const rs=document.getElementById('ta-reason').value.trim();
-  if(!rs){toast('请填写拒绝原因');return}
-  closeSheet();
-  document.getElementById('ta-a'+tdI).innerHTML='<span class="chip gray">已拒绝</span><span class="muted" style="margin-left:6px">原因：'+rs+' · 审核：王老师 · 刚刚</span>';
-  taN--;taBadge();
-  toast('已拒绝 '+tdNm+' 的注册申请：原因已通知本人并写入审计，可修正后重新提交');
 }
 /* -------- 注册/登录（演示） -------- */
 function wxLogin(){toast('已通过微信授权获取手机号 138****2233（演示）');setTimeout(()=>go('sc-auth'),700)}
@@ -2658,7 +3221,20 @@ const attSchool=[
   {n:'六年级(2)班',t:50,d:[0,2,0,1],y:[0,1,1,0],m:[2,1,1,1]},
   {n:'六年级(3)班',t:51,d:[1,0,0,0],y:[1,0,0,0],m:[4,0,0,0]}]}
 ];
-const attMine=[['三年级(2)班','班主任 · 数学'],['三年级(1)班','科任 · 数学']];
+const attMine=[
+  ['一年级(1)班','科任 · 数学'],
+  ['一年级(3)班','科任 · 数学'],
+  ['二年级(2)班','科任 · 数学'],
+  ['二年级(4)班','科任 · 数学'],
+  ['三年级(2)班','班主任 · 数学'],
+  ['三年级(1)班','科任 · 数学'],
+  ['四年级(1)班','科任 · 数学'],
+  ['四年级(3)班','科任 · 数学'],
+  ['五年级(1)班','科任 · 数学'],
+  ['五年级(3)班','科任 · 数学'],
+  ['六年级(2)班','科任 · 数学'],
+  ['六年级(3)班','科任 · 数学']
+];
 const attSt={role:'teacher',period:'day',day:0,scope:'grade'};
 /* 周视图数据：本周 5 个上学日累计人次，由月度（3 天）数据按 5/3 比例推算（演示） */
 function attWeekData(c){return c.m.map(function(v){return Math.round(v*5/3)})}
@@ -2705,7 +3281,7 @@ function renderAtt(){
     attSt.period==='week'?(attSt.day===0?'本周 7月6日–10日':'上周 6月29日–7月3日'):
     (attSt.day===0?'今天 7月6日':'7月3日 周五');
   const p1=top.in/top.base*100,p2=p1+top.leave/top.base*100;
-  let h='<div class="card"><div class="att-sec">任教班级合计</div>'+
+  let h='<div class="card"><div class="att-sec">班级合计</div>'+
     '<div style="display:flex;align-items:center;gap:16px">'+
     '<div style="flex:1">'+
     '<div class="alg" style="padding-bottom:5px">'+(attSt.period==='day'?'总人数':'应出勤')+'<b style="font-size:17px;color:var(--teal)">'+top.base+' '+unit+'</b></div>'+
@@ -2718,8 +3294,29 @@ function renderAtt(){
   h+='<button class="card" style="width:100%;display:flex;align-items:center;justify-content:center;gap:7px;color:var(--navy);font-size:14px;font-weight:600" onclick="toast(\'演示：唤起时段选择器，可查询任意时段的出入校通行记录\')">'+
     '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>查询时段出入校</button>';
   */
-  h+='<div class="section-t">任教班级</div>';
-  attMine.forEach(x=>{const c=allCls.find(v=>v.n===x[0]);h+=attCard(x[0],c.t,attSum([c]),attDrill(x[0]))});
+  h+='<div class="section-t">年级班级</div>';
+  /* 按年级分组渲染任教班级，年级为一级目录，班级名去掉年级前缀 */
+  var mineByGrade={};
+  attMine.forEach(function(x){
+    var c=allCls.find(function(v){return v.n===x[0]});
+    if(!c)return;
+    var grade=c.n.match(/^(.+?)\(/)[1];
+    var shortName=c.n.replace(grade,'');
+    if(!mineByGrade[grade])mineByGrade[grade]=[];
+    mineByGrade[grade].push({full:c.n,short:shortName,role:x[1],c:c});
+  });
+  Object.keys(mineByGrade).forEach(function(gName){
+    var items=mineByGrade[gName];
+    var gSum=attSum(items.map(function(x){return x.c}));
+    h+='<div class="sm-grade">'+
+      '<div class="sm-grade-hd" onclick="smToggleGrade(this)"><span style="font-size:14px;font-weight:700">'+gName+'</span>'+
+      '<span class="cnt">'+items.length+' 个班 · '+gSum.base+'人</span><span class="arr">▼</span></div>'+
+      '<div class="sm-grade-bd"><div class="sm-cls"><div class="sm-cls-bd">';
+    items.forEach(function(x){
+      h+=attCard(x.short,x.c.t,attSum([x.c]),attDrill(x.full));
+    });
+    h+='</div></div></div></div>';
+  });
   h+='<div class="muted" style="text-align:center;padding:2px 0 10px">'+
     (attSt.period==='month'?'月度统计为本月上学日累计（7月1–3日），周末与节假日不计入':
      attSt.period==='week'?(attSt.day===0?'周度统计为本周上学日累计，周末与节假日不计入':'上周数据已定格，补请假通过后自动更新'):
@@ -2752,34 +3349,110 @@ function attRole(r){
 renderAtt();
 /* -------- 考勤明细：上学/放学维度列表 + 日期/班级/状态筛选 -------- */
 const attcStMap={
-  signed:{lab:'已签到',chip:'teal'},nosign:{lab:'未签到',chip:'gray'},abs:{lab:'缺勤',chip:'red'},
+  signed:{lab:'正常到校',chip:'teal'},nosign:{lab:'未签到',chip:'gray'},abs:{lab:'缺勤',chip:'red'},
   leave:{lab:'请假',chip:'navy'},late:{lab:'迟到',chip:'amber'},
   nosignout:{lab:'未签退',chip:'gray'},signedout:{lab:'已签退',chip:'teal'},early:{lab:'早退',chip:'amber'}
 };
-const attcStudents=[
-  {n:'林晓乐',av:'乐',gen:'',amSt:'signed',amSub:'考勤时间 07:42',pmSt:'nosignout',pmSub:'放学时段待签退'},
-  {n:'王一彤',av:'彤',gen:'girl',amSt:'signed',amSub:'考勤时间 07:45',pmSt:'nosignout',pmSub:'放学时段待签退'},
-  {n:'赵梓涵',av:'涵',gen:'',amSt:'signed',amSub:'考勤时间 07:51',pmSt:'nosignout',pmSub:'放学时段待签退'},
-  {n:'陈诗诺',av:'诺',gen:'girl',amSt:'signed',amSub:'考勤时间 07:39',pmSt:'nosignout',pmSub:'放学时段待签退'},
-  {n:'陈子昂',av:'昂',gen:'',amSt:'signed',amSub:'考勤时间 07:48',pmSt:'nosignout',pmSub:'放学时段待签退'},
-  {n:'杨梓冉',av:'冉',gen:'girl',amSt:'late',amSub:'考勤时间 08:12',pmSt:'nosignout',pmSub:'放学时段待签退'},
-  {n:'黄俊泽',av:'泽',gen:'',amSt:'signed',amSub:'考勤时间 07:58',pmSt:'nosignout',pmSub:'放学时段待签退'},
-  {n:'郑皓宸',av:'宸',gen:'',amSt:'leave',amSub:'病假 · 7月6日全天 · 已通过',pmSt:null,pmSub:''},
-  {n:'周雨桐',av:'桐',gen:'girl',amSt:'abs',amSub:'截至 08:00 未考勤打卡',pmSt:null,pmSub:''},
-  {n:'李沐宸',av:'宸',gen:'',amSt:'nosign',amSub:'截至 08:00 未考勤打卡',pmSt:null,pmSub:''}
+/* 按班级动态生成学生数据，覆盖全校一至六年级，切换班级展示不同学生 */
+const attcNamePool=[
+  '林晓乐','王一彤','赵梓涵','陈诗诺','陈子昂','杨梓冉','黄俊泽','郑皓宸','周雨桐','李沐宸',
+  '沈亦辰','高子墨','宋佳怡','何雨泽','罗一诺','唐子萱','许景行','刘子轩','孙嘉懿','朱梓萱',
+  '马浩然','胡艺涵','郭明轩','林芷若','何子墨','高欣怡','黄思源','周梦琪','徐子健','顾梓涵',
+  '马若汐','胡晨阳','郭雨桐','林浩宇','何雨萱','高雅琪','黄一鸣','周子涵','徐若曦','顾明轩',
+  '谢雨彤','韩子墨','冯梓萱','邓浩然','曹雨涵','彭子轩','蒋欣怡','袁一诺','于浩宇','董梓涵',
+  '萧雨桐','田子墨','董欣怡','袁梦琪','冯一鸣','韩梓萱','谢浩然','曹子涵','彭雨桐','蒋一诺'
 ];
+function attcGenStudents(clsName){
+  /* 三年级(2)班保留原始演示学生，保证签到详情页等联动正常 */
+  if(clsName==='三年级(2)班'){
+    return [
+      {n:'林晓乐',av:'乐',gen:'',amSt:'signed',amSub:'考勤时间 07:42',amOutSt:'signedout',amOutSub:'签退时间 11:46',pmInSt:'signed',pmInSub:'考勤时间 13:35',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:'signed',eveInSub:'考勤时间 18:32',eveOutSt:'signedout',eveOutSub:'签退时间 20:35'},
+      {n:'王一彤',av:'彤',gen:'girl',amSt:'signed',amSub:'考勤时间 07:45',amOutSt:'signedout',amOutSub:'签退时间 11:48',pmInSt:'signed',pmInSub:'考勤时间 13:32',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:null,eveInSub:'',eveOutSt:null,eveOutSub:''},
+      {n:'赵梓涵',av:'涵',gen:'',amSt:'signed',amSub:'考勤时间 07:51',amOutSt:'signedout',amOutSub:'签退时间 11:45',pmInSt:'signed',pmInSub:'考勤时间 13:38',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:'signed',eveInSub:'考勤时间 18:28',eveOutSt:'signedout',eveOutSub:'签退时间 20:40'},
+      {n:'陈诗诺',av:'诺',gen:'girl',amSt:'signed',amSub:'考勤时间 07:39',amOutSt:'signedout',amOutSub:'签退时间 11:50',pmInSt:'signed',pmInSub:'考勤时间 13:30',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:null,eveInSub:'',eveOutSt:null,eveOutSub:''},
+      {n:'陈子昂',av:'昂',gen:'',amSt:'signed',amSub:'考勤时间 07:48',amOutSt:'signedout',amOutSub:'签退时间 11:44',pmInSt:'signed',pmInSub:'考勤时间 13:36',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:'signed',eveInSub:'考勤时间 18:35',eveOutSt:'nosignout',eveOutSub:'放学时段待签退'},
+      {n:'杨梓冉',av:'冉',gen:'girl',amSt:'late',amSub:'考勤时间 08:12',amOutSt:'signedout',amOutSub:'签退时间 11:52',pmInSt:'signed',pmInSub:'考勤时间 13:40',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:null,eveInSub:'',eveOutSt:null,eveOutSub:''},
+      {n:'黄俊泽',av:'泽',gen:'',amSt:'signed',amSub:'考勤时间 07:58',amOutSt:'early',amOutSub:'签退时间 11:20（早退）',pmInSt:'signed',pmInSub:'考勤时间 13:34',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:'late',eveInSub:'考勤时间 18:45',eveOutSt:'signedout',eveOutSub:'签退时间 20:38'},
+      {n:'郑皓宸',av:'宸',gen:'',amSt:'leave',amSub:'病假 · 7月6日全天 · 已通过',amOutSt:null,amOutSub:'',pmInSt:null,pmInSub:'',pmSt:null,pmSub:'',eveInSt:null,eveInSub:'',eveOutSt:null,eveOutSub:''},
+      {n:'周雨桐',av:'桐',gen:'girl',amSt:'abs',amSub:'截至 08:00 未考勤打卡',amOutSt:null,amOutSub:'',pmInSt:null,pmInSub:'',pmSt:null,pmSub:'',eveInSt:null,eveInSub:'',eveOutSt:null,eveOutSub:''},
+      {n:'李沐宸',av:'宸',gen:'',amSt:'nosign',amSub:'截至 08:00 未考勤打卡',amOutSt:'nosignout',amOutSub:'上午未签到，放学无记录',pmInSt:'nosign',pmInSub:'截至 14:00 未考勤打卡',pmSt:'nosignout',pmSub:'放学时段待签退',eveInSt:null,eveInSub:'',eveOutSt:null,eveOutSub:''}
+    ];
+  }
+  /* 根据班级名生成确定性学生列表（同一班级每次生成相同数据） */
+  var seed=0;
+  for(var i=0;i<clsName.length;i++)seed+=clsName.charCodeAt(i);
+  var count=30+seed%12; /* 每班 30-41 人 */
+  var pool=attcNamePool.slice();
+  var offset=seed%attcNamePool.length;
+  var students=[];
+  var timeBase=7*60+35; /* 07:35 起 */
+  for(var j=0;j<count;j++){
+    var name=pool[(offset+j)%pool.length];
+    var av=name[name.length-1];
+    var gen=j%3===0?'girl':'';
+    var r=(seed*7+j*13)%100;
+    var amSt,amSub,amOutSt,amOutSub,pmInSt,pmInSub,pmSt,pmSub,eveInSt,eveInSub,eveOutSt,eveOutSub;
+    if(r<70){ /* 70% 正常到校 */
+      var t=timeBase+j*2;
+      var hh=Math.floor(t/60),mm=t%60;
+      var tStr=(hh<10?'0':'')+hh+':'+(mm<10?'0':'')+mm;
+      amSt='signed';amSub='考勤时间 '+tStr;
+      /* 上午放学 */
+      var ot=timeBase+240+j;
+      var oh=Math.floor(ot/60),om=ot%60;
+      amOutSt='signedout';amOutSub='签退时间 '+(oh<10?'0':'')+oh+':'+(om<10?'0':'')+om;
+      /* 下午上学 */
+      var pt=timeBase+360+j;
+      var ph=Math.floor(pt/60),pm2=pt%60;
+      pmInSt='signed';pmInSub='考勤时间 '+(ph<10?'0':'')+ph+':'+(pm2<10?'0':'')+pm2;
+      pmSt='nosignout';pmSub='放学时段待签退';
+      /* 部分学生有晚自习 */
+      if(j%4===0){
+        var et=timeBase+660+j;
+        var eh=Math.floor(et/60),em=et%60;
+        eveInSt='signed';eveInSub='考勤时间 '+(eh<10?'0':'')+eh+':'+(em<10?'0':'')+em;
+        eveOutSt=j%8===0?'nosignout':'signedout';eveOutSub=eveOutSt==='nosignout'?'放学时段待签退':'签退时间 20:'+(30+j%30);
+      }else{eveInSt=null;eveInSub='';eveOutSt=null;eveOutSub=''}
+    }else if(r<78){
+      amSt='late';amSub='考勤时间 08:1'+(j%10);
+      amOutSt='signedout';amOutSub='签退时间 11:5'+(j%10);
+      pmInSt='signed';pmInSub='考勤时间 13:3'+(j%10);
+      pmSt='nosignout';pmSub='放学时段待签退';
+      eveInSt=null;eveInSub='';eveOutSt=null;eveOutSub='';
+    }else if(r<85){
+      amSt='leave';amSub='请假 · 7月6日 · 已通过';
+      amOutSt=null;amOutSub='';pmInSt=null;pmInSub='';pmSt=null;pmSub='';
+      eveInSt=null;eveInSub='';eveOutSt=null;eveOutSub='';
+    }else if(r<92){
+      amSt='abs';amSub='截至 08:00 未考勤打卡';
+      amOutSt=null;amOutSub='';pmInSt=null;pmInSub='';pmSt=null;pmSub='';
+      eveInSt=null;eveInSub='';eveOutSt=null;eveOutSub='';
+    }else{
+      amSt='nosign';amSub='截至 08:00 未考勤打卡';
+      amOutSt='nosignout';amOutSub='上午未签到，放学无记录';
+      pmInSt='nosign';pmInSub='截至 14:00 未考勤打卡';
+      pmSt='nosignout';pmSub='放学时段待签退';
+      eveInSt=null;eveInSub='';eveOutSt=null;eveOutSub='';
+    }
+    students.push({n:name,av:av,gen:gen,amSt:amSt,amSub:amSub,amOutSt:amOutSt,amOutSub:amOutSub,pmInSt:pmInSt,pmInSub:pmInSub,pmSt:pmSt,pmSub:pmSub,eveInSt:eveInSt,eveInSub:eveInSub,eveOutSt:eveOutSt,eveOutSub:eveOutSub});
+  }
+  return students;
+}
+var attcStudents=attcGenStudents(attcClsName);
 const attcArrSvg='<svg class="arr" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
-function attcRow(s,dim){
-  const st=dim==='am'?s.amSt:s.pmSt,sub=dim==='am'?s.amSub:s.pmSub,m=attcStMap[st];
+function attcRow(s,st,sub,dim){
+  if(!st)return '';
+  var m=attcStMap[st];
+  if(!m)return '';
   /* 未签到/未签退不加箭头，其余状态加跳转标识 */
-  const noArr=(st==='nosign'||st==='nosignout');
-  const chipHtml=noArr?'<span class="chip '+m.chip+'">'+m.lab+'</span>':'<span class="chip '+m.chip+'">'+m.lab+attcArrSvg+'</span>';
+  var noArr=(st==='nosign'||st==='nosignout');
+  var chipHtml=noArr?'<span class="chip '+m.chip+'">'+m.lab+'</span>':'<span class="chip '+m.chip+'">'+m.lab+attcArrSvg+'</span>';
   return '<div class="stu'+(noArr?'':' clickable')+'" data-name="'+s.n+'" data-st="'+st+'" data-dim="'+dim+'"><div class="avatar'+(s.gen?' '+s.gen:'')+'">'+s.av+'</div>'+
     '<div><div class="nm">'+s.n+'</div><div class="sub">'+sub+'</div></div>'+
     '<div class="st-grp">'+chipHtml+'</div></div>';
 }
-function attcGroup(label,action,signed,total,color,list,dim,collapsed){
-  const rows=list.map(s=>attcRow(s,dim)).join('');
+/* 时段内的上学/放学分组 */
+function attcSubGroup(label,action,signed,total,color,rows,dim,collapsed){
   return '<div class="attc-grp'+(collapsed?' collapsed':'')+'">'+
     '<div class="attc-grp-hd" onclick="attcToggle(this)">'+
     '<span class="bar" style="background:'+color+'"></span>'+
@@ -2788,35 +3461,83 @@ function attcGroup(label,action,signed,total,color,list,dim,collapsed){
     '<span class="arr">▼</span></div>'+
     '<div class="attc-grp-bd"><div style="padding:0 4px">'+rows+'</div></div></div>';
 }
+/* 时段容器（上午/下午/晚上），内部包含上学+放学两个分组 */
+function attcPeriod(periodLabel,subGroups){
+  return '<div style="margin-top:12px">'+
+    '<div style="display:flex;align-items:center;gap:8px;padding:8px 2px 6px">'+
+    '<span style="width:3px;height:14px;border-radius:2px;background:var(--navy)"></span>'+
+    '<span style="font-size:14px;font-weight:700;color:var(--ink)">'+periodLabel+'</span></div>'+
+    subGroups.join('')+'</div>';
+}
 function attcToggle(el){el.parentElement.classList.toggle('collapsed')}
 function renderAttc(){
-  const clsSel=document.getElementById('attc-cls');
-  if(clsSel)clsSel.value=attcClsName;
+  const clsTxt=document.getElementById('attc-cls-txt');
+  if(clsTxt)clsTxt.textContent=attcClsName;
+  /* 班级变更时重新生成该班学生数据 */
+  if(!attcStudents.length||attcStudents._cls!==attcClsName){
+    attcStudents=attcGenStudents(attcClsName);
+    attcStudents._cls=attcClsName;
+  }
   const f=document.getElementById('attc-st').value;
   const amFilters=['all','nosign','signed','abs','leave','late'];
   const pmFilters=['all','nosignout','signedout','early'];
-  const showAm=amFilters.indexOf(f)>-1;
-  const showPm=pmFilters.indexOf(f)>-1;
-  let amSigned=0,amTotal=0,pmSigned=0,pmTotal=0;
-  attcStudents.forEach(s=>{
-    amTotal++;if(s.amSt==='signed'||s.amSt==='late')amSigned++;
-    if(s.pmSt){pmTotal++;if(s.pmSt==='signedout')pmSigned++}
-  });
+  const showIn=amFilters.indexOf(f)>-1;  /* 上学类筛选 */
+  const showOut=pmFilters.indexOf(f)>-1; /* 放学类筛选 */
   let h='';
-  if(showAm){
-    const list=attcStudents.filter(s=>f==='all'||s.amSt===f);
-    h+=attcGroup('上学','签到',amSigned,amTotal,'var(--teal)',list,'am',false);
-  }
-  if(showPm){
-    const list=attcStudents.filter(s=>s.pmSt&&(f==='all'||s.pmSt===f));
-    h+=attcGroup('放学','签退',pmSigned,pmTotal,'#E8941A',list,'pm',true);
-  }
+  /* 6个时间点定义：[字段st, 字段sub, label, action, color, dim, 是否上学类] */
+  var timePoints=[
+    {stKey:'amSt',subKey:'amSub',label:'上学',action:'签到',color:'var(--teal)',dim:'am',isIn:true},
+    {stKey:'amOutSt',subKey:'amOutSub',label:'放学',action:'签退',color:'#E8941A',dim:'amOut',isIn:false},
+    {stKey:'pmInSt',subKey:'pmInSub',label:'上学',action:'签到',color:'var(--teal)',dim:'pmIn',isIn:true},
+    {stKey:'pmSt',subKey:'pmSub',label:'放学',action:'签退',color:'#E8941A',dim:'pm',isIn:false},
+    {stKey:'eveInSt',subKey:'eveInSub',label:'上学',action:'签到',color:'var(--teal)',dim:'eveIn',isIn:true},
+    {stKey:'eveOutSt',subKey:'eveOutSub',label:'放学',action:'签退',color:'#E8941A',dim:'eveOut',isIn:false}
+  ];
+  var periods=[
+    {label:'上午',tps:[0,1]},
+    {label:'下午',tps:[2,3]},
+    {label:'晚上',tps:[4,5]}
+  ];
+  periods.forEach(function(p){
+    var subGroups=[];
+    var hasAny=false;
+    p.tps.forEach(function(tpIdx){
+      var tp=timePoints[tpIdx];
+      /* 筛选时不显示不相关的时间点 */
+      if(f!=='all'){
+        if(tp.isIn&&!showIn)return;
+        if(!tp.isIn&&!showOut)return;
+      }
+      var list=attcStudents.filter(function(s){return s[tp.stKey]&&(f==='all'||s[tp.stKey]===f)});
+      if(!list.length)return;
+      hasAny=true;
+      var signed=0;
+      list.forEach(function(s){
+        if(tp.isIn&&(s[tp.stKey]==='signed'||s[tp.stKey]==='late'))signed++;
+        if(!tp.isIn&&s[tp.stKey]==='signedout')signed++;
+      });
+      var rows=list.map(function(s){return attcRow(s,s[tp.stKey],s[tp.subKey],tp.dim)}).join('');
+      /* 上午上学默认展开，其余默认折叠 */
+      var collapsed=!(tpIdx===0);
+      subGroups.push(attcSubGroup(tp.label,tp.action,signed,list.length,tp.color,rows,tp.dim,collapsed));
+    });
+    if(hasAny){
+      h+=attcPeriod(p.label,subGroups);
+    }
+  });
   document.getElementById('attc-main').innerHTML=h;
   document.querySelectorAll('#attc-main .stu').forEach(function(row){
     row.addEventListener('click',function(e){
       if(e.target.closest('button'))return;
       const name=this.dataset.name,st=this.dataset.st,dim=this.dataset.dim;
-      if(st==='abs'){attcSignGo(name,dim)}
+      if(st==='leave'){slvShow(name);return}
+      if(st==='abs'){
+        /* 缺勤学生直接跳转代学生补签页，反显时段+默认选中 */
+        var periodMap={'am':'上午','amOut':'上午','pmIn':'下午','pm':'下午','eveIn':'晚上','eveOut':'晚上'};
+        var pointMap={'am':'上学','amOut':'放学','pmIn':'上学','pm':'放学','eveIn':'上学','eveOut':'放学'};
+        asEnterDirect(name,periodMap[dim]||'上午',pointMap[dim]||'上学');
+        return;
+      }
       else if(st==='nosign'||st==='nosignout'){return}
       else if(name==='林晓乐'){stuTab('sign');stuDate('today');go('sc-attstu')}
       else toast('演示：学生签到详情以林晓乐为例，请点击林晓乐行查看');
@@ -2848,21 +3569,33 @@ function attcDateChange(){
   if(d!=='2026-07-06')toast('演示：历史日数据已定格，仅补请假通过后可更新');
   renderAttc();
 }
-function attcGradeChange(){
-  var g=document.getElementById('attc-grade').value;
-  var clsSel=document.getElementById('attc-cls');
-  var clsMap={
-    '三年级':['三年级(1)班','三年级(2)班','三年级(3)班','三年级(4)班'],
-    '四年级':['四年级(1)班','四年级(2)班','四年级(3)班'],
-    '五年级':['五年级(1)班','五年级(2)班']
-  };
-  var list=clsMap[g]||[];
-  clsSel.innerHTML=list.map(function(c){return '<option>'+c+'</option>'}).join('');
-  attcClsName=list[0]||'';
-  renderAttc();
+/* 班级选择：参照教师注册页任教班级选择组件（左年级栏+右班级chips），单选 */
+var attcCurG='三年级';
+function attcClsSheet(){
+  sheet('<h3>选择班级</h3>'+
+   '<div style="display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:300px;flex-shrink:0">'+
+     '<div id="attc-grades" style="width:88px;background:#EFF3F9;overflow-y:auto;flex-shrink:0"></div>'+
+     '<div style="flex:1;padding:10px 10px 6px;overflow-y:auto"><div class="fchips" id="attc-cls-list" style="gap:7px"></div></div>'+
+   '</div>');
+  attcClsRender();
 }
-function attcClsChange(){
-  attcClsName=document.getElementById('attc-cls').value;
+function attcClsRender(){
+  var gEl=document.getElementById('attc-grades');
+  if(!gEl)return;
+  gEl.innerHTML=Object.keys(regGrades).map(function(g){
+    return '<button onclick="attcCurG=\''+g+'\';attcClsRender()" style="display:block;width:100%;text-align:left;padding:11px 12px;font-size:12.5px;'+(g===attcCurG?'background:#fff;color:var(--navy);font-weight:600;border-left:3px solid var(--navy);':'color:var(--ink-2);border-left:3px solid transparent;')+'">'+g+'</button>';
+  }).join('');
+  var n=regGrades[attcCurG],h='';
+  for(var i=1;i<=n;i++){
+    var k=attcCurG+'('+i+')班';
+    var isCur=attcClsName===k;
+    h+='<button class="fchip'+(isCur?' on':'')+'" onclick="attcClsPick(\''+k+'\')">'+k+(isCur?' ✓':'')+'</button>';
+  }
+  document.getElementById('attc-cls-list').innerHTML=h;
+}
+function attcClsPick(k){
+  attcClsName=k;
+  closeSheet();
   renderAttc();
 }
 function attcFilterChange(){renderAttc()}
@@ -2883,14 +3616,14 @@ function sgReasonPick(r){sgReason=r;closeSheet();document.getElementById('sg-rea
 function sgConfirm(){
   if(!sgTime){toast('请选择考勤时间');return}
   if(!sgReason){toast('请选择补签原因');return}
-  /* 更新学生状态：缺勤 → 已签到 */
+  /* 更新学生状态：缺勤 → 正常到校 */
   var stu=attcStudents.find(function(s){return s.n===attcSignName});
   if(stu){
     stu.amSt='signed';
     stu.amSub='考勤时间 '+sgTime;
   }
   var pushOn=document.getElementById('sg-push').classList.contains('on');
-  toast('已补签：'+attcSignName+' 计入已签到，操作已留痕'+(pushOn?'，考勤信息已推送家长':''));
+  toast('已补签：'+attcSignName+' 计入正常到校，操作已留痕'+(pushOn?'，考勤信息已推送家长':''));
   sgTime='';sgReason='';
   setTimeout(function(){go('sc-attclass');renderAttc()},800);
 }
@@ -2902,15 +3635,12 @@ function goAtt(f){
   document.getElementById('attc-st').value=v;
   renderAttc();
 }
-/* -------- 批量点名/补签：未签到学生可由老师补签 -------- */
-const attPend=[
-  {n:'李沐宸',signed:false},{n:'沈亦辰',signed:false},{n:'高子墨',signed:false},{n:'宋佳怡',signed:false},
-  {n:'何雨泽',signed:false},{n:'罗一诺',signed:false},{n:'唐子萱',signed:false},{n:'许景行',signed:false}
-];
+/* -------- 代学生补签：未签到学生可由老师补签 -------- */
 function attRollSheet(){
-  const rest=attPend.filter(x=>!x.signed);
+  /* 从当前班级学生中筛选未签到学生 */
+  const rest=attcStudents.filter(s=>s.amSt==='nosign'||s.amSt==='abs').map(s=>({n:s.n,signed:false}));
   if(!rest.length){toast('今日未签到学生均已处理');return}
-  sheet('<h3>批量点名/补签 · '+attcClsName+' <span style="font-weight:400;font-size:12px;color:var(--ink-3)">未签到 '+rest.length+' 人</span></h3>'+
+  sheet('<h3>代学生补签 · '+attcClsName+' <span style="font-weight:400;font-size:12px;color:var(--ink-3)">未签到 '+rest.length+' 人</span></h3>'+
     '<label style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-2);margin-top:8px;padding:2px 2px">'+
     '<input type="checkbox" id="roll-all" style="width:16px;height:16px;accent-color:var(--teal)" onchange="attRollAll(this)">全选</label>'+
     '<div style="max-height:280px;overflow-y:auto;margin:2px 0 14px">'+
@@ -2930,10 +3660,9 @@ function attRollCnt(){
   document.getElementById('roll-all').checked=k===document.querySelectorAll('[data-roll]').length;
 }
 function attRollConfirm(){
-  const rest=attPend.filter(x=>!x.signed);
+  const rest=attcStudents.filter(s=>s.amSt==='nosign'||s.amSt==='abs').map(s=>({n:s.n,signed:false}));
   const picked=[...document.querySelectorAll('[data-roll]:checked')].map(x=>rest[+x.dataset.roll]);
   if(!picked.length){toast('请先勾选实际到校的学生');return}
-  picked.forEach(x=>x.signed=true);
   /* 更新学生状态 */
   picked.forEach(p=>{
     const s=attcStudents.find(x=>x.n===p.n);
@@ -2941,8 +3670,560 @@ function attRollConfirm(){
   });
   closeSheet();
   renderAttc();
-  const left=attPend.filter(x=>!x.signed).length;
-  toast('已补签 '+picked.length+' 人计入已签到，操作已留痕'+(left?'；其余 '+left+' 人保持未签到，可代为请假':'，今日未签到已清零'));
+  const left=attcStudents.filter(s=>s.amSt==='nosign'||s.amSt==='abs').length;
+  toast('已补签 '+picked.length+' 人计入正常到校，操作已留痕'+(left?'；其余 '+left+' 人保持未签到，可代为请假':'，今日未签到已清零'));
+}
+/* -------- 代学生补签页 -------- */
+var asClsName='三年级(2)班';
+var asCurG='三年级';
+var asSelected={};
+var asStudents=[];
+var asPeriod='';
+var asPoint='';
+var asPreselectName='';
+/* 补签时段选择弹框（从考勤明细底部按钮进入） */
+function asEnterSheet(){
+  sheet('<h3>选择补签时段</h3>'+
+    '<div style="margin:8px 0 12px">'+
+    '<div style="font-size:12px;color:var(--ink-2);margin-bottom:6px">第一步：选择时段</div>'+
+    '<div class="fchips" id="as-period-chips" style="gap:8px;margin-bottom:14px">'+
+    ['上午','下午','晚上'].map(function(p){return '<button class="fchip" onclick="asSheetPeriod(\''+p+'\')">'+p+'</button>'}).join('')+
+    '</div>'+
+    '<div id="as-point-wrap" style="display:none">'+
+    '<div style="font-size:12px;color:var(--ink-2);margin-bottom:6px">第二步：选择时间点</div>'+
+    '<div class="fchips" id="as-point-chips" style="gap:8px;margin-bottom:14px"></div></div></div>'+
+    '<button class="btn pri blk" id="as-confirm-btn" onclick="asSheetConfirm()" disabled style="opacity:0.5">确定</button>'+
+    '<button class="btn ghost blk" style="margin-top:9px" onclick="closeSheet()">取消</button>');
+}
+function asSheetPeriod(p){
+  asPeriod=p;
+  document.querySelectorAll('#as-period-chips .fchip').forEach(function(c){
+    c.classList.toggle('on',c.textContent===p);
+  });
+  /* 显示时间点选择 */
+  document.getElementById('as-point-wrap').style.display='';
+  document.getElementById('as-point-chips').innerHTML=['上学','放学'].map(function(pt){
+    return '<button class="fchip" onclick="asSheetPoint(\''+pt+'\')">'+pt+'</button>';
+  }).join('');
+  asPoint='';
+  asSheetUpdateBtn();
+}
+function asSheetPoint(pt){
+  asPoint=pt;
+  document.querySelectorAll('#as-point-chips .fchip').forEach(function(c){
+    c.classList.toggle('on',c.textContent===pt);
+  });
+  asSheetUpdateBtn();
+}
+function asSheetUpdateBtn(){
+  var btn=document.getElementById('as-confirm-btn');
+  var ready=asPeriod&&asPoint;
+  btn.disabled=!ready;
+  btn.style.opacity=ready?'1':'0.5';
+}
+function asSheetConfirm(){
+  if(!asPeriod||!asPoint){toast('请先选择时段和时间点');return}
+  closeSheet();
+  asPreselectName='';
+  asEnter();
+}
+/* 缺勤学生直接跳转（反显时段+默认选中） */
+function asEnterDirect(name,period,point){
+  asPeriod=period;
+  asPoint=point;
+  asPreselectName=name;
+  asEnter();
+}
+/* 进入代学生补签页 */
+function asEnter(){
+  go('sc-attsign');
+  try{
+    if(!asStudents.length||asStudents._cls!==asClsName){asInitStudents()}
+    asSelected={};
+    /* 如果有预选学生，自动选中 */
+    if(asPreselectName){asSelected[asPreselectName]=true}
+    asRender();
+    asUpdateForm();
+  }catch(e){
+    setTimeout(function(){
+      try{asInitStudents();asRender();asUpdateForm()}catch(e2){}
+    },100);
+  }
+}
+/* 班级选择sheet */
+function asClsSheet(){
+  sheet('<h3>选择班级</h3>'+
+   '<div style="display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:300px;flex-shrink:0">'+
+     '<div id="as-grades" style="width:88px;background:#EFF3F9;overflow-y:auto;flex-shrink:0"></div>'+
+     '<div style="flex:1;padding:10px 10px 6px;overflow-y:auto"><div class="fchips" id="as-cls-list" style="gap:7px"></div></div>'+
+   '</div>');
+  asClsRender();
+}
+function asClsRender(){
+  var gEl=document.getElementById('as-grades');
+  if(!gEl)return;
+  gEl.innerHTML=Object.keys(regGrades).map(function(g){
+    return '<button onclick="asCurG=\''+g+'\';asClsRender()" style="display:block;width:100%;text-align:left;padding:11px 12px;font-size:12.5px;'+(g===asCurG?'background:#fff;color:var(--navy);font-weight:600;border-left:3px solid var(--navy);':'color:var(--ink-2);border-left:3px solid transparent;')+'">'+g+'</button>';
+  }).join('');
+  var n=regGrades[asCurG],h='';
+  for(var i=1;i<=n;i++){
+    var k=asCurG+'('+i+')班';
+    var isCur=asClsName===k;
+    h+='<button class="fchip'+(isCur?' on':'')+'" onclick="asClsPick(\''+k+'\')">'+k+(isCur?' ✓':'')+'</button>';
+  }
+  document.getElementById('as-cls-list').innerHTML=h;
+}
+function asClsPick(k){
+  asClsName=k;
+  closeSheet();
+  asSelected={};
+  asInitStudents();
+  asRender();
+}
+/* 生成学生列表（全班，缺勤学生标注"缺勤"） */
+function asInitStudents(){
+  asStudents=attcGenStudents(asClsName);
+  asStudents._cls=asClsName;
+}
+/* 渲染学生列表 */
+function asRender(){
+  var txt=document.getElementById('as-search').value.trim();
+  var stFilter=document.getElementById('as-st-filter')?document.getElementById('as-st-filter').value:'all';
+  var txtEl=document.getElementById('as-cls-txt');
+  if(txtEl)txtEl.textContent=asClsName;
+  var list=asStudents.filter(function(s){
+    if(txt&&s.n.indexOf(txt)<0)return false;
+    /* 考勤状态筛选 */
+    if(stFilter&&stFilter!=='all'){
+      var st=s.amSt||s.pmSt||'';
+      if(stFilter==='abs'&&(st!=='abs'&&st!=='nosign'))return false;
+      if(stFilter!=='abs'&&st!==stFilter)return false;
+    }
+    return true;
+  });
+  var h='';
+  list.forEach(function(s){
+    var checked=asSelected[s.n]?'checked':'';
+    /* 判断是否缺勤 */
+    var isAbs=s.amSt==='abs'||s.amSt==='nosign';
+    var absTag=isAbs?'<span style="font-size:11px;color:#fff;background:var(--cinnabar);padding:1px 6px;border-radius:4px;margin-left:6px">缺勤</span>':'';
+    h+='<label style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #F0F2F6;cursor:pointer">'+
+      '<input type="checkbox" data-name="'+s.n+'" style="width:17px;height:17px;accent-color:var(--navy)" '+checked+' onchange="asToggle(\''+s.n+'\')">'+
+      '<div class="avatar'+(s.gen?' '+s.gen:'')+'" style="width:32px;height:32px;font-size:13px">'+s.av+'</div>'+
+      '<span style="font-size:14px">'+s.n+absTag+'</span></label>';
+  });
+  document.getElementById('as-stu-list').innerHTML=h;
+  asUpdateCnt();
+}
+function asToggle(name){
+  if(asSelected[name])delete asSelected[name];
+  else asSelected[name]=true;
+  asUpdateCnt();
+}
+function asToggleAll(el){
+  var txt=document.getElementById('as-search').value.trim();
+  var list=asStudents.filter(function(s){
+    if(!txt)return true;
+    return s.n.indexOf(txt)>-1;
+  });
+  if(el.checked){
+    list.forEach(function(s){asSelected[s.n]=true});
+  }else{
+    list.forEach(function(s){delete asSelected[s.n]});
+  }
+  asRender();
+}
+function asUpdateCnt(){
+  var cnt=Object.keys(asSelected).length;
+  var total=asStudents.length;
+  var cntEl=document.getElementById('as-cnt');
+  if(cntEl){
+    if(cnt>0){
+      cntEl.textContent='已选 '+cnt+' 人';
+      cntEl.style.color='var(--navy)';
+    }else{
+      cntEl.textContent='共 '+total+' 人';
+      cntEl.style.color='var(--ink-3)';
+    }
+  }
+  var allEl=document.getElementById('as-all');
+  if(allEl){
+    var txt=document.getElementById('as-search').value.trim();
+    var list=asStudents.filter(function(s){
+      if(!txt)return true;
+      return s.n.indexOf(txt)>-1;
+    });
+    allEl.checked=list.length>0&&list.every(function(s){return asSelected[s.n]});
+  }
+}
+/* 更新表单反显 */
+function asUpdateForm(){
+  var periodEl=document.getElementById('as-period-val');
+  if(periodEl){
+    if(asPeriod&&asPoint){
+      periodEl.textContent=asPeriod+'-'+asPoint;
+      periodEl.style.color='var(--ink)';
+    }else{
+      periodEl.textContent='请先选择';
+      periodEl.style.color='var(--ink-3)';
+    }
+  }
+  /* 重置时间和状态 */
+  document.getElementById('as-time').value='';
+  asSetStatus('abs');
+}
+/* 时间选择sheet */
+function asTimeSheet(){
+  sheet('<h3>选择考勤时间</h3>'+
+    '<div style="padding:4px 0 14px">'+
+    '<div style="display:flex;gap:10px;align-items:center">'+
+    '<select id="as-ts-hh" style="flex:1;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px">'+
+    Array.from({length:24},function(_,i){return '<option value="'+(i<10?'0':'')+i+'">'+(i<10?'0':'')+i+'时</option>'}).join('')+
+    '</select>'+
+    '<span style="font-size:16px">:</span>'+
+    '<select id="as-ts-mm" style="flex:1;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px">'+
+    ['00','05','10','15','20','25','30','35','40','45','50','55'].map(function(m){return '<option value="'+m+'">'+m+'分</option>'}).join('')+
+    '</select></div></div>'+
+    '<button class="btn pri blk" onclick="asTimePick()">确认</button>'+
+    '<button class="btn ghost blk" style="margin-top:9px" onclick="closeSheet()">取消</button>');
+}
+function asTimePick(){
+  var hh=document.getElementById('as-ts-hh').value;
+  var mm=document.getElementById('as-ts-mm').value;
+  var timeStr=hh+':'+mm;
+  document.getElementById('as-time').value=timeStr;
+  closeSheet();
+  /* 根据时间自动判定考勤状态 */
+  /* 上学：08:00前正常，08:00-08:30迟到，08:30后缺勤；放学：以16:30为界 */
+  var hour=parseInt(hh),minu=parseInt(mm);
+  var totalMin=hour*60+minu;
+  var lateThreshold,absThreshold;
+  if(asPoint==='上学'){
+    lateThreshold=asPeriod==='上午'?8*60:asPeriod==='下午'?13*60+30:18*60;
+    absThreshold=lateThreshold+30;
+  }else{
+    lateThreshold=asPeriod==='上午'?11*60+30:asPeriod==='下午'?16*60+30:20*60+30;
+    absThreshold=lateThreshold+30;
+  }
+  var status;
+  if(totalMin<=lateThreshold){status='normal'}
+  else if(totalMin<=absThreshold){status='late'}
+  else{status='abs'}
+  asSetStatus(status);
+  toast('已根据'+asPeriod+asPoint+'时间'+timeStr+'自动判定状态');
+}
+/* 设置考勤状态单选 */
+function asSetStatus(val){
+  document.querySelectorAll('input[name="as-status"]').forEach(function(r){
+    r.checked=r.value===val;
+    var label=r.parentElement;
+    if(r.checked){
+      label.style.borderColor='var(--navy)';
+      label.style.background='#E3EEFD';
+    }else{
+      label.style.borderColor='var(--line)';
+      label.style.background='#fff';
+    }
+  });
+}
+/* 手动切换考勤状态时更新样式 */
+function asStatusChange(){
+  document.querySelectorAll('input[name="as-status"]').forEach(function(r){
+    var label=r.parentElement;
+    if(r.checked){
+      label.style.borderColor='var(--navy)';
+      label.style.background='#E3EEFD';
+    }else{
+      label.style.borderColor='var(--line)';
+      label.style.background='#fff';
+    }
+  });
+}
+/* 提交 */
+function asSubmit(){
+  var cnt=Object.keys(asSelected).length;
+  if(!cnt){toast('请先选择补签学生');return}
+  if(!asPeriod||!asPoint){toast('考勤时段信息缺失');return}
+  var statusEl=document.querySelector('input[name="as-status"]:checked');
+  var statusMap={'normal':'正常到校','late':'迟到','abs':'缺勤'};
+  var status=statusMap[statusEl?statusEl.value:'abs'];
+  var timeVal=document.getElementById('as-time').value;
+  var timeStr=timeVal?'，考勤时间 '+timeVal:'';
+  toast('已为 '+cnt+' 名学生提交补签：'+asPeriod+'-'+asPoint+timeStr+'，状态：'+status);
+  go('sc-attclass');
+}
+/* -------- 学生请假记录页（从考勤明细请假学生点击进入） -------- */
+const slvData={
+  '林晓乐':{av:'乐',gen:'',cls:'三年级(2)班',parent:'母亲(乐乐妈妈)',records:[
+    {type:'病假',start:'07-07 08:00',end:'07-07 12:00',reason:'发热38.2℃，需复诊观察',submitT:'07-04 21:18',approveT:'07-04 21:40',teacher:'王老师'},
+    {type:'事假',start:'07-14 08:00',end:'07-14 12:00',reason:'上午随家人办事，午后返校',submitT:'07-06 16:32',approveT:'07-06 17:05',teacher:'王老师'},
+    {type:'病假',start:'06-26 12:00',end:'06-26 16:00',reason:'感冒发烧，下午需休息',submitT:'06-25 14:00',approveT:'06-25 14:30',teacher:'王老师'}
+  ]},
+  '郑皓宸':{av:'宸',gen:'',cls:'三年级(2)班',parent:'母亲(郑皓宸妈妈)',records:[
+    {type:'病假',start:'07-06 08:00',end:'07-06 16:00',reason:'肠胃不适，需就医',submitT:'07-03 10:15',approveT:'07-03 10:50',teacher:'王老师'}
+  ]},
+  'default':{av:'学',gen:'',cls:'三年级(2)班',parent:'家长',records:[
+    {type:'事假',start:'07-08 08:00',end:'07-08 16:00',reason:'家中有事需请假一天',submitT:'07-05 08:20',approveT:'07-05 09:00',teacher:'王老师'},
+    {type:'病假',start:'06-20 08:00',end:'06-20 12:00',reason:'身体不适需休息',submitT:'06-19 20:00',approveT:'06-19 20:30',teacher:'王老师'}
+  ]}
+};
+function slvGet(name){
+  var d=slvData[name]||slvData['default'];
+  /* 动态补充学生头像和班级 */
+  var stu=attcStudents.find(function(s){return s.n===name});
+  if(stu){d.av=stu.av;d.gen=stu.gen;d.cls=attcClsName}
+  return d;
+}
+function slvShow(name){
+  var d=slvGet(name);
+  d._name=name;
+  var genIco='<span class="ico '+(d.gen==='girl'?'female':'male')+'" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:'+(d.gen==='girl'?'#F06292':'#4A90D9')+';color:#fff;font-size:10px">'+(d.gen==='girl'?'♀':'♂')+'</span>';
+  var h='<div class="card" style="display:flex;align-items:center;gap:12px;padding:14px">'+
+    '<div class="avatar'+(d.gen?' '+d.gen:'')+'" style="width:46px;height:46px;font-size:17px;flex-shrink:0">'+d.av+'</div>'+
+    '<div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:600;display:flex;align-items:center;gap:5px">'+genIco+name+'</div>'+
+    '<div class="muted" style="font-size:12px;margin-top:2px">'+d.cls+'</div></div></div>';
+  /* 每条请假独立卡片，卡片间有间距 */
+  d.records.forEach(function(r,i){
+    h+='<div class="card" style="padding:0;overflow:hidden;margin-top:10px" onclick="sldShow(\''+name+'\','+i+')" style="cursor:pointer">'+
+      '<div style="padding:12px 14px 8px"><div style="font-size:15px;font-weight:600">'+r.type+'</div></div>'+
+      '<div style="padding:0 14px 10px">'+
+      '<div style="display:flex;align-items:center;font-size:12.5px;color:var(--ink-2);margin-top:2px"><span style="color:var(--ink-3);width:56px;flex-shrink:0">开始时间</span><span>'+r.start+'</span></div>'+
+      '<div style="display:flex;align-items:center;font-size:12.5px;color:var(--ink-2);margin-top:4px"><span style="color:var(--ink-3);width:56px;flex-shrink:0">结束时间</span><span>'+r.end+'</span></div></div>'+
+      '<div class="hr"></div>'+
+      '<div style="display:flex;align-items:center;gap:8px;padding:9px 14px">'+
+      '<span class="muted" style="font-size:12.5px">'+d.parent+'</span>'+
+      '<span class="muted" style="margin-left:auto;font-size:12px">'+r.submitT+'</span></div></div>';
+  });
+  document.getElementById('slv-content').innerHTML=h;
+  go('sc-stuleave');
+}
+/* -------- 学生请假详情页 -------- */
+function sldShow(name,idx){
+  var d=slvGet(name);
+  var r=d.records[idx]||d.records[0];
+  var h='<div class="card">'+
+    '<div style="display:flex;align-items:center;justify-content:space-between">'+
+    '<span style="font-size:15.5px;font-weight:600">'+r.type+'</span>'+
+    '<span class="chip teal">已审批</span></div>'+
+    '<div class="hr" style="margin:10px 0"></div>'+
+    '<div class="kv"><span class="k">学生</span><span class="v">'+name+' · '+d.cls+'</span></div>'+
+    '<div class="kv"><span class="k">开始时间</span><span class="v">'+r.start+'</span></div>'+
+    '<div class="kv"><span class="k">结束时间</span><span class="v">'+r.end+'</span></div>'+
+    '<div class="kv"><span class="k">事由</span><span class="v">'+r.reason+'</span></div>'+
+    '</div>';
+  h+='<div class="card" style="margin-top:12px">'+
+    '<div style="font-size:15.5px;font-weight:600;margin-bottom:12px">流转记录</div>'+
+    '<div style="display:flex;gap:12px;padding-bottom:14px">'+
+    '<div style="width:8px;height:8px;border-radius:50%;background:var(--teal);margin-top:5px;flex-shrink:0"></div>'+
+    '<div style="flex:1"><div style="font-size:14px;font-weight:600">提交</div>'+
+    '<div class="muted" style="font-size:12.5px;margin-top:3px">'+r.submitT+' · '+d.parent+'</div></div></div>'+
+    '<div style="display:flex;gap:12px;position:relative;padding-top:14px;border-top:1px solid var(--line)">'+
+    '<div style="width:8px;height:8px;border-radius:50%;background:var(--teal);margin-top:5px;flex-shrink:0"></div>'+
+    '<div style="flex:1"><div style="font-size:14px;font-weight:600">已审批</div>'+
+    '<div class="muted" style="font-size:12.5px;margin-top:3px">'+r.approveT+' · '+r.teacher+'</div></div></div>'+
+    '</div>';
+  document.getElementById('sld-content').innerHTML=h;
+  go('sc-stuleavedt');
+}
+/* -------- 代学生请假页（从考勤明细跳转） -------- */
+var alClsName='三年级(2)班';
+var alCurG='三年级';
+var alSelected={};
+var alType_='sick';
+var alSymptoms=['发热','感冒','咳嗽','咽喉痛','头疼','腹痛','呕吐','腹泻','皮疹','腮腺炎','手足口病','其他'];
+var alSymSel={};
+var alFiles=[];
+/* 班级选择sheet（复用考勤明细的regGrades） */
+function alClsSheet(){
+  sheet('<h3>选择班级</h3>'+
+   '<div style="display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:300px;flex-shrink:0">'+
+     '<div id="al-grades" style="width:88px;background:#EFF3F9;overflow-y:auto;flex-shrink:0"></div>'+
+     '<div style="flex:1;padding:10px 10px 6px;overflow-y:auto"><div class="fchips" id="al-cls-list" style="gap:7px"></div></div>'+
+   '</div>');
+  alClsRender();
+}
+function alClsRender(){
+  var gEl=document.getElementById('al-grades');
+  if(!gEl)return;
+  gEl.innerHTML=Object.keys(regGrades).map(function(g){
+    return '<button onclick="alCurG=\''+g+'\';alClsRender()" style="display:block;width:100%;text-align:left;padding:11px 12px;font-size:12.5px;'+(g===alCurG?'background:#fff;color:var(--navy);font-weight:600;border-left:3px solid var(--navy);':'color:var(--ink-2);border-left:3px solid transparent;')+'">'+g+'</button>';
+  }).join('');
+  var n=regGrades[alCurG],h='';
+  for(var i=1;i<=n;i++){
+    var k=alCurG+'('+i+')班';
+    var isCur=alClsName===k;
+    h+='<button class="fchip'+(isCur?' on':'')+'" onclick="alClsPick(\''+k+'\')">'+k+(isCur?' ✓':'')+'</button>';
+  }
+  document.getElementById('al-cls-list').innerHTML=h;
+}
+function alClsPick(k){
+  alClsName=k;
+  closeSheet();
+  alSelected={};
+  alInitStudents();
+  alRender();
+}
+/* 生成学生列表 */
+var alStudents=[];
+function alEnter(){
+  go('sc-attleave');
+  /* 确保学生列表初始化（双重保障，兼容各浏览器） */
+  try{
+    if(!alStudents.length||alStudents._cls!==alClsName){alInitStudents()}
+    alRender();
+    alRenderSymptoms();
+  }catch(e){
+    /* 如果初始化失败，延迟重试 */
+    setTimeout(function(){
+      try{alInitStudents();alRender();alRenderSymptoms()}catch(e2){}
+    },100);
+  }
+}
+function alInitStudents(){
+  alStudents=attcGenStudents(alClsName);
+  alStudents._cls=alClsName;
+}
+/* 渲染学生列表 */
+function alRender(){
+  var txt=document.getElementById('al-search').value.trim();
+  var txtEl=document.getElementById('al-cls-txt');
+  if(txtEl)txtEl.textContent=alClsName;
+  /* 筛选学生 */
+  var list=alStudents.filter(function(s){
+    if(!txt)return true;
+    return s.n.indexOf(txt)>-1;
+  });
+  var h='';
+  list.forEach(function(s){
+    var checked=alSelected[s.n]?'checked':'';
+    h+='<label style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #F0F2F6;cursor:pointer">'+
+      '<input type="checkbox" data-name="'+s.n+'" style="width:17px;height:17px;accent-color:var(--navy)" '+checked+' onchange="alToggle(\''+s.n+'\')">'+
+      '<div class="avatar'+(s.gen?' '+s.gen:'')+'" style="width:32px;height:32px;font-size:13px">'+s.av+'</div>'+
+      '<span style="font-size:14px">'+s.n+'</span></label>';
+  });
+  document.getElementById('al-stu-list').innerHTML=h;
+  alUpdateCnt();
+}
+function alToggle(name){
+  if(alSelected[name])delete alSelected[name];
+  else alSelected[name]=true;
+  alUpdateCnt();
+}
+function alToggleAll(el){
+  var txt=document.getElementById('al-search').value.trim();
+  var list=alStudents.filter(function(s){
+    if(!txt)return true;
+    return s.n.indexOf(txt)>-1;
+  });
+  if(el.checked){
+    list.forEach(function(s){alSelected[s.n]=true});
+  }else{
+    list.forEach(function(s){delete alSelected[s.n]});
+  }
+  alRender();
+}
+function alUpdateCnt(){
+  var cnt=Object.keys(alSelected).length;
+  var total=alStudents.length;
+  var cntEl=document.getElementById('al-cnt');
+  if(cntEl){
+    if(cnt>0){
+      cntEl.textContent='已选 '+cnt+' 人';
+      cntEl.style.color='var(--navy)';
+    }else{
+      cntEl.textContent='未签到 '+total+' 人';
+      cntEl.style.color='var(--ink-3)';
+    }
+  }
+  /* 同步全选框 */
+  var allEl=document.getElementById('al-all');
+  if(allEl){
+    var txt=document.getElementById('al-search').value.trim();
+    var list=alStudents.filter(function(s){
+      if(!txt)return true;
+      return s.n.indexOf(txt)>-1;
+    });
+    allEl.checked=list.length>0&&list.every(function(s){return alSelected[s.n]});
+  }
+}
+/* 请假类型切换 */
+function alType(t){
+  alType_=t;
+  document.querySelectorAll('.al-type').forEach(function(b){
+    if(b.dataset.type===t){
+      b.classList.add('on');
+      b.style.cssText='flex:1;padding:8px 0;border-radius:8px;font-size:13px;font-weight:600;border:2px solid var(--navy);background:#E3EEFD;color:var(--navy)';
+    }else{
+      b.classList.remove('on');
+      b.style.cssText='flex:1;padding:8px 0;border-radius:8px;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink-2)';
+    }
+  });
+  document.getElementById('al-sick-form').style.display=t==='sick'?'':'none';
+}
+/* 病状chips */
+function alRenderSymptoms(){
+  var h=alSymptoms.map(function(s){
+    var on=alSymSel[s]?' on':'';
+    return '<button class="fchip'+on+'" onclick="alToggleSym(\''+s+'\')">'+s+'</button>';
+  }).join('');
+  document.getElementById('al-symptoms').innerHTML=h;
+}
+function alToggleSym(s){
+  if(alSymSel[s])delete alSymSel[s];
+  else alSymSel[s]=true;
+  alRenderSymptoms();
+}
+/* 日期选择sheet */
+function alDateSheet(type){
+  sheet('<h3>选择时间</h3>'+
+    '<div style="padding:4px 0 14px">'+
+    '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">日期</div>'+
+    '<input type="date" id="al-ds-date" value="2026-07-06" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px"></div>'+
+    '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--ink-2);margin-bottom:5px">时间</div>'+
+    '<select id="al-ds-time" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px">'+
+    ['08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','全天'].map(function(t){return '<option value="'+t+'">'+t+'</option>'}).join('')+
+    '</select></div></div>'+
+    '<button class="btn pri blk" onclick="alDatePick(\''+type+'\')">确认</button>'+
+    '<button class="btn ghost blk" style="margin-top:9px" onclick="closeSheet()">取消</button>');
+}
+function alDatePick(type){
+  var d=document.getElementById('al-ds-date').value;
+  var t=document.getElementById('al-ds-time').value;
+  var val=d.replace(/-/g,'月')+'日'+(t==='全天'?'全天':' '+t);
+  /* 简化显示 */
+  var m=parseInt(d.split('-')[1]),day=parseInt(d.split('-')[2]);
+  val=m+'月'+day+'日 '+(t==='全天'?'全天':t);
+  document.getElementById('al-'+type).value=val;
+  closeSheet();
+}
+/* 附件 */
+function alAddFile(){
+  if(alFiles.length>=5){toast('最多上传5个文件');return}
+  alFiles.push({name:'附件'+(alFiles.length+1)+'.jpg'});
+  var h=alFiles.map(function(f,i){
+    return '<div style="position:relative;width:56px;height:56px;border-radius:8px;background:#F0F2F6;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink-2);overflow:hidden">'+f.name.substring(0,6)+'..'+
+      '<button onclick="alDelFile('+i+')" style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:var(--cinnabar);color:#fff;border:none;font-size:10px;line-height:1">×</button></div>';
+  }).join('');
+  document.getElementById('al-files').innerHTML=h;
+}
+function alDelFile(i){
+  alFiles.splice(i,1);
+  alAddFile();
+  if(alFiles.length===0)document.getElementById('al-files').innerHTML='';
+}
+/* 提交 */
+function alSubmit(){
+  var cnt=Object.keys(alSelected).length;
+  if(!cnt){toast('请先选择请假学生');return}
+  if(!document.getElementById('al-start').value){toast('请选择开始时间');return}
+  if(!document.getElementById('al-end').value){toast('请选择结束时间');return}
+  if(!document.getElementById('al-reason').value.trim()){toast('请填写请假事由');return}
+  if(alType_==='sick'){
+    var cont=document.querySelector('input[name="al-contagious"]:checked');
+    if(!cont){toast('请选择是否传染病');return}
+  }
+  toast('已为 '+cnt+' 名学生提交'+(alType_==='sick'?'病假':'事假')+'申请，审批通过后考勤自动更新');
+  go('sc-attclass');
 }
 /* -------- 学生签到详情：签到 / 统计双 Tab、抓拍大图预览、明细列表行点击进入（演示以林晓乐为例） -------- */
 function stuTab(k){
@@ -2978,11 +4259,154 @@ function stuMonth(dir){
   document.getElementById('stu-m-jun').style.display=stuM.i?'':'none';
 }
 /* -------- 请假审批：待审批 / 已办结切换 -------- */
+/* -------- 请假审批列表页 -------- */
+var lvCurTab='pend';
+/* 请假数据：按年级-班级组织 */
+var lvData={
+  pend:[
+    {grade:'三年级',cls:'三年级(2)班',name:'林晓乐',av:'乐',gen:'',type:'病假',start:'07-07 08:00',end:'07-07 12:00',parent:'母亲(乐乐妈妈)',submitT:'07-04 21:18',reason:'发热38.2℃，需复诊观察'},
+    {grade:'三年级',cls:'三年级(2)班',name:'林晓乐',av:'乐',gen:'',type:'事假',start:'07-14 08:00',end:'07-14 12:00',parent:'母亲(乐乐妈妈)',submitT:'07-06 16:32',reason:'上午随家人办事，午后返校'},
+    {grade:'一年级',cls:'一年级(1)班',name:'吴一诺',av:'诺',gen:'girl',type:'事假',start:'07-08 08:00',end:'07-08 16:00',parent:'父亲(吴一诺爸爸)',submitT:'07-05 08:20',reason:'家中有事需请假一天'}
+  ],
+  rejected:[
+    {grade:'三年级',cls:'三年级(2)班',name:'王梓豪',av:'豪',gen:'',type:'事假',start:'06-30 08:00',end:'06-30 12:00',parent:'母亲(王梓豪妈妈)',submitT:'06-28 10:00',reason:'家中有事',approveT:'06-28 14:30',teacher:'王老师'}
+  ],
+  approved:[
+    {grade:'三年级',cls:'三年级(2)班',name:'郑皓宸',av:'宸',gen:'',type:'病假',start:'07-06 08:00',end:'07-06 16:00',parent:'母亲(郑皓宸妈妈)',submitT:'07-03 10:15',reason:'肠胃不适，需就医',approveT:'07-03 10:50',teacher:'王老师'},
+    {grade:'三年级',cls:'三年级(2)班',name:'周雨桐',av:'桐',gen:'girl',type:'事假',start:'07-03 08:00',end:'07-03 16:00',parent:'父亲(周雨桐爸爸)',submitT:'07-02 18:00',reason:'家中有事',approveT:'07-02 21:05',teacher:'王老师'},
+    {grade:'三年级',cls:'三年级(2)班',name:'林晓乐',av:'乐',gen:'',type:'病假',start:'06-26 12:00',end:'06-26 16:00',parent:'母亲(乐乐妈妈)',submitT:'06-25 14:00',reason:'感冒发烧，下午需休息',approveT:'06-25 14:30',teacher:'王老师'}
+  ],
+  revoked:[
+    {grade:'一年级',cls:'一年级(1)班',name:'陈艺涵',av:'涵',gen:'girl',type:'事假',start:'07-10 08:00',end:'07-10 16:00',parent:'母亲(陈艺涵妈妈)',submitT:'07-08 09:00',reason:'临时变更，取消请假',revokeT:'07-09 08:00'}
+  ]
+};
+var lvStatusMap={pend:'待审批',rejected:'已拒绝',approved:'已同意',revoked:'已撤销'};
+var lvChipMap={pend:'amber',rejected:'red',approved:'teal',revoked:'gray'};
 function lvTab(el,k){
-  document.querySelectorAll('#lv-tabs .fchip').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('#lv-tabs .fchip').forEach(function(x){x.classList.remove('on')});
   el.classList.add('on');
-  document.getElementById('lv-pend').style.display=k==='pend'?'':'none';
-  document.getElementById('lv-done').style.display=k==='done'?'':'none';
+  lvCurTab=k;
+  lvRender();
+}
+function lvRender(){
+  var keyword=document.getElementById('lv-search').value.trim();
+  var list=lvData[lvCurTab]||[];
+  /* 按年级分组 */
+  var gradeMap={};
+  list.forEach(function(r){
+    if(keyword&&r.name.indexOf(keyword)<0&&r.cls.indexOf(keyword)<0)return;
+    if(!gradeMap[r.grade])gradeMap[r.grade]={};
+    if(!gradeMap[r.grade][r.cls])gradeMap[r.grade][r.cls]=[];
+    gradeMap[r.grade][r.cls].push(r);
+  });
+  var h='';
+  Object.keys(gradeMap).forEach(function(g){
+    h+='<div class="sm-grade"><div class="sm-grade-hd" onclick="smToggleGrade(this)"><span style="font-size:14px;font-weight:700">'+g+'</span>';
+    var gCnt=0,gCls=0;
+    Object.keys(gradeMap[g]).forEach(function(c){gCls++;gCnt+=gradeMap[g][c].length});
+    h+='<span class="cnt">'+gCls+' 个班 · '+gCnt+' 条</span><span class="arr">▼</span></div><div class="sm-grade-bd">';
+    Object.keys(gradeMap[g]).forEach(function(c){
+      var items=gradeMap[g][c];
+      /* 班级名前去年级 */
+      var clsShort=c.replace(g,'');
+      h+='<div class="sm-cls"><div class="sm-cls-hd" onclick="smToggleCls(this)"><span style="font-size:13px;font-weight:600">'+clsShort+'</span><span class="cnt">'+items.length+' 条</span><span class="arr">▼</span></div><div class="sm-cls-bd">';
+      items.forEach(function(r,idx){
+        var statusLab=lvStatusMap[lvCurTab];
+        var chipCls=lvChipMap[lvCurTab];
+        /* 所有状态都跳转详情页 */
+        var clickAction='onclick="lvDetailShow(\''+lvCurTab+'\',\''+r.name+'\',\''+r.start+'\')"';
+        h+='<div class="stu clickable" '+clickAction+' style="padding:10px 14px 10px 36px">'+
+          '<div class="avatar'+(r.gen?' '+r.gen:'')+'" style="flex-shrink:0">'+r.av+'</div>'+
+          '<div style="flex:1;min-width:0"><div class="nm">'+r.name+' · '+r.type+'</div>'+
+          '<div class="sub" style="line-height:1.5"><div>开始 '+r.start+'</div><div>结束 '+r.end+'</div>'+
+          '<div class="muted" style="margin-top:2px">'+r.parent+' · '+r.submitT+'</div></div></div>'+
+          '<div class="st" style="margin-left:8px;flex-shrink:0"><span class="chip '+chipCls+'">'+statusLab+'</span></div></div>';
+      });
+      h+='</div></div>';
+    });
+    h+='</div></div>';
+  });
+  if(!h)h='<div class="sm-empty" style="padding:40px 0;text-align:center"><div class="muted">暂无'+lvStatusMap[lvCurTab]+'的请假记录</div></div>';
+  document.getElementById('lv-list').innerHTML=h;
+}
+/* -------- 通用请假详情页（待审批/已拒绝/已同意/已撤销） -------- */
+/* 状态对应的流转节点名称、颜色、chip颜色 */
+var lvDetailNodeMap={
+  pend:{nodeLab:'待审批',nodeColor:'var(--amber)',chipLab:'待审批',chipCls:'amber',showBtns:true},
+  rejected:{nodeLab:'已拒绝',nodeColor:'var(--cinnabar)',chipLab:'已拒绝',chipCls:'red',showBtns:false},
+  approved:{nodeLab:'已同意',nodeColor:'var(--teal)',chipLab:'已同意',chipCls:'teal',showBtns:false},
+  revoked:{nodeLab:'已撤销',nodeColor:'var(--ink-3)',chipLab:'已撤销',chipCls:'gray',showBtns:false}
+};
+function lvDetailShow(tab,name,start){
+  var list=lvData[tab]||[];
+  var r=list.find(function(x){return x.name===name&&x.start===start})||list[0];
+  if(!r)return;
+  var cfg=lvDetailNodeMap[tab];
+  /* 第一模块：请假信息 */
+  var h='<div class="card">'+
+    '<div style="display:flex;align-items:center;justify-content:space-between">'+
+    '<span style="font-size:15.5px;font-weight:600">'+r.type+'</span>'+
+    '<span class="chip '+cfg.chipCls+'">'+cfg.chipLab+'</span></div>'+
+    '<div class="hr" style="margin:10px 0"></div>'+
+    '<div class="kv"><span class="k">学生</span><span class="v">'+r.name+' · '+r.cls+'</span></div>'+
+    '<div class="kv"><span class="k">开始时间</span><span class="v">'+r.start+'</span></div>'+
+    '<div class="kv"><span class="k">结束时间</span><span class="v">'+r.end+'</span></div>'+
+    '<div class="kv"><span class="k">事由</span><span class="v">'+r.reason+'</span></div>'+
+    '</div>';
+  /* 第二模块：流转记录 */
+  h+='<div class="card" style="margin-top:12px">'+
+    '<div style="font-size:15.5px;font-weight:600;margin-bottom:12px">流转记录</div>';
+  /* 提交节点 */
+  h+='<div style="display:flex;gap:12px;padding-bottom:14px">'+
+    '<div style="width:8px;height:8px;border-radius:50%;background:var(--amber);margin-top:5px;flex-shrink:0"></div>'+
+    '<div style="flex:1"><div style="font-size:14px;font-weight:600">提交</div>'+
+    '<div class="muted" style="font-size:12.5px;margin-top:3px">'+r.submitT+' · '+r.parent+'</div></div></div>';
+  /* 第二个节点：待审批没有第二个节点 */
+  if(tab!=='pend'){
+    var nodeDesc;
+    if(tab==='revoked'){
+      /* 已撤销：描述为 MM-DD hh:mm 和家长称谓名称 */
+      nodeDesc=(r.revokeT||r.submitT)+' · '+r.parent;
+    }else{
+      /* 已拒绝/已同意：审批时间和教师 */
+      nodeDesc=(r.approveT||'')+' · '+(r.teacher||'王老师');
+    }
+    h+='<div style="display:flex;gap:12px;position:relative;padding-top:14px;border-top:1px solid var(--line)">'+
+      '<div style="width:8px;height:8px;border-radius:50%;background:'+cfg.nodeColor+';margin-top:5px;flex-shrink:0"></div>'+
+      '<div style="flex:1"><div style="font-size:14px;font-weight:600;color:'+cfg.nodeColor+'">'+cfg.nodeLab+'</div>'+
+      '<div class="muted" style="font-size:12.5px;margin-top:3px">'+nodeDesc+'</div></div></div>';
+  }
+  h+='</div>';
+  document.getElementById('lvp-content').innerHTML=h;
+  /* 显隐底部按钮 */
+  var foot=document.getElementById('lvp-foot');
+  foot.style.display=cfg.showBtns?'flex':'none';
+  /* 存储当前详情数据供拒绝/同意使用 */
+  lvPendData=r;
+  go('sc-lvpend');
+}
+/* -------- 待审批请假详情页（兼容旧入口，委托给 lvDetailShow） -------- */
+var lvPendData=null;
+function lvPendDetail(name,start){
+  lvDetailShow('pend',name,start);
+}
+/* 拒绝理由弹框 */
+function lvRejectSheet(){
+  sheet('<h3>拒绝理由</h3>'+
+    '<div style="padding:4px 0 14px">'+
+    '<textarea id="lv-reason" rows="3" placeholder="请输入拒绝理由（非必填）" style="width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px;resize:none"></textarea>'+
+    '<div class="muted" style="font-size:11px;margin-top:6px">拒绝理由非必填，可直接提交</div></div>'+
+    '<button class="btn red blk" onclick="lvRejectConfirm()">确定</button>'+
+    '<button class="btn ghost blk" style="margin-top:9px" onclick="closeSheet()">取消</button>');
+}
+function lvRejectConfirm(){
+  closeSheet();
+  toast('已拒绝该请假申请，结果已通知家长');
+  go('sc-leave');
+}
+function lvApproveConfirm(){
+  toast('已同意该请假申请，考勤已同步更新');
+  go('sc-leave');
 }
 /* -------- 代录请假（免审即时生效 · 提交后落点在已办结页签） -------- */
 function plSeg(el){[...el.parentNode.children].forEach(x=>x.classList.remove('on'));el.classList.add('on')}
@@ -3115,11 +4539,8 @@ function submitProxyLeave(){
   const [sd,st]=s.split(' '),[ed,et]=e.split(' ');
   const span=sd===ed?(st==='08:00'&&et==='16:00'?sd+' 全天':sd+' '+st+'–'+et):s+' ~ '+e;
   const girl=(plClasses.flatMap(c=>c.s).find(x=>x[0]===n)||[])[1];
-  let d=document.getElementById('pl-done-item');
-  if(!d){d=document.createElement('div');d.className='stu';d.id='pl-done-item';document.querySelector('#lv-done .card').prepend(d)}
-  d.innerHTML='<div class="avatar'+(girl?' girl':'')+'">'+n.slice(-1)+'</div><div><div class="nm">'+n+' · '+t+'</div><div class="sub">'+span+' · 王老师代录 · 教师代录·家长口头确认（永久标记）</div></div><div class="st"><span class="chip teal">已通过</span><div class="muted" style="text-align:right">免审即时生效</div></div>';
   go('sc-leave');
-  lvTab(document.querySelector('#lv-tabs .fchip:nth-child(2)'),'done');
+  lvTab(document.querySelector('#lv-tabs .fchip:nth-child(3)'),'approved');
   toast('代录单免审即时生效并同步双家长；请假时段内不产生缺勤告警，已产生的待核项自动核销、考勤流水回溯改判');
 }
 /* -------- 批量勾选 -------- */
@@ -3427,57 +4848,149 @@ function smSaveStu(){
   toast('已保存：学生信息已录入名册，等待人脸授权后生效');
   setTimeout(function(){go('sc-stumgr')},800);
 }
-/* -------- 待审核：待审核/已拒绝 + 批量操作 -------- */
+/* -------- 待审核：待审核/已拒绝/已通过 + 层级列表 + 多选 + 批量操作 -------- */
 const spData={
   pend:[
-    {n:'张小明',av:'明',gen:'',cls:'三年级(1)班',sub:'家长申请绑定 · 妈妈 138****6688',ck:false},
-    {n:'李红',av:'红',gen:'girl',cls:'三年级(2)班',sub:'新生入学录入 · 待人脸授权',ck:false},
-    {n:'王强',av:'强',gen:'',cls:'三年级(1)班',sub:'家长申请绑定 · 爸爸 139****2255',ck:false}
+    {n:'张小明',av:'明',gen:'',grade:'三年级',cls:'(1)班',time:'今天 09:15',ck:false},
+    {n:'李红',av:'红',gen:'girl',grade:'三年级',cls:'(2)班',time:'今天 08:48',ck:false},
+    {n:'王强',av:'强',gen:'',grade:'三年级',cls:'(1)班',time:'昨天 16:30',ck:false},
+    {n:'赵小雪',av:'雪',gen:'girl',grade:'三年级',cls:'(2)班',time:'昨天 14:20',ck:false},
+    {n:'孙伟',av:'伟',gen:'',grade:'四年级',cls:'(1)班',time:'今天 10:05',ck:false}
   ],
   reject:[
-    {n:'刘洋',av:'洋',gen:'',cls:'三年级(2)班',sub:'拒绝原因：信息核实不通过',ck:false},
-    {n:'陈芳',av:'芳',gen:'girl',cls:'三年级(1)班',sub:'拒绝原因：家长称谓与关系不符',ck:false}
+    {n:'刘洋',av:'洋',gen:'',grade:'三年级',cls:'(2)班',time:'昨天 11:00',reason:'信息核实不通过',ck:false},
+    {n:'陈芳',av:'芳',gen:'girl',grade:'三年级',cls:'(1)班',time:'7月12日 15:30',reason:'家长称谓与关系不符',ck:false}
+  ],
+  pass:[
+    {n:'周明',av:'周',gen:'',grade:'三年级',cls:'(2)班',time:'今天 09:15',ck:false},
+    {n:'吴婷',av:'婷',gen:'girl',grade:'四年级',cls:'(1)班',time:'今天 08:48',ck:false},
+    {n:'郑凯',av:'凯',gen:'',grade:'三年级',cls:'(1)班',time:'昨天 16:30',ck:false}
   ]
 };
 var spCur='pend';
+var spKeyword='';
 function spTab(el,k){
   spCur=k;
+  spKeyword='';
+  var searchInput=document.getElementById('sp-search');
+  if(searchInput)searchInput.value='';
   document.querySelectorAll('#sp-tabs .fchip').forEach(function(x){x.classList.remove('on')});
   el.classList.add('on');
   spRender();
 }
+function spStatusLabel(k){
+  return k==='pend'?'待审核':k==='reject'?'已拒绝':'已通过';
+}
+function spStatusClass(k){
+  return k==='pend'?'amber':k==='reject'?'gray':'teal';
+}
+/* 获取过滤后的列表 */
+function spFilteredList(){
+  return spData[spCur].filter(function(s){
+    return !spKeyword||s.n.indexOf(spKeyword)>-1;
+  });
+}
+/* 按 年级>班级 分组 */
+function spGrouped(list){
+  var grades={};
+  list.forEach(function(s){
+    if(!grades[s.grade])grades[s.grade]={};
+    if(!grades[s.grade][s.cls])grades[s.grade][s.cls]=[];
+    grades[s.grade][s.cls].push(s);
+  });
+  return grades;
+}
+/* 判断年级/班级是否全选 */
+function spGradeAllOn(gName,grades){
+  var allOn=true;
+  Object.keys(grades[gName]).forEach(function(c){
+    grades[gName][c].forEach(function(s){if(!s.ck)allOn=false});
+  });
+  return allOn;
+}
+function spClsAllOn(gName,cName,grades){
+  return grades[gName][cName].every(function(s){return s.ck});
+}
 function spRender(){
-  var list=spData[spCur];
+  var list=spFilteredList();
   var h='';
   if(!list.length){
     h='<div class="sm-empty"><div class="ico" style="display:flex;align-items:center;justify-content:center"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#D5DAE4" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="muted">暂无相关记录</div></div>';
   }else{
-    h='<div class="muted" style="padding:10px 2px">申请入校: '+list.length+'人</div>';
-    h+='<div class="card" style="padding-top:2px;padding-bottom:2px">'+
-      list.map(function(s,i){
-        return '<div class="stu" data-spi="'+i+'"><div class="ck'+(s.ck?' on':'')+'" onclick="event.stopPropagation();spCk('+i+')"></div>'+
-          '<div class="avatar'+(s.gen?' '+s.gen:'')+'">'+s.av+'</div>'+
-          '<div><div class="nm">'+s.n+'</div><div class="sub">'+s.sub+'</div></div>'+
-          '<span class="chip '+(spCur==='pend'?'amber':'gray')+' plain" style="margin-left:auto">'+(spCur==='pend'?'待审核':'已拒绝')+'</span></div>';
-      }).join('')+'</div>';
+    h='<input type="text" id="sp-search" placeholder="输入姓名搜索" style="border-radius:20px;margin-bottom:10px" value="'+spKeyword+'" oninput="spSearch(this.value)">';
+    h+='<div class="muted" style="padding:2px 2px 10px">申请入校: '+list.length+'人</div>';
+    var grades=spGrouped(list);
+    Object.keys(grades).forEach(function(gName){
+      var clsObj=grades[gName];
+      var clsCount=Object.keys(clsObj).length;
+      var stuCount=0;
+      Object.keys(clsObj).forEach(function(c){stuCount+=clsObj[c].length});
+      var gAllOn=spGradeAllOn(gName,grades);
+      h+='<div class="sm-grade">'+
+        '<div class="sm-grade-hd" style="gap:10px"><div class="ck'+(gAllOn?' on':'')+'" onclick="event.stopPropagation();spCkGrade(\''+gName+'\')"></div><span style="font-size:14px;font-weight:700;flex:1" onclick="smToggleGrade(this.parentElement)">'+gName+'</span>'+
+        '<span class="cnt">'+clsCount+' 个班 · '+stuCount+' 人</span><span class="arr" onclick="smToggleGrade(this.parentElement)">▼</span></div>'+
+        '<div class="sm-grade-bd">';
+      Object.keys(clsObj).forEach(function(cName){
+        var stus=clsObj[cName];
+        var cAllOn=spClsAllOn(gName,cName,grades);
+        h+='<div class="sm-cls'+
+          (spKeyword||spCur!=='pend'?'':' collapsed')+'">'+
+          '<div class="sm-cls-hd" style="gap:10px;padding-left:22px"><div class="ck'+(cAllOn?' on':'')+'" onclick="event.stopPropagation();spCkCls(\''+gName+'\',\''+cName+'\')"></div><span style="font-size:13px;font-weight:600;flex:1" onclick="smToggleCls(this.parentElement)">'+cName+'</span>'+
+          '<span class="cnt">'+stus.length+' 人</span><span class="arr" onclick="smToggleCls(this.parentElement)">▼</span></div>'+
+          '<div class="sm-cls-bd">'+
+          stus.map(function(s){
+            return spStuRow(s,gName,cName);
+          }).join('')+'</div></div>';
+      });
+      h+='</div></div>';
+    });
   }
   document.getElementById('sp-main').innerHTML=h;
   spUpdateCnt();
   document.getElementById('sp-foot').style.display=spCur==='pend'?'flex':'none';
 }
-function spCk(i){
-  spData[spCur][i].ck=!spData[spCur][i].ck;
+function spStuRow(s,gName,cName){
+  var statLbl=spStatusLabel(spCur);
+  var statCls=spStatusClass(spCur);
+  return '<div class="stu" style="padding:10px 14px 10px 22px;cursor:pointer" onclick="spCkStu(\''+s.n+'\')">'+
+    '<div class="ck'+(s.ck?' on':'')+'" onclick="event.stopPropagation();spCkStu(\''+s.n+'\')" style="flex-shrink:0"></div>'+
+    '<div class="avatar'+(s.gen?' '+s.gen:'')+'">'+s.av+'</div>'+
+    '<div style="flex:1;min-width:0"><div class="nm">'+s.n+' <span class="chip '+statCls+' plain" style="font-size:10px;padding:1px 6px;vertical-align:middle">'+statLbl+'</span></div><div class="sub">'+s.time+'</div></div>'+
+    '<span class="muted" style="margin-left:auto;font-size:12px;white-space:nowrap;flex-shrink:0;padding:4px 0 4px 8px" onclick="event.stopPropagation();spDetail(\''+s.n+'\')">详情 ›</span></div>';
+}
+function spSearch(v){spKeyword=v.trim();spRender()}
+/* 勾选：学生/班级/年级联动 */
+function spCkStu(name){
+  var s=spData[spCur].find(function(x){return x.n===name});
+  if(s)s.ck=!s.ck;
+  spRender();
+}
+function spCkCls(gName,cName){
+  var list=spFilteredList();
+  var grades=spGrouped(list);
+  var stus=grades[gName][cName];
+  var allOn=stus.every(function(s){return s.ck});
+  stus.forEach(function(s){s.ck=!allOn});
+  spRender();
+}
+function spCkGrade(gName){
+  var list=spFilteredList();
+  var grades=spGrouped(list);
+  var allOn=spGradeAllOn(gName,grades);
+  Object.keys(grades[gName]).forEach(function(c){
+    grades[gName][c].forEach(function(s){s.ck=!allOn});
+  });
   spRender();
 }
 function spAll(el){
-  var list=spData[spCur];
+  var list=spFilteredList();
   var allOn=list.every(function(s){return s.ck});
   list.forEach(function(s){s.ck=!allOn});
   spRender();
 }
 function spUpdateCnt(){
   var k=spData[spCur].filter(function(s){return s.ck}).length;
-  var total=spData[spCur].length;
+  var total=spFilteredList().length;
   document.getElementById('sp-cnt').textContent='全选 · 已选 '+k+' 人';
   document.getElementById('sp-all').classList.toggle('on',k>0&&k===total);
   document.getElementById('sp-approve').disabled=k===0;
@@ -3489,20 +5002,146 @@ function spApprove(){
   var picked=spData.pend.filter(function(s){return s.ck});
   if(!picked.length)return;
   spData.pend=spData.pend.filter(function(s){return !s.ck});
+  picked.forEach(function(s){s.ck=false;s.time='刚刚';spData.pass.push(s)});
   toast('已通过 '+picked.length+' 人审核，学生信息已生效');
   spRender();
 }
-function spReject(){
+/* 拒绝理由弹框（非必填） */
+var spRejectCallback=null;
+function spRejectSheet(cb){
+  spRejectCallback=cb;
+  sheet('<h3>拒绝理由</h3>'+
+    '<div class="desc" style="margin-bottom:8px">填写拒绝理由（非必填，可直接确定）</div>'+
+    '<textarea id="sp-reason" placeholder="请输入拒绝理由（选填）" style="width:100%;min-height:80px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;font-family:inherit;resize:none;outline:none;margin-bottom:12px"></textarea>'+
+    '<div style="display:flex;gap:10px">'+
+    '<button class="btn ghost blk" style="padding:10px" onclick="closeSheet()">取消</button>'+
+    '<button class="btn pri blk" style="padding:10px" onclick="spRejectConfirm()">确定</button>'+
+    '</div>');
+}
+function spRejectConfirm(){
+  var reason=document.getElementById('sp-reason').value.trim();
+  closeSheet();
+  if(spRejectCallback){spRejectCallback(reason);spRejectCallback=null}
+}
+/* 批量拒绝 */
+function spRejectBatch(){
   var picked=spData.pend.filter(function(s){return s.ck});
   if(!picked.length)return;
-  spData.pend=spData.pend.filter(function(s){return !s.ck});
-  picked.forEach(function(s){s.ck=false;spData.reject.push(s)});
-  toast('已拒绝 '+picked.length+' 人，已移入「已拒绝」列表');
-  spRender();
+  spRejectSheet(function(reason){
+    spData.pend=spData.pend.filter(function(s){return !s.ck});
+    picked.forEach(function(s){
+      s.ck=false;
+      s.reason=reason||'未填写';
+      s.time='刚刚';
+      spData.reject.push(s);
+    });
+    toast('已拒绝 '+picked.length+' 人，已移入「已拒绝」列表');
+    spRender();
+  });
+}
+/* -------- 学生审核页（待审核可编辑+通过/拒绝；已拒绝/已通过只读无按钮） -------- */
+var spAuditName='';
+var spReadOnly=false;
+function spDetail(name){
+  spAuditName=name;
+  spReadOnly=spCur!=='pend'; /* 已拒绝/已通过为只读 */
+  var s=spData[spCur].find(function(x){return x.n===name});
+  if(!s)return;
+  /* 标题 */
+  document.querySelector('#sc-stuaudit .sub-hd b').textContent=spReadOnly?'学生详情':'学生审核';
+  /* 头像 */
+  var av=document.getElementById('audit-av');
+  av.textContent=s.av;
+  av.className='avatar'+(s.gen?' '+s.gen:'');
+  /* 修改头像按钮 */
+  var avBtn=document.getElementById('audit-av-btn');
+  avBtn.style.display=spReadOnly?'none':'block';
+  /* 学生姓名 */
+  var nameEl=document.getElementById('audit-name');
+  nameEl.value=s.n;
+  nameEl.readOnly=spReadOnly;
+  nameEl.style.background=spReadOnly?'#F0F2F6':'';
+  /* 性别 */
+  var genders=document.getElementById('audit-gender').querySelectorAll('.frm-radio');
+  genders.forEach(function(l){
+    l.classList.remove('on');
+    l.style.pointerEvents=spReadOnly?'none':'';
+    l.style.opacity=spReadOnly?'0.6':'';
+  });
+  if(s.gen==='girl'){genders[1].classList.add('on')}else{genders[0].classList.add('on')}
+  /* 出生日期 */
+  var birthEl=document.getElementById('audit-birth');
+  birthEl.textContent='2016-03-15';
+  birthEl.style.color='var(--ink)';
+  birthEl.style.pointerEvents=spReadOnly?'none':'';
+  /* 学生班级 */
+  var clsEl=document.getElementById('audit-cls-txt');
+  clsEl.textContent=s.grade+s.cls;
+  clsEl.style.color='var(--ink)';
+  clsEl.style.pointerEvents=spReadOnly?'none':'';
+  /* 现住址 */
+  var addrEl=document.getElementById('audit-addr');
+  addrEl.value=spReadOnly?'（未填写）':'';
+  addrEl.readOnly=spReadOnly;
+  addrEl.style.background=spReadOnly?'#F0F2F6':'';
+  /* 家长信息 */
+  var relTxt=spReadOnly?'妈妈':'妈妈 ›';
+  var parentName=spReadOnly?'（待填写）':'（待填写）';
+  var parentPh='138****6688';
+  var cHtml='<div class="frm-sec">家长信息</div><div class="card">'+
+    '<div class="frm-row"><span class="lb">称谓<span class="req">*</span></span><span class="val"'+(!spReadOnly?' onclick="toast(\'演示：选择称谓\')"':'')+' style="color:'+(spReadOnly?'var(--ink)':'var(--ink-3)')+'">'+relTxt+'</span></div>'+
+    '<div class="frm-row"><span class="lb">家长姓名<span class="req">*</span></span>'+(spReadOnly?'<span class="val">'+parentName+'</span>':'<input type="text" value="'+parentName+'">')+'</div>'+
+    '<div class="frm-row"><span class="lb">家长手机号<span class="req">*</span></span>'+(spReadOnly?'<span class="val">'+parentPh+'</span>':'<input type="text" value="'+parentPh+'" maxlength="11">')+'</div>'+
+    '</div>';
+  document.getElementById('audit-contacts').innerHTML=cHtml;
+  /* 添加家长按钮 */
+  document.getElementById('audit-add-btn').style.display=spReadOnly?'none':'block';
+  /* 底部按钮 */
+  document.getElementById('audit-foot').style.display=spReadOnly?'none':'flex';
+  go('sc-stuaudit');
+}
+function auditAddContact(){
+  var html='<div class="frm-sec">家长信息（新增）</div>'+
+    '<div class="card">'+
+    '<div class="frm-row"><span class="lb">称谓<span class="req">*</span></span><span class="val" onclick="toast(\'演示：爸爸/妈妈/爷爷/奶奶/其他\')">请选择 ›</span></div>'+
+    '<div class="frm-row"><span class="lb">家长姓名<span class="req">*</span></span><input type="text" placeholder="请输入"></div>'+
+    '<div class="frm-row"><span class="lb">家长手机号<span class="req">*</span></span><input type="text" placeholder="请输入" maxlength="11"></div>'+
+    '</div>';
+  document.getElementById('audit-contacts').insertAdjacentHTML('beforeend',html);
+}
+function auditApprove(){
+  var s=spData[spCur].find(function(x){return x.n===spAuditName});
+  if(s){
+    var idx=spData[spCur].indexOf(s);
+    spData[spCur].splice(idx,1);
+    s.ck=false;s.time='刚刚';
+    if(!spData.pass)spData.pass=[];
+    spData.pass.push(s);
+  }
+  toast('已通过：'+spAuditName+' 审核通过，学生信息已生效');
+  setTimeout(function(){go('sc-stuPend');spRender()},800);
+}
+function auditReject(){
+  spRejectSheet(function(reason){
+    var s=spData[spCur].find(function(x){return x.n===spAuditName});
+    if(s){
+      var idx=spData[spCur].indexOf(s);
+      spData[spCur].splice(idx,1);
+      s.ck=false;
+      s.reason=reason||'未填写';
+      s.time='刚刚';
+      spData.reject.push(s);
+    }
+    toast('已拒绝：'+spAuditName+'，已移入「已拒绝」列表');
+    setTimeout(function(){go('sc-stuPend');spRender()},800);
+  });
 }
 renderAttc();
 smRender('');
 spRender();
+tmRender();
+tpRender();
+taBadge();
 /* -------- 首页身份切换下拉：教师身份 + 家长侧孩子（选择孩子确认后跳转家长端） -------- */
 function idPanel(){
   if(document.getElementById('id-panel').classList.contains('show')){idClose();return}
@@ -3810,7 +5449,7 @@ function roleSheet(){sheet(`<h3>切换为家长身份</h3>
  <button class="btn pri blk" onclick="location.href='parent.html'">确认切换</button>
  <button class="btn ghost blk" style="margin-top:9px" onclick="closeSheet()">取消</button>`)}
 /* -------- 消息落点：有业务对象的深链业务详情；纯通知类用半屏 sheet 展示全文 + 行动按钮 -------- */
-function goLeaveDone(){go('sc-leave');lvTab(document.querySelector('#lv-tabs .fchip:nth-child(2)'),'done')}
+function goLeaveDone(){go('sc-leave');lvTab(document.querySelector('#lv-tabs .fchip:nth-child(3)'),'approved')}
 function msgLeaveSheet(){sheet(`<h3>请假单 · 审批结果</h3>
  <div class="desc">LV-20260704-021 · 林晓乐 · 病假<br>时段：7月7日 08:00–12:00 · 附医院证明<br>审批：王老师 今天 09:12 通过 · 结果已同步双家长<br>若当日实际到校，将自动核销为「实际到校」并通知家长。</div>
  <button class="btn pri blk" onclick="closeSheet();goLeaveDone()">查看已办结记录</button>
