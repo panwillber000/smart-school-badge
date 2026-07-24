@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>阳光智园 · 老师端小程序</title>
-<link rel="icon" type="image/png" href="assets/logo.png">
+<title>智小徽 · 教师端小程序</title>
+<link rel="icon" type="image/png" href="assets/logo-zxh.png">
 <style>
 :root{
   /* 「晴空校园」配色：清爽蓝主色 + 青碧状态绿/珊瑚红/阳光橙语义色 */
@@ -2278,7 +2278,8 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
     </div>
     <div style="background:#fff;border-radius:24px 24px 0 0;padding:24px 22px 42px;flex-shrink:0">
       <button class="btn blk" style="background:#07C160;color:#fff;padding:13px;font-size:15px;border-radius:12px;gap:8px" onclick="quickLogin()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/></svg>手机号快捷登录</button>
-      <div style="display:flex;align-items:flex-start;gap:8px;margin-top:16px"><input type="checkbox" id="login-agree" style="flex-shrink:0;margin-top:3px;width:16px;height:16px;accent-color:#07C160;cursor:pointer"><span style="font-size:12px;color:var(--ink-2);line-height:1.8">我已阅读并同意<b style="color:var(--navy);cursor:pointer" onclick="toast('演示：小程序用户服务协议')">《小程序用户服务协议》</b>和<b style="color:var(--navy);cursor:pointer" onclick="toast('演示：个人信息和隐私保护政策')">《个人信息和隐私保护政策》</b></span></div>
+      <div style="text-align:center;font-size:12px;color:var(--ink-3);margin-top:10px">首次登录将自动注册</div>
+      <div style="display:flex;align-items:flex-start;gap:8px;margin-top:16px"><input type="checkbox" id="login-agree" style="flex-shrink:0;margin-top:3px;width:16px;height:16px;accent-color:var(--navy);cursor:pointer"><span style="font-size:12px;color:var(--ink-2);line-height:1.8">我已阅读并同意<b style="color:var(--navy);cursor:pointer" onclick="toast('演示：小程序用户服务协议')">《小程序用户服务协议》</b>和<b style="color:var(--navy);cursor:pointer" onclick="toast('演示：个人信息和隐私保护政策')">《个人信息和隐私保护政策》</b></span></div>
     </div>
   </div>
 
@@ -2351,6 +2352,18 @@ body.no-shell .phone{border-radius:0;box-shadow:none}
       <button class="btn pri blk" style="padding:12px;margin-top:22px" onclick="go('sc-reg');toast('演示：扫描新注册码，进入注册表单')">扫描新注册码</button>
       <button class="btn ghost blk" style="margin-top:10px" onclick="go('sc-login')">返回登录页</button>
     </div></div>
+  </div>
+
+  <!-- ================= 子页：小程序投诉（从第三方授权说明弹框"投诉"跳转） ================= -->
+  <div class="screen" id="sc-complaint">
+    <div class="statusbar"><span>9:41</span><span class="right">●●● 〸 <b>▮▮▮</b></span></div>
+    <div class="body">
+      <div style="display:flex;align-items:center;height:44px;padding:0 16px;flex-shrink:0">
+        <button onclick="go('sc-login')" style="font-size:22px;padding:4px 0;color:var(--ink);background:none;border:none;cursor:pointer">&#10005;</button>
+      </div>
+      <div style="text-align:center;font-size:17px;font-weight:600;padding:4px 0 16px;color:var(--ink)">请选择投诉原因</div>
+      <div id="complaint-list"></div>
+    </div>
   </div>
 
   <!-- ================= 手机号验证码登录 ================= -->
@@ -2537,6 +2550,10 @@ function go(id){
   if(id==='sc-leave'){
     lvRender();
   }
+  /* 小程序投诉页进入时自动渲染 */
+  if(id==='sc-complaint'){
+    renderComplaint();
+  }
 }
 /* -------- 演示入口：说明与快捷跳转随当前屏切换 -------- */
 var curScreen='sc-home';
@@ -2567,6 +2584,7 @@ const demoInfo={
  'sc-leavedt':{t:'请假单详情',d:'通过 / 退回补充 / 不通过；待审批期间暂按请假处理（抑制缺勤告警）。（超时提醒与升级年级组长策略为后续阶段能力，本页相关提示已隐藏）',a:[['返回审批列表',"go('sc-leave')"]]},
  'sc-proxyleave':{t:'代录请假',d:'家长自发之外的第二发起通道：班主任代录本班学生默认「代录即通过」——免审即时生效、单据永久标记「教师代录·家长口头确认」、审批结果同步双家长作为监督异议通道、操作留痕可审计；免审单不进入教师待处理列表，避免自审自批与待办计数虚高。代录人与审批人不同（科任老师代录、或校级要求年级组长审批）时仍走正常审批流；保守学校可关闭免审（校级配置，默认值随首批试点校调研确定）。演示剧情：李沐宸今日无签无脸且家长未留言，家长来电说明发热就医，班主任代录病假——生效后待核项自动核销、考勤流水回溯改判为请假。学生/日期/照片三个选择器为原型模拟：学生弹层支持任教班级切换（班主任班 / 科任班）与姓名搜索，列表带今日考勤状态便于代录时核对；时间为「日期 + 时 + 分」三列滚轮：日期列带真实历法星期（今天显示「当天」），分钟列 30 分钟步进——最少可请 0.5 小时（粒度为校级配置、对齐主流办公产品的选择习惯，开始时间为当天前后各 30 天——补请假回溯上限，结束时间以开始日期为锚最长 90 天——更长缺勤引导走休学/病休备案，边界均为校级配置；选择器顶部左「清除」清空该时间、右「✕」关闭，中部回显始终带全年份作为确认关口，滚轮项与表单在当年内省略年份，跨年时段在表单与单据中显式标年——学期跨自然年，12 月请到次年 1 月的假属常见场景；起止选定后自动计算「时长（上学日）」——按校历扣除周末（真实历法），每上学日按在校时段 08:00–16:00 计 8 小时、起止超出在校时段的部分不计入、满 8 小时折算为天，对应学生请假「上学日不产生缺勤」的实际语义，演示未含法定节假日与寒暑假，时长亦是「事假 1 天内免证明」等规则的挂载点）；证明材料为图片网格（与家长端同构）：点「＋」添加照片（演示以证件照示例图轮换模拟）、缩略图右上角 ✕ 删除，最多 5 个、单个上限 10 MB，满 5 个后隐藏添加块。提交的单据按实际所选学生与时段落入「已办结」列表。注意：原型提交一律按班主任免审主线演示，科任身份代录实际走正常审批流（转该班班主任审批），此分支不做可操作演示。',a:[['提交并查看已办结联动','submitProxyLeave()'],['返回请假列表',"go('sc-leave')"]]},
  'sc-login':{t:'注册 / 登录',d:'手机号快捷登录（微信授权取号）：勾选隐私协议后弹手机号申请验证弹框，选择手机号即登录；未勾选则弹用户服务协议及隐私政策弹框，同意后继续。教师注册走「微信扫学校注册码」直达表单，登录页不设入口。',a:[['模拟手机号快捷登录','quickLogin()'],['模拟扫学校注册码 → 教师注册',"go('sc-reg')"],['校方后台添加教师 → 用户搜索小程序',"toast('演示：校方后台添加教师后，用户搜索小程序进入登录页')"],['无教师名册 → 校方后台添加孩子家长 → 用户搜索小程序',"location.href='https://olivebird.netlify.app/ssb/parent#sc-auth'"],['无教师名册 → 无孩子家长名册 → 用户搜索小程序',"location.href='https://olivebird.netlify.app/ssb/parent#sc-nochild'"],['模拟登录 · 未匹配教师身份',"go('sc-noauth')"],['模拟扫到失效注册码',"go('sc-expired')"]]},
+ 'sc-complaint':{t:'小程序投诉',d:'从第三方用户信息授权说明弹框中"投诉"入口跳转。微信官方投诉页面样式：无页面标题栏，内容标题"请选择投诉原因"居中，下方为投诉原因列表（13 项），每项右侧带箭头，点击后演示提交投诉。',a:[['返回登录页',"go('sc-login')"]]},
  'sc-reg':{t:'扫码注册',d:'微信群识别 / 扫描学校注册码（24 小时有效）直达本页，学校由码带出。表单字段：学校（只读）、教师姓名*、性别*、职务*（校长/年段长(级组长)/班主任/任课老师，sheet 选择）、称谓（默认"老师"）、任教班级*（年级+班级多选，sheet 内固定 300px 高度 + max-height:90% 兜底，确保不超出手机屏幕）。提交时拉起微信授权获取手机号：命中学校白名单免审核自动生效，未命中转管理端待确认列表。',a:[['模拟提交 · 命中白名单（免审核生效）','regDemo(false)'],['模拟提交 · 未命中白名单（转待确认）','regDemo(true)'],['选择职务','regDutySheet()'],['选择任教班级','regOpenCls()'],['返回登录页',"go('sc-login')"]]},
  'sc-tchmgr':{t:'教师管理',d:'首页宫格「教师管理」入口。功能栏：邀请教师（生成邀请码/二维码）、新增教师（跳转新增教师页）、待审核（角标2，跳转教师待审核页）。统计栏：部门数/教师数/未激活。搜索栏：姓名搜索+筛选下拉（全部/未激活）。教师列表按职务分组（校长/年段长(级组长)/班主任/任课老师），每个职务组显示教师人数，可折叠展开。教师条目含头像+姓名+职务，点击跳转教师详情页（只读）。未激活教师头像显示灰色"未激活"遮罩。',a:[['新增教师',"go('sc-addtch')"],['待审核',"go('sc-tchpend')"],['筛选未激活',"tmFilterPick('inactive','未激活')"],['搜索教师',"document.getElementById('tm-search').value='陈';tmSearch('陈')"],['查看教师详情（张明远）',"tdShow('张明远')"],['返回首页',"go('sc-home')"]]},
  'sc-tchdetail':{t:'教师详情',d:'教师管理页点击教师条目进入。只读页面，展示教师基本信息：学校、教师姓名、性别、职务、称谓、任教班级。不可编辑，无底部操作按钮。',a:[['返回教师管理',"go('sc-tchmgr')"]]},
@@ -3116,10 +3134,10 @@ function showPhoneAuthSheet(){
   <div style="font-size:16px;font-weight:600;margin-bottom:4px">申请获取并验证你的手机号</div>
   <div style="font-size:12.5px;color:var(--ink-3);margin-bottom:16px">智小徽登录服务</div>
   <div style="border:1px solid #ececf0;border-radius:12px;overflow:hidden;margin-bottom:14px">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 14px;border-bottom:1px solid #f2f2f5;cursor:pointer" onclick="phoneAuthLogin()"><span style="font-size:15px;font-weight:500">138****6688</span><span style="font-size:12px;color:#07C160;background:#e8f9f0;padding:2px 8px;border-radius:4px">上次提供</span></div>
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 14px;cursor:pointer" onclick="showAuthExplainSheet()"><span style="font-size:15px;font-weight:500">138****9900</span><span style="font-size:12px;color:var(--ink-3);background:#f5f5f8;padding:2px 8px;border-radius:4px">微信绑定号码</span></div>
+  <div style="padding:13px 14px;border-bottom:1px solid #f2f2f5;cursor:pointer;text-align:center" onclick="phoneAuthLogin()"><div style="font-size:15px;font-weight:500">138****6688</div><div style="font-size:12px;color:#07C160;margin-top:3px">上次提供</div></div>
+  <div style="padding:13px 14px;border-bottom:1px solid #f2f2f5;cursor:pointer;text-align:center" onclick="closeSheet();setTimeout(function(){toggleDemo()},200)"><div style="font-size:15px;font-weight:500">138****9900</div><div style="font-size:12px;color:var(--ink-3);margin-top:3px">微信绑定号码</div></div>
+  <div style="padding:13px 14px;text-align:center;font-size:15px;color:var(--ink);cursor:pointer" onclick="closeSheet()">不允许</div>
   </div>
-  <button class="btn ghost blk" style="padding:11px;border-radius:10px;margin-bottom:10px" onclick="closeSheet()">不允许</button>
   <div style="text-align:center;font-size:13px;color:var(--navy);cursor:pointer;padding:6px" onclick="toast('演示：使用其它号码登录')">使用其它号码</div>`);
 }
 function phoneAuthLogin(){
@@ -3129,21 +3147,22 @@ function phoneAuthLogin(){
 }
 /* 8.2 第三方用户信息授权说明弹框（参考图3，内容已修改） */
 function showAuthExplainSheet(){
-  sheet(`<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-  <span style="color:var(--ink-2);font-size:20px;cursor:pointer" onclick="showPhoneAuthSheet()">&#8249;</span>
+  sheet(`<div style="position:relative;text-align:center;margin-bottom:16px">
+  <span style="position:absolute;left:0;top:50%;transform:translateY(-50%);color:var(--ink-2);font-size:20px;cursor:pointer" onclick="showPhoneAuthSheet()">&#8249;</span>
   <div style="font-size:15px;font-weight:600">第三方用户信息授权说明</div></div>
-  <div style="font-size:13px;color:var(--ink-2);line-height:1.85;margin-bottom:20px">您授权后，小程序开发者将收集您的手机号，为您提供相关服务。开发者严格按照《个人信息和隐私保护政策》处理您的个人信息，如您发现开发者不当处理您的个人信息，可进行<span style="color:var(--navy);cursor:pointer" onclick="showComplaintSheet()">投诉</span>。</div>
-  <button class="btn ghost blk" style="padding:11px;border-radius:10px" onclick="showPhoneAuthSheet()">反馈</button>`);
+  <div style="font-size:13px;color:var(--ink-2);line-height:1.85;margin-bottom:20px">您授权后，小程序开发者将收集您的手机号，为您提供相关服务。开发者严格按照《个人信息和隐私保护政策》处理您的个人信息，如您发现开发者不当处理您的个人信息，可进行<span style="color:var(--navy);cursor:pointer" onclick="closeSheet();go('sc-complaint')">投诉</span>。</div>`);
 }
-/* 8.2 投诉页面（微信小程序官方投诉，参考图4） */
-function showComplaintSheet(){
-  var reasons=['欺诈','色情低俗','诱导','传播不实信息','违法犯罪','骚扰','侵权（诽谤、抄袭）','混淆他人投诉','恶意营销','与服务类目不符','隐私信息收集'];
-  var items='';
-  for(var i=0;i<reasons.length;i++){items+='<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #f2f2f5;cursor:pointer" onclick="closeSheet();toast(\'演示：已选择'+reasons[i]+'并提交投诉\')"><span style="font-size:15px">'+reasons[i]+'</span><span style="color:#ccc;font-size:14px">&#8250;</span></div>'}
-  sheet(`<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-  <span style="color:var(--ink-2);font-size:20px;cursor:pointer" onclick="showAuthExplainSheet()">&#10005;</span>
-  <div style="font-size:16px;font-weight:600">请选择投诉原因</div></div>
-  <div>${items}</div>`);
+/* -------- 小程序投诉页面：投诉原因列表（微信官方投诉页面样式） -------- */
+var complaintReasons=['欺诈','色情低俗','诱导','传播不实信息','违法犯罪','骚扰','侵权（诽谤、抄袭）','混淆他人投诉','恶意营销','与服务类目不符','隐私信息收集','广告体验','其他'];
+if(curScreen==='sc-complaint')renderComplaint();
+function renderComplaint(){
+  if(typeof complaintReasons==='undefined')return;
+  var h='';
+  for(var i=0;i<complaintReasons.length;i++){
+    h+='<div style="display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-bottom:1px solid #f2f2f5;cursor:pointer;background:#fff" onclick="toast(\'演示：已选择'+complaintReasons[i]+'并提交投诉\')"><span style="font-size:15px;color:var(--ink)">'+complaintReasons[i]+'</span><span style="color:#ccc;font-size:14px">&#8250;</span></div>';
+  }
+  var el=document.getElementById('complaint-list');
+  if(el)el.innerHTML=h;
 }
 function smsSend(btn){
   const ph=document.getElementById('sms-phone').value.trim();
@@ -3311,8 +3330,8 @@ function attCard(t,totalStudents,s,click){
     '<span class="rt">出勤率 '+s.rate+'</span><span class="arr">›</span></div>'+
     '<div class="statrow sm">'+
     '<div class="it"><b style="color:var(--teal)">'+s.in+'</b><span>出勤</span></div><div class="div"></div>'+
-    '<div class="it"><b style="color:var(--cinnabar)">'+s.abs+'</b><span>缺勤</span></div><div class="div"></div>'+
     '<div class="it"><b style="color:var(--navy)">'+s.leave+'</b><span>请假</span></div><div class="div"></div>'+
+    '<div class="it"><b style="color:var(--cinnabar)">'+s.abs+'</b><span>缺勤</span></div><div class="div"></div>'+
     '<div class="it"><b>'+s.late+'</b><span>迟到</span></div><div class="div"></div>'+
     '<div class="it"><b>'+s.early+'</b><span>早退</span></div>'+
     '</div></div>';
@@ -3322,7 +3341,7 @@ function attDrill(n){return "attcGo('"+n+"')"}
 function attcGo(n){attcClsName=n;go('sc-attclass');renderAttc()}
 function renderAtt(){
   const absCol='var(--cinnabar)';
-  const unit=(attSt.period==='month'||attSt.period==='week')?'人次':'人';
+  const unit='人';
   const allCls=attSchool.flatMap(x=>x.cls);
   const mineCls=attMine.map(x=>allCls.find(c=>c.n===x[0]));
   const top=attSum(mineCls);
@@ -3335,8 +3354,8 @@ function renderAtt(){
   let h='<div class="card"><div class="att-sec">班级合计</div>'+
     '<div style="display:flex;align-items:center;gap:16px">'+
     '<div style="flex:1">'+
-    '<div class="alg" style="padding-bottom:5px">'+(attSt.period==='day'?'总人数':'应出勤')+'<b style="font-size:17px;color:var(--teal)">'+top.base+' '+unit+'</b></div>'+
-    attAlg('出勤','var(--teal)',top.in,unit)+attAlg('缺勤',absCol,top.abs,unit)+attAlg('请假','var(--navy)',top.leave,unit)+
+    '<div class="alg" style="padding-bottom:5px">总人数<b style="font-size:17px;color:var(--teal)">'+top.base+' '+unit+'</b></div>'+
+    attAlg('出勤','var(--teal)',top.in,unit)+attAlg('请假','var(--navy)',top.leave,unit)+attAlg('缺勤',absCol,top.abs,unit)+
     attAlg('迟到',null,top.late,unit)+attAlg('早退',null,top.early,unit)+
     '</div>'+
     '<div class="donut" style="background:conic-gradient(var(--teal) 0 '+p1+'%,var(--navy) '+p1+'% '+p2+'%,'+absCol+' '+p2+'% 100%)"><b>'+top.rate+'</b><span>出勤率</span></div>'+
